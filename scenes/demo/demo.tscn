@@ -73,6 +73,7 @@ damping = 16.0
 script = ExtResource("4_vs4yr")
 
 [node name="RopeAnchor" type="Marker2D" parent="World/Balloon" unique_id=1783437625]
+visible = false
 position = Vector2(0, 32)
 
 [node name="Particles" type="CPUParticles2D" parent="World/Balloon" unique_id=899955556]
