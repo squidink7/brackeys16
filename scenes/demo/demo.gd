@@ -10,6 +10,7 @@ func _input(event: InputEvent) -> void:
 
 func start():
 	%StartLabel.hide()
+	%Timer.start()
 	%Balloon.global_position = %MouseFollow.global_position
 	%Balloon.show()
 	%Balloon.freeze = false

@@ -141,7 +141,6 @@ theme_override_font_sizes/font_size = 35
 text = "- Click to start -"
 
 [node name="Timer" type="Label" parent="." unique_id=1283358792]
-unique_name_in_owner = true
 offset_right = 189.0
 offset_bottom = 45.0
 theme_override_font_sizes/font_size = 24
