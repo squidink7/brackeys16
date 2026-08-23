@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://de5vbait5u81e"]
+
+[ext_resource type="Script" uid="uid://bmv8qrc0u1qlc" path="res://scenes/entities/brains/enemy/enemy_brain.gd" id="1_ywe5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
+radius = 210.44714
+
+[node name="EnemyBrain" type="Node2D" unique_id=865101945]
+script = ExtResource("1_ywe5b")
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1573528351]
+
+[node name="DetectionArea" type="CollisionShape2D" parent="PlayerDetector" unique_id=422342215]
+shape = SubResource("CircleShape2D_wt5ax")
