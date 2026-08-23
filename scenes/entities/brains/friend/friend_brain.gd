@@ -52,3 +52,10 @@ func move(_entity: Entity, delta: float) -> Vector2:
 
 	# If seen, use pathfinding to dash/swim to the end of the level and disappear when out of view.
 	return Vector2.ZERO
+
+
+func on_screen_exit() -> void:
+	if seen:
+		var e = get_entity()
+		if e:
+			e.queue_free()

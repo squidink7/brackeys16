@@ -4,3 +4,8 @@
 
 [node name="PlayerBrain" type="Node2D" unique_id=805582152]
 script = ExtResource("1_hk3yk")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=5080585]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
