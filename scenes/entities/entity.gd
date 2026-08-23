@@ -16,4 +16,4 @@ func get_brain() -> Brain:
 func _physics_process(delta: float) -> void:
 	if get_brain() == null: return
 	
-	apply_central_force(get_brain().move(self) * speed)
+	apply_central_force(get_brain().move(self, delta) * speed)

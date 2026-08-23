@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c80cu3ienh8n4"]
+
+[ext_resource type="PackedScene" uid="uid://31xuy5csay30" path="res://scenes/entities/entity.tscn" id="1_cjueq"]
+[ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="2_nfx32"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
+radius = 312.92172
+
+[node name="FriendAnchor" type="Marker2D" unique_id=2133297876]
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1149758592]
+
+[node name="Area" type="CollisionShape2D" parent="PlayerDetector" unique_id=448559469]
+shape = SubResource("CircleShape2D_wt5ax")
+
+[node name="Entity" parent="." unique_id=1484594402 instance=ExtResource("1_cjueq")]
+
+[node name="FriendBrain" parent="Entity" unique_id=46602389 node_paths=PackedStringArray("anchor") instance=ExtResource("2_nfx32")]
+anchor = NodePath("../..")
+
+[node name="Label" type="Label" parent="Entity" unique_id=155689124]
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 23.0
+offset_bottom = 7.0
+text = "friend"

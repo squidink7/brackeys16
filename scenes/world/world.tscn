@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://31xuy5csay30" path="res://scenes/entities/entity.tscn" id="3_6m72w"]
 [ext_resource type="PackedScene" uid="uid://dmdnb37smsm3a" path="res://scenes/entities/brains/player/player_brain.tscn" id="4_v5dby"]
 [ext_resource type="PackedScene" uid="uid://de5vbait5u81e" path="res://scenes/entities/brains/enemy/enemy_brain.tscn" id="5_v5dby"]
+[ext_resource type="PackedScene" uid="uid://c80cu3ienh8n4" path="res://scenes/entities/friend_anchor/friend_anchor.tscn" id="6_t5ptc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sl2e5"]
 resource_name = "World"
@@ -271,27 +272,32 @@ script = ExtResource("1_sl2e5")
 scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_qqr7a")
 
-[node name="Entity" parent="." unique_id=1484594402 instance=ExtResource("3_6m72w")]
+[node name="Player" parent="." unique_id=1484594402 instance=ExtResource("3_6m72w")]
 position = Vector2(392, 168)
 speed = 600.0
 
-[node name="PlayerBrain" parent="Entity" unique_id=805582152 instance=ExtResource("4_v5dby")]
+[node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
 
-[node name="Label" type="Label" parent="Entity" unique_id=890306787]
+[node name="Label" type="Label" parent="Player" unique_id=890306787]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 24.0
 offset_bottom = 7.0
 text = "plr"
 
-[node name="Entity2" parent="." unique_id=1291244537 instance=ExtResource("3_6m72w")]
-position = Vector2(808, 272)
+[node name="Enemy" parent="." unique_id=1291244537 instance=ExtResource("3_6m72w")]
+position = Vector2(1096, 488)
+linear_damp = 1.0
+speed = 200.0
 
-[node name="Label" type="Label" parent="Entity2" unique_id=1063756377]
+[node name="Label" type="Label" parent="Enemy" unique_id=1063756377]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 24.0
 offset_bottom = 7.0
 text = "enemy"
 
-[node name="EnemyBrain" parent="Entity2" unique_id=865101945 instance=ExtResource("5_v5dby")]
+[node name="EnemyBrain" parent="Enemy" unique_id=865101945 instance=ExtResource("5_v5dby")]
+
+[node name="FriendAnchor" parent="." unique_id=2133297876 instance=ExtResource("6_t5ptc")]
+position = Vector2(776, 136)

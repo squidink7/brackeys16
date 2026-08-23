@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bh7enlnk6k84h"]
+
+[ext_resource type="Script" uid="uid://dafdf1mv72q0w" path="res://scenes/entities/brains/friend/friend_brain.gd" id="1_as6ul"]
+
+[node name="FriendBrain" type="Node2D" unique_id=46602389]
+script = ExtResource("1_as6ul")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=882885145]
+rect = Rect2(-50, -50, 100, 100)

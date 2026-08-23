@@ -1,6 +1,6 @@
 extends Brain
 
-func move(_entity: Entity) -> Vector2:
+func move(_entity: Entity, delta: float) -> Vector2:
 	var minplayerdist = INT32_MAX
 	var targetPlayer = null
 
