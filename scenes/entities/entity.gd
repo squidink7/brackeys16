@@ -17,3 +17,15 @@ func _physics_process(delta: float) -> void:
 	if get_brain() == null: return
 	
 	apply_central_force(get_brain().move(self, delta) * speed)
+
+func reset(new_position: Vector2) -> void:
+	# 1. Clear velocities immediately
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0
+	
+	# 2. Freeze the body so the physics server stops controlling it
+	set_deferred("freeze", true)
+	# 3. Safely update the position
+	set_deferred("global_position", new_position)
+	# 4. Unfreeze the body to hand control back to the engine
+	set_deferred("freeze", false)
