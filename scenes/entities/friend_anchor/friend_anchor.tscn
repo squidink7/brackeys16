@@ -24,3 +24,5 @@ offset_top = -16.0
 offset_right = 23.0
 offset_bottom = 7.0
 text = "friend"
+
+[connection signal="body_entered" from="PlayerDetector" to="Entity/FriendBrain" method="on_seen"]

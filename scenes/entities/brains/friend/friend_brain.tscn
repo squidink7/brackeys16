@@ -8,4 +8,8 @@ script = ExtResource("1_as6ul")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=882885145]
 rect = Rect2(-50, -50, 100, 100)
 
+[node name="Navigation" type="NavigationAgent2D" parent="." unique_id=963113531]
+path_desired_distance = 60.0
+path_max_distance = 80.0
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="on_screen_exit"]
