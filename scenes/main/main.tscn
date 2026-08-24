@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmx0b2qqhra2p"]
 
-[ext_resource type="Script" uid="uid://bkhes18dgj25q" path="res://scenes/game/game.gd" id="1_7h61r"]
+[ext_resource type="Script" uid="uid://bkhes18dgj25q" path="res://scenes/main/main.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://doew7nnvltgbb" path="res://scenes/menu/main_menu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://dno2d8nt578fd" path="res://scenes/save_data/save_data.tscn" id="3_0sr1o"]
 

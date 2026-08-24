@@ -449,18 +449,6 @@ size = Vector2(20, 384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
 size = Vector2(20, 240)
 
-[sub_resource type="Gradient" id="Gradient_6uco5"]
-offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
-colors = PackedColorArray(1, 1, 0.99215686, 1, 0.8690938, 0.8690938, 0.8690938, 1, 0.28313255, 0.28313255, 0.28313255, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_31cc3"]
-gradient = SubResource("Gradient_6uco5")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-metadata/_snap_enabled = true
-metadata/_snap_count = 8
-
 [node name="World" type="Node2D" unique_id=1757495392]
 script = ExtResource("1_sl2e5")
 
@@ -586,14 +574,6 @@ text = "plr"
 visible = false
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_dlabj")
-
-[node name="PointLight2D" type="PointLight2D" parent="Eel" unique_id=375644460]
-color = Color(1, 0.8862745, 0.56078434, 1)
-energy = 1.5
-shadow_enabled = true
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_31cc3")
-texture_scale = 5.0
 
 [connection signal="reached" from="Checkpoints/Checkpoint" to="." method="checkpoint_reached"]
 [connection signal="reached" from="Checkpoints/Checkpoint2" to="." method="checkpoint_reached"]

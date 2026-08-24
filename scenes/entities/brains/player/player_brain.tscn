@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://42khcpau4yh3" path="res://scenes/entities/brains/player/player_brain.gd" id="1_hk3yk"]
 
+[sub_resource type="Gradient" id="Gradient_6uco5"]
+offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
+colors = PackedColorArray(1, 1, 0.99215686, 1, 0.8690938, 0.8690938, 0.8690938, 1, 0.28313255, 0.28313255, 0.28313255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2m7xf"]
+gradient = SubResource("Gradient_6uco5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
 [node name="PlayerBrain" type="Node2D" unique_id=805582152]
 script = ExtResource("1_hk3yk")
 
@@ -9,3 +21,11 @@ script = ExtResource("1_hk3yk")
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=994008787]
+color = Color(1, 0.8862745, 0.56078434, 1)
+energy = 1.5
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_2m7xf")
+texture_scale = 5.0
