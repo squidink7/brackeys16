@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://1rpduvoyuqpc" path="res://assets/textures/Mossy Tileset/Mossy - Decorations&Hazards.png" id="8_m114p"]
 [ext_resource type="Texture2D" uid="uid://dwysi53n8whsb" path="res://assets/textures/Mossy Tileset/Mossy - BackgroundDecoration.png" id="9_71ii3"]
 [ext_resource type="Shader" uid="uid://c220c25dpiqqc" path="res://shaders/far_bg_blur.gdshader" id="10_bt7bg"]
+[ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/checkpoint/checkpoint.tscn" id="14_umvgx"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
 offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
@@ -352,6 +353,12 @@ sources/0 = SubResource("TileSetAtlasSource_lk0xr")
 shader = ExtResource("10_bt7bg")
 shader_parameter/blur_amount = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt5ax"]
+size = Vector2(20, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
+size = Vector2(20, 240)
+
 [node name="World" type="Node2D" unique_id=1757495392]
 script = ExtResource("1_sl2e5")
 
@@ -468,3 +475,21 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FriendAnchor" parent="." unique_id=2133297876 instance=ExtResource("6_t5ptc")]
 position = Vector2(776, 136)
+
+[node name="Checkpoints" type="Node2D" parent="." unique_id=1007640440]
+
+[node name="Checkpoint" parent="Checkpoints" unique_id=1173495694 instance=ExtResource("14_umvgx")]
+position = Vector2(224, 232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint" unique_id=634648918]
+shape = SubResource("RectangleShape2D_wt5ax")
+
+[node name="Checkpoint2" parent="Checkpoints" unique_id=260715099 instance=ExtResource("14_umvgx")]
+position = Vector2(912, 96)
+level = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2" unique_id=529331633]
+shape = SubResource("RectangleShape2D_mqj7i")
+
+[connection signal="reached" from="Checkpoints/Checkpoint" to="." method="checkpoint_reached"]
+[connection signal="reached" from="Checkpoints/Checkpoint2" to="." method="checkpoint_reached"]

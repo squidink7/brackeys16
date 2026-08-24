@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bkhes18dgj25q" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://doew7nnvltgbb" path="res://scenes/menu/main_menu.tscn" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://dno2d8nt578fd" path="res://scenes/save_data/save_data.tscn" id="3_0sr1o"]
 
 [node name="Game" type="Node" unique_id=1580294639]
 script = ExtResource("1_7h61r")
 
 [node name="MainMenu" parent="." unique_id=849427100 instance=ExtResource("1_sul5r")]
+
+[node name="SaveData" parent="." unique_id=1056436628 instance=ExtResource("3_0sr1o")]
+unique_name_in_owner = true
 
 [connection signal="start_level" from="MainMenu" to="." method="start_level"]
