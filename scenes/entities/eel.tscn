@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bhv8smylr5su5"]
+
+[ext_resource type="Script" uid="uid://dgqornu4ttjy4" path="res://scenes/entities/entity.gd" id="1_pr7yu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pr7yu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_717xc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpxcm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibhg1"]
+radius = 8.0
+
+[node name="Eel" type="RigidBody2D" unique_id=1292844991]
+mass = 5.0
+linear_damp = 3.0
+script = ExtResource("1_pr7yu")
+speed = 5000.0
+
+[node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
+shape = SubResource("CircleShape2D_wt5ax")
+
+[node name="Neck" type="PinJoint2D" parent="." unique_id=800580869]
+node_a = NodePath("..")
+node_b = NodePath("../Segment1")
+bias = 0.9
+softness = 16.0
+
+[node name="Segment1" type="RigidBody2D" parent="." unique_id=1221516962]
+position = Vector2(-24, 0)
+collision_layer = 0
+collision_mask = 0
+mass = 0.2
+linear_damp = 1.0
+angular_damp = 5.0
+
+[node name="Body1" type="CollisionShape2D" parent="Segment1" unique_id=371936276]
+shape = SubResource("CircleShape2D_pr7yu")
+
+[node name="Joint1" type="PinJoint2D" parent="Segment1" unique_id=590098367]
+node_a = NodePath("..")
+node_b = NodePath("../../Segment2")
+bias = 0.9
+softness = 16.0
+
+[node name="Segment2" type="RigidBody2D" parent="." unique_id=1501729752]
+position = Vector2(-40, 0)
+collision_layer = 0
+collision_mask = 0
+mass = 0.2
+linear_damp = 3.0
+angular_damp = 5.0
+
+[node name="Body2" type="CollisionShape2D" parent="Segment2" unique_id=1998448114]
+shape = SubResource("CircleShape2D_717xc")
+
+[node name="Joint2" type="PinJoint2D" parent="Segment2" unique_id=259133889]
+node_a = NodePath("..")
+node_b = NodePath("../../Segment3")
+bias = 0.9
+softness = 16.0
+
+[node name="Segment3" type="RigidBody2D" parent="." unique_id=1118553458]
+position = Vector2(-56, 0)
+collision_layer = 0
+collision_mask = 0
+mass = 0.2
+linear_damp = 3.0
+angular_damp = 5.0
+
+[node name="Body3" type="CollisionShape2D" parent="Segment3" unique_id=1693528533]
+shape = SubResource("CircleShape2D_mpxcm")
+
+[node name="Joint3" type="PinJoint2D" parent="Segment3" unique_id=1282276206]
+node_a = NodePath("..")
+node_b = NodePath("../../Segment4")
+bias = 0.9
+softness = 16.0
+
+[node name="Segment4" type="RigidBody2D" parent="." unique_id=4537708]
+position = Vector2(-72, 0)
+collision_layer = 0
+collision_mask = 0
+mass = 0.2
+linear_damp = 3.0
+angular_damp = 5.0
+
+[node name="Body4" type="CollisionShape2D" parent="Segment4" unique_id=820629842]
+shape = SubResource("CircleShape2D_ibhg1")

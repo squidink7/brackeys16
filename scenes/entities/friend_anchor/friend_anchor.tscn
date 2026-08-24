@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="2_nfx32"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
-radius = 312.92172
+radius = 192.1666
 
 [node name="FriendAnchor" type="Marker2D" unique_id=2133297876]
 

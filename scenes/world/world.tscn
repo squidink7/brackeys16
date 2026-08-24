@@ -13,17 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://1rpduvoyuqpc" path="res://assets/textures/Mossy Tileset/Mossy - Decorations&Hazards.png" id="8_m114p"]
 [ext_resource type="Texture2D" uid="uid://dwysi53n8whsb" path="res://assets/textures/Mossy Tileset/Mossy - BackgroundDecoration.png" id="9_71ii3"]
 [ext_resource type="Shader" uid="uid://c220c25dpiqqc" path="res://shaders/far_bg_blur.gdshader" id="10_bt7bg"]
+[ext_resource type="PackedScene" uid="uid://bhv8smylr5su5" path="res://scenes/entities/eel.tscn" id="13_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/checkpoint/checkpoint.tscn" id="14_umvgx"]
-
-[sub_resource type="Gradient" id="Gradient_6uco5"]
-offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
-colors = PackedColorArray(1, 1, 0.99215686, 1, 0.8690938, 0.8690938, 0.8690938, 1, 0.28313255, 0.28313255, 0.28313255, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_31cc3"]
-gradient = SubResource("Gradient_6uco5")
-fill = 1
-fill_from = Vector2(0.5, 0.526087)
-fill_to = Vector2(0.79565215, 0.073913045)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6uco5"]
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
@@ -43,8 +34,11 @@ polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mod4k"]
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_71ii3"]
+diffuse_texture = ExtResource("1_dphjl")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7iu08"]
-texture = ExtResource("1_dphjl")
+texture = SubResource("CanvasTexture_71ii3")
 texture_region_size = Vector2i(512, 512)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -443,38 +437,24 @@ size = Vector2(20, 384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
 size = Vector2(20, 240)
 
+[sub_resource type="Gradient" id="Gradient_6uco5"]
+offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
+colors = PackedColorArray(1, 1, 0.99215686, 1, 0.8690938, 0.8690938, 0.8690938, 1, 0.28313255, 0.28313255, 0.28313255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_31cc3"]
+gradient = SubResource("Gradient_6uco5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
 [node name="World" type="Node2D" unique_id=1757495392]
 script = ExtResource("1_sl2e5")
 
 [node name="Player" parent="." unique_id=1484594402 instance=ExtResource("3_6m72w")]
-position = Vector2(516, 258)
+position = Vector2(392, 312)
 speed = 600.0
-
-[node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
-
-[node name="Label" type="Label" parent="Player" unique_id=1737408695]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 7.0
-text = "plr"
-
-[node name="Icon" type="Sprite2D" parent="Player" unique_id=1700467676]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_dlabj")
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=375644460]
-color = Color(1, 0.8862745, 0.56078434, 1)
-energy = 1.5
-shadow_enabled = true
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_31cc3")
-texture_scale = 5.0
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Player" unique_id=1280922789]
-position = Vector2(-516, -258)
-color = Color(1, 1, 0.56078434, 1)
-blend_mode = 1
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1250960649]
 z_index = -10
@@ -574,6 +554,31 @@ level = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2" unique_id=529331633]
 shape = SubResource("RectangleShape2D_mqj7i")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=764757781]
+color = Color(0.11803245, 0.14740784, 0.33509827, 1)
+
+[node name="Eel" parent="." unique_id=1292844991 instance=ExtResource("13_mxkvs")]
+
+[node name="PlayerBrain" parent="Eel" unique_id=805582152 instance=ExtResource("4_v5dby")]
+
+[node name="Label" type="Label" parent="Eel" unique_id=1737408695]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "plr"
+
+[node name="Icon" type="Sprite2D" parent="Eel" unique_id=1700467676]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_dlabj")
+
+[node name="PointLight2D" type="PointLight2D" parent="Eel" unique_id=375644460]
+color = Color(1, 0.8862745, 0.56078434, 1)
+energy = 1.5
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_31cc3")
+texture_scale = 5.0
 
 [connection signal="reached" from="Checkpoints/Checkpoint" to="." method="checkpoint_reached"]
 [connection signal="reached" from="Checkpoints/Checkpoint2" to="." method="checkpoint_reached"]
