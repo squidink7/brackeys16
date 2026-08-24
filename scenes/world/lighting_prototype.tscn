@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwysi53n8whsb" path="res://assets/textures/Mossy Tileset/Mossy - BackgroundDecoration.png" id="7_6uco5"]
 [ext_resource type="Texture2D" uid="uid://bh6ufyyt56df6" path="res://assets/background.jpg" id="9_h6xu3"]
 [ext_resource type="Texture2D" uid="uid://cu2r0o2a1r1sb" path="res://assets/textures/tmp_background.png" id="10_bqy1y"]
+[ext_resource type="Shader" uid="uid://c220c25dpiqqc" path="res://shaders/far_bg_blur.gdshader" id="10_lcvsl"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
 offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
@@ -344,6 +345,10 @@ texture_region_size = Vector2i(512, 512)
 tile_size = Vector2i(512, 512)
 sources/0 = SubResource("TileSetAtlasSource_lk0xr")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6xu3"]
+shader = ExtResource("10_lcvsl")
+shader_parameter/blur_amount = 1.0
+
 [node name="LightingPrototype" type="Node2D" unique_id=1757495392]
 
 [node name="Player" parent="." unique_id=1484594402 instance=ExtResource("2_tyrmk")]
@@ -418,3 +423,23 @@ texture = ExtResource("10_bqy1y")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1280922789]
 color = Color(1, 1, 0.56078434, 1)
 blend_mode = 1
+
+[node name="BlurLayers" type="Node" parent="." unique_id=44217484]
+
+[node name="BlurLayer1" type="ColorRect" parent="BlurLayers" unique_id=298743823]
+z_index = -5
+material = SubResource("ShaderMaterial_h6xu3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlurLayer2" type="ColorRect" parent="BlurLayers" unique_id=845557470]
+z_index = -2
+material = SubResource("ShaderMaterial_h6xu3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -7,5 +7,5 @@ void fragment()
 {
 	vec4 screen = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
     COLOR = screen;
-	COLOR  = vec4(COLOR.r, COLOR.g, COLOR.b, 0);
+	COLOR  = vec4(COLOR.r, COLOR.g, COLOR.b, 1);
 }

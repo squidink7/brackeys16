@@ -273,7 +273,7 @@ scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_qqr7a")
 
 [node name="Player" parent="." unique_id=1484594402 instance=ExtResource("3_6m72w")]
-position = Vector2(392, 168)
+position = Vector2(336, 200)
 speed = 600.0
 
 [node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
