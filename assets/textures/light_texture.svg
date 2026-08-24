@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="300"
+   viewBox="0 0 79.374996 79.374996"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   sodipodi:docname="light_texture.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="185.96908"
+     inkscape:cy="104.29825"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="1280"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch2">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.707107"
+       d="M 138.92366,297.00911 C 96.34889,293.52458 58.168758,272.60982 32.385764,238.64853 -11.001042,181.49955 -6.4485301,100.64362 43.063939,48.996358 59.332821,32.026025 75.887348,20.821863 97.175434,12.37351 128.66655,-0.12399782 168.4995,-0.35719442 201.07589,11.765239 c 52.85794,19.669668 89.69879,67.468648 95.62512,124.068311 1.01117,9.65721 0.46815,27.90123 -1.11339,37.40761 -10.65197,64.02686 -61.08331,113.55892 -124.82134,122.59554 -9.61735,1.36352 -23.33603,1.86863 -31.84262,1.17241 z"
+       id="path1"
+       transform="scale(0.26458333)" />
+  </g>
+</svg>
