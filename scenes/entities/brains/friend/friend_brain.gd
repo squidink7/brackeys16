@@ -16,7 +16,6 @@ var _time: float = 0.0
 func move(_entity: Entity, delta: float) -> Vector2:
 	if seen:
 		# If seen, use pathfinding to dash/swim to the end of the level and disappear when out of view.
-		print(global_position)
 		return global_position.direction_to($Navigation.get_next_path_position()).normalized()
 
 	if !anchor:
