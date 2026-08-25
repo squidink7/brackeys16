@@ -15,12 +15,6 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibhg1"]
 radius = 8.0
 
-[sub_resource type="Environment" id="Environment_avebp"]
-background_mode = 3
-glow_enabled = true
-glow_intensity = 4.3
-glow_bloom = 0.16
-
 [node name="Eel" type="RigidBody2D" unique_id=1292844991]
 mass = 5.0
 linear_damp = 3.0
@@ -34,7 +28,6 @@ shape = SubResource("CircleShape2D_wt5ax")
 node_a = NodePath("..")
 node_b = NodePath("../Segment1")
 bias = 0.9
-softness = 16.0
 
 [node name="Segment1" type="RigidBody2D" parent="." unique_id=1221516962]
 position = Vector2(-24, 0)
@@ -51,7 +44,6 @@ shape = SubResource("CircleShape2D_pr7yu")
 node_a = NodePath("..")
 node_b = NodePath("../../Segment2")
 bias = 0.9
-softness = 16.0
 
 [node name="Segment2" type="RigidBody2D" parent="." unique_id=1501729752]
 position = Vector2(-40, 0)
@@ -68,7 +60,6 @@ shape = SubResource("CircleShape2D_717xc")
 node_a = NodePath("..")
 node_b = NodePath("../../Segment3")
 bias = 0.9
-softness = 16.0
 
 [node name="Segment3" type="RigidBody2D" parent="." unique_id=1118553458]
 position = Vector2(-56, 0)
@@ -85,7 +76,6 @@ shape = SubResource("CircleShape2D_mpxcm")
 node_a = NodePath("..")
 node_b = NodePath("../../Segment4")
 bias = 0.9
-softness = 16.0
 
 [node name="Segment4" type="RigidBody2D" parent="." unique_id=4537708]
 position = Vector2(-72, 0)
@@ -102,6 +92,3 @@ shape = SubResource("CircleShape2D_ibhg1")
 modulate = Color(2.1535146, 2.1535146, 2.1535146, 1)
 scale = Vector2(0.128125, 0.1234375)
 texture = ExtResource("2_717xc")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Sprite2D" unique_id=1817212995]
-environment = SubResource("Environment_avebp")

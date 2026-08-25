@@ -3,6 +3,7 @@ class_name SaveData
 
 const save_path = 'user://data.json'
 
+var current_level = 0
 var unlocked_levels = 0
 var level_records = {}
 
@@ -16,8 +17,12 @@ func set_level_record(level: int, record: LevelRecord):
 	level_records[level].total_attempts += record.total_attempts
 	level_records[level].deaths += record.deaths
 
-func unlock_level(level: int):
+func set_current_level(level: int):
+	if level > current_level:
+		current_level = level
+	
 	if level > unlocked_levels:
+		print('New level unlocked: ' + str(level))
 		unlocked_levels = level
 
 func to_dict() -> Dictionary:

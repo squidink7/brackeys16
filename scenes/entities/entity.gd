@@ -6,17 +6,21 @@ extends RigidBody2D
 var brain: Brain = null
 
 func get_brain() -> Brain:
-	if brain != null:
+	if brain:
 		return brain
 	for child in get_children():
 		if child is Brain:
-			return child
-	return null
+			brain = child
+	return brain
 
 func _physics_process(delta: float) -> void:
 	if get_brain() == null: return
 	
 	apply_central_force(get_brain().move(self, delta) * speed)
+
+func kill() -> void:
+	if get_brain():
+		get_brain().died(self)
 
 func reset(new_position: Vector2) -> void:
 	# 1. Clear velocities immediately

@@ -1,17 +1,33 @@
 extends Brain
 
-func move(_entity: Entity, delta: float) -> Vector2:
-	var minplayerdist = INT32_MAX
-	var targetPlayer = null
+var target_entities = []
+var last_seen_entity = null
 
-	for p in $PlayerDetector.get_overlapping_bodies():
-		if p is Entity && p.get_brain() is PlayerBrain:
+func move(_entity: Entity, _delta: float) -> Vector2:
+	if len(target_entities) == 0 && !last_seen_entity:
+		# Idle
+		return Vector2.ZERO
+	else:
+		# Seeking entity
+		var minplayerdist = INT32_MAX
+		var target_pos = last_seen_entity
+
+		for p in target_entities:
 			var dist = p.global_position - global_position
 			if dist.length_squared() < minplayerdist:
-				targetPlayer = p
+				target_pos = p.global_position
 				minplayerdist = dist
-	
-	if targetPlayer:
-		return global_position.direction_to(targetPlayer.global_position)
+		
+		$Navigation.target_position = target_pos
+		
+		return global_position.direction_to($Navigation.get_next_path_position()).normalized()
 
-	return Vector2.ZERO
+func seen_entity(body: Node2D) -> void:
+	if body is Entity && body.get_brain() is PlayerBrain:
+		target_entities.append(body)
+
+func lost_entity(body: Node2D) -> void:
+	if body is Entity && body.get_brain() is PlayerBrain:
+		target_entities.erase(body)
+		if len(target_entities) == 0:
+			last_seen_entity = body.global_position

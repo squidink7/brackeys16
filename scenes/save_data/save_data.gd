@@ -20,10 +20,9 @@ func set_level_record(level: int, record: LevelRecord) -> void:
 	data.set_level_records(level, record)
 	write_save_data()
 
-func unlocked_level(level: int) -> void:
-	print('New level unlocked: ' + str(level))
-	var save_data = get_save_data()
-	save_data.unlock_level(level)
+func set_level(level: int) -> void:
+	var data = get_save_data()
+	data.set_current_level(level)
 	write_save_data()
 
 func delete_data():

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bmv8qrc0u1qlc" path="res://scenes/entities/brains/enemy/enemy_brain.gd" id="1_ywe5b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
-radius = 210.44714
+radius = 384.3332
 
 [node name="EnemyBrain" type="Node2D" unique_id=865101945]
 script = ExtResource("1_ywe5b")
@@ -12,3 +12,10 @@ script = ExtResource("1_ywe5b")
 
 [node name="DetectionArea" type="CollisionShape2D" parent="PlayerDetector" unique_id=422342215]
 shape = SubResource("CircleShape2D_wt5ax")
+
+[node name="Navigation" type="NavigationAgent2D" parent="." unique_id=1094522354]
+path_desired_distance = 60.0
+path_max_distance = 80.0
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="seen_entity"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="lost_entity"]

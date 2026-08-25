@@ -2,6 +2,9 @@ extends Node2D
 
 var current_level: int = 0
 
+func _ready() -> void:
+	$Darkness.visible = true
+
 func set_level(level: int):
 	var checkpoints_parent = get_node_or_null("Checkpoints")
 	if !checkpoints_parent:
@@ -30,4 +33,4 @@ func set_level(level: int):
 func checkpoint_reached(level: int):
 	if level >= current_level:
 		current_level = level
-		$/root/Game/SaveData.unlocked_level(level)
+		$/root/Game/SaveData.set_level(level)

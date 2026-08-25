@@ -53,8 +53,6 @@ func move(_entity: Entity, delta: float) -> Vector2:
 		# Original behavior (can cause bouncing)
 		return to_target.normalized()
 
-
-
 func on_screen_exit() -> void:
 	if seen:
 		var e = get_entity()
