@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhv8smylr5su5"]
 
 [ext_resource type="Script" uid="uid://dgqornu4ttjy4" path="res://scenes/entities/entity.gd" id="1_pr7yu"]
+[ext_resource type="Texture2D" uid="uid://bk5gl53w8dg4m" path="res://icon.svg" id="2_717xc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
 radius = 16.0
@@ -13,6 +14,12 @@ radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibhg1"]
 radius = 8.0
+
+[sub_resource type="Environment" id="Environment_avebp"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 4.3
+glow_bloom = 0.16
 
 [node name="Eel" type="RigidBody2D" unique_id=1292844991]
 mass = 5.0
@@ -90,3 +97,11 @@ angular_damp = 5.0
 
 [node name="Body4" type="CollisionShape2D" parent="Segment4" unique_id=820629842]
 shape = SubResource("CircleShape2D_ibhg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
+modulate = Color(2.1535146, 2.1535146, 2.1535146, 1)
+scale = Vector2(0.128125, 0.1234375)
+texture = ExtResource("2_717xc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Sprite2D" unique_id=1817212995]
+environment = SubResource("Environment_avebp")
