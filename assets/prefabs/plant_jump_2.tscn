@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://crxkl3l13t66g"]
+
+[ext_resource type="Texture2D" uid="uid://belxqm61ha1jm" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00000.png" id="1_rvla1"]
+[ext_resource type="Texture2D" uid="uid://j4sd0k6m54cn" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00001.png" id="2_5ad16"]
+[ext_resource type="Texture2D" uid="uid://coo6lfnqpmu3j" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00002.png" id="3_it17x"]
+[ext_resource type="Texture2D" uid="uid://ctalvjried8jv" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00003.png" id="4_qloyr"]
+[ext_resource type="Texture2D" uid="uid://3tvew545itmo" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00004.png" id="5_ueaav"]
+[ext_resource type="Texture2D" uid="uid://bigu2i3nmbmgv" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00005.png" id="6_w4x4u"]
+[ext_resource type="Texture2D" uid="uid://u7yd2uosclqw" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00006.png" id="7_xmllb"]
+[ext_resource type="Texture2D" uid="uid://dqgb6j7i32h5o" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00007.png" id="8_l0yq6"]
+[ext_resource type="Texture2D" uid="uid://djfwnikfqidpx" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00008.png" id="9_jorje"]
+[ext_resource type="Texture2D" uid="uid://p70s5pskyf1o" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00009.png" id="10_io5cl"]
+[ext_resource type="Texture2D" uid="uid://dgbfrc1yqwfjd" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00010.png" id="11_m4ix5"]
+[ext_resource type="Texture2D" uid="uid://b3bgcht5pex7" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00011.png" id="12_6wmby"]
+[ext_resource type="Texture2D" uid="uid://clwob62wh6bbw" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00012.png" id="13_0yhmj"]
+[ext_resource type="Texture2D" uid="uid://ccg6nifeppwtq" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00013.png" id="14_pwea1"]
+[ext_resource type="Texture2D" uid="uid://cw6ms0we60wxn" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00014.png" id="15_ujs28"]
+[ext_resource type="Texture2D" uid="uid://r7d40so2qiia" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00015.png" id="16_a204h"]
+[ext_resource type="Texture2D" uid="uid://c7fcjjyyqdoda" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00016.png" id="17_6pjk6"]
+[ext_resource type="Texture2D" uid="uid://c1tqm6ucxpn7u" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00017.png" id="18_muct4"]
+[ext_resource type="Texture2D" uid="uid://bmfrk2qgn5a7a" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00018.png" id="19_x76ok"]
+[ext_resource type="Texture2D" uid="uid://bbrc8duon8ty3" path="res://assets/textures/Plant Animations/PlantJump2/JumpPlant 2_00019.png" id="20_lnm78"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bn4a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rvla1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5ad16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_it17x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qloyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ueaav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4x4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xmllb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l0yq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jorje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_io5cl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4ix5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6wmby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0yhmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pwea1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ujs28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_a204h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6pjk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_muct4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_x76ok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_lnm78")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="PlantJump2" type="AnimatedSprite2D" unique_id=1797371765]
+sprite_frames = SubResource("SpriteFrames_bn4a6")
+frame_progress = 0.98263335
