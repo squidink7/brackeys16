@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://cr0mbd3ohv64j"]
+
+[ext_resource type="Texture2D" uid="uid://cg12rabqx4prr" path="res://assets/models/kraken/eyeball-scales/scales.jpg" id="1_v38pg"]
+[ext_resource type="Texture2D" uid="uid://yra53ce3ubm3" path="res://assets/models/kraken/eyeball-scales/scales_ao.jpg" id="2_2nvdc"]
+[ext_resource type="Texture2D" uid="uid://bava437q5jajy" path="res://assets/models/kraken/eyeball-scales/scales_normal.jpg" id="3_xbhmc"]
+[ext_resource type="Texture2D" uid="uid://cklfp4hk1sld4" path="res://assets/models/kraken/eyeball-scales/scales_roughness.jpg" id="4_aapar"]
+[ext_resource type="PackedScene" uid="uid://bg7rkafuwh2f5" path="res://assets/models/kraken/kraken-eyeball/scene.gltf" id="5_cutga"]
+[ext_resource type="Texture2D" uid="uid://w27sfmjotd8p" path="res://assets/models/kraken/kraken-scales/kraken-scales.jpg" id="6_8mh1a"]
+[ext_resource type="Texture2D" uid="uid://dkrq3r0a77rc5" path="res://assets/models/kraken/kraken-scales/kraken-scales_ao.jpg" id="7_a5i01"]
+[ext_resource type="Texture2D" uid="uid://dj2hn4844owfq" path="res://assets/models/kraken/kraken-scales/kraken-scales_height.png" id="8_q57xw"]
+[ext_resource type="Texture2D" uid="uid://c51aipylgkf5s" path="res://assets/models/kraken/kraken-scales/kraken-scales_normal.jpg" id="9_g8x1h"]
+[ext_resource type="Texture2D" uid="uid://02l5mbp4o2dr" path="res://assets/models/kraken/kraken-scales/kraken-scales_roughness.jpg" id="10_8khd7"]
+
+[sub_resource type="Environment" id="Environment_xbhmc"]
+background_mode = 1
+tonemap_mode = 2
+ssao_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_gwhvy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3p7i"]
+albedo_texture = ExtResource("1_v38pg")
+roughness_texture = ExtResource("4_aapar")
+normal_enabled = true
+normal_texture = ExtResource("3_xbhmc")
+ao_enabled = true
+ao_texture = ExtResource("2_2nvdc")
+uv1_scale = Vector3(1.645, 0.955, 1)
+uv1_offset = Vector3(-0.307, 0.018, 0)
+
+[sub_resource type="Animation" id="Animation_aapar"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scales:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scales:surface_material_override/0:uv1_offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scales:surface_material_override/0:emission_energy_multiplier")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+
+[sub_resource type="Animation" id="Animation_ccsw3"]
+resource_name = "disappear"
+length = 7.0
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(4, 4),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 2.1, 2.7333336, 6.3, 7),
+"transitions": PackedFloat32Array(4, 1, 5, 1, 1.0316273, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scales:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scales:surface_material_override/0:uv1_offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scales:surface_material_override/0:emission_energy_multiplier")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.1, 2.7333336, 6.3, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1, 0.1, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bp0gb"]
+_data = {
+&"RESET": SubResource("Animation_aapar"),
+&"disappear": SubResource("Animation_ccsw3")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q57xw"]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wt5ax"]
+albedo_texture = ExtResource("6_8mh1a")
+roughness_texture = ExtResource("10_8khd7")
+emission_enabled = true
+emission_energy_multiplier = 0.1
+emission_texture = ExtResource("6_8mh1a")
+normal_enabled = true
+normal_texture = ExtResource("9_g8x1h")
+ao_enabled = true
+ao_texture = ExtResource("7_a5i01")
+heightmap_enabled = true
+heightmap_texture = ExtResource("8_q57xw")
+uv1_scale = Vector3(5, 5, 5)
+
+[node name="Kraken" type="Node3D" unique_id=2106639985]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=730733013]
+environment = SubResource("Environment_xbhmc")
+
+[node name="Head" type="MeshInstance3D" parent="." unique_id=852265614]
+transform = Transform3D(-2.789476, 0, -7.760477e-08, 0, 2.3845108, 0, 2.4386372e-07, 0, -0.8876951, 0, 0, 0)
+mesh = SubResource("SphereMesh_gwhvy")
+surface_material_override/0 = SubResource("StandardMaterial3D_q3p7i")
+
+[node name="Eye" parent="Head" unique_id=1500982851 instance=ExtResource("5_cutga")]
+transform = Transform3D(-1.0754709, 0, 9.402064e-08, 0, 1.2581196, 0, -2.9544867e-07, 0, -3.379539, 7.3415483e-09, 0, -0.26388937)
+
+[node name="Light" type="SpotLight3D" parent="." unique_id=595724862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+light_color = Color(0.52016073, 0.5815828, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=288887424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+fov = 65.0
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1304416893]
+libraries/ = SubResource("AnimationLibrary_bp0gb")
+
+[node name="Scales" type="MeshInstance3D" parent="." unique_id=1980620628]
+transform = Transform3D(-0.50000006, -0.8660254, 0, 0.8660254, -0.50000006, 0, 0, 0, 1, 0, 0, -4.187)
+visible = false
+mesh = SubResource("CylinderMesh_q57xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_wt5ax")
