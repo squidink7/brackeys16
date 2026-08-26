@@ -306,7 +306,6 @@ script = SubResource("GDScript_gmiel")
 [node name="SpawnLight" type="PointLight2D" parent="LevelObject" unique_id=201609712]
 position = Vector2(3.0517578e-05, 3.0517578e-05)
 scale = Vector2(13.375, 13.375)
-blend_mode = 2
 texture = SubResource("GradientTexture2D_gwhvy")
 
 [node name="NoLightRegion" parent="LevelObject" unique_id=1961197184 instance=ExtResource("7_f1u2x")]

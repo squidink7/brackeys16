@@ -7,96 +7,260 @@
 [ext_resource type="Texture2D" uid="uid://bi44hb7c6d71a" path="res://assets/models/fishes/3eel/eel_t.png" id="4_vvskw"]
 [ext_resource type="Texture2D" uid="uid://ciuw0hg5tt4k0" path="res://assets/models/fishes/3eel/eel_h.png" id="5_ho8qh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
-radius = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbdt2"]
+radius = 13.0
+height = 82.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ibhg1"]
-radius = 16.0
+[sub_resource type="Animation" id="Animation_rigsw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/BodySprite1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-24, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/BodySprite1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0017453292]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/BodySprite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/BodySprite2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.06108653]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/TailSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-61, -4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/TailSprite:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617994]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/HeadSprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4404154, -2.3841858e-06)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/HeadSprite:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
-[node name="Head" type="RigidBody2D" unique_id=1292844991 node_paths=PackedStringArray("segments")]
-mass = 5.0
+[sub_resource type="Animation" id="Animation_lbdt2"]
+resource_name = "swim"
+length = 2.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/BodySprite1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-23, -2), Vector2(-24.000002, -4), Vector2(-25, -3.9999998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/BodySprite1:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0017453292, 0.12883435, 0.13528366]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/BodySprite2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-37, -3.9999995), Vector2(-37, -4.9999995), Vector2(-37, -7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/BodySprite2:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.14297114, -0.14297114, -0.043668896]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/TailSprite:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-60, -1.9999983), Vector2(-60, -1.9999983), Vector2(-60, -9.999999)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/TailSprite:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.46631014, -0.46631014, -0.20103854]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/HeadSprite:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.0000001, -4), Vector2(0, -1), Vector2(-2.9802322e-08, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/HeadSprite:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.24549815, 0.026735246, 0.24099389]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rigsw"]
+_data = {
+&"RESET": SubResource("Animation_rigsw"),
+&"swim": SubResource("Animation_lbdt2")
+}
+
+[node name="Head" type="RigidBody2D" unique_id=1292844991]
 linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_lbdt2")
-segments = [NodePath("."), NodePath("Segment1"), NodePath("Segment2"), NodePath("Segment3")]
-speed = 3000.0
 
-[node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
-shape = SubResource("CircleShape2D_wt5ax")
+[node name="Body" type="CollisionShape2D" parent="." unique_id=1976375687]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lbdt2")
 
-[node name="Neck" type="PinJoint2D" parent="." unique_id=800580869]
-node_a = NodePath("..")
-node_b = NodePath("../Segment1")
-softness = 1.0
-angular_limit_lower = -0.61086524
-angular_limit_upper = 0.61086524
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=2011919896]
+libraries/ = SubResource("AnimationLibrary_rigsw")
+autoplay = &"swim"
+speed_scale = 2.0
 
-[node name="LightTexture" type="Sprite2D" parent="." unique_id=663011457]
-modulate = Color(2.1535146, 2.1535146, 2.1535146, 1)
-position = Vector2(0, -1)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_0hg72")
+[node name="Sprites" type="Node2D" parent="." unique_id=308649166]
+position = Vector2(30, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
-position = Vector2(1, -0.9999995)
-scale = Vector2(0.051376406, 0.054598995)
-texture = ExtResource("5_ho8qh")
+[node name="TailSprite" type="Sprite2D" parent="Sprites" unique_id=1520843431]
+position = Vector2(-61, -4)
+rotation = -0.2617994
+scale = Vector2(0.059085846, 0.055692196)
+texture = ExtResource("4_vvskw")
 
-[node name="Segment1" type="RigidBody2D" parent="." unique_id=4537708]
-position = Vector2(-24, 0)
-collision_layer = 0
-collision_mask = 0
-angular_damp = 2.0
-
-[node name="Body1" type="CollisionShape2D" parent="Segment1" unique_id=820629842]
-shape = SubResource("CircleShape2D_ibhg1")
-
-[node name="Joint1" type="PinJoint2D" parent="Segment1" unique_id=1877317375]
-node_a = NodePath("..")
-node_b = NodePath("../../Segment2")
-softness = 1.0
-angular_limit_lower = -0.61086524
-angular_limit_upper = 0.61086524
-
-[node name="Sprite2D" type="Sprite2D" parent="Segment1" unique_id=1696218758]
-rotation = 0.0017453292
-scale = Vector2(0.059190966, 0.05774696)
-texture = ExtResource("2_cfxot")
-
-[node name="Segment2" type="RigidBody2D" parent="." unique_id=1467137940]
-position = Vector2(-40, 0)
-collision_layer = 0
-collision_mask = 0
-angular_damp = 2.0
-
-[node name="Body2" type="CollisionShape2D" parent="Segment2" unique_id=513500849]
-shape = SubResource("CircleShape2D_ibhg1")
-
-[node name="Joint2" type="PinJoint2D" parent="Segment2" unique_id=1111760532]
-position = Vector2(2.9999924, -1.0000005)
-node_a = NodePath("..")
-node_b = NodePath("../../Segment3")
-softness = 1.0
-angular_limit_lower = -0.61086524
-angular_limit_upper = 0.61086524
-
-[node name="Sprite2D" type="Sprite2D" parent="Segment2" unique_id=1654749150]
-position = Vector2(3, -3)
-rotation = -0.061086528
-scale = Vector2(0.039702404, 0.03915831)
+[node name="BodySprite2" type="Sprite2D" parent="Sprites" unique_id=1654749150]
+position = Vector2(-37, -3)
+rotation = -0.06108653
+scale = Vector2(0.0397024, 0.03915831)
 texture = ExtResource("3_0hg72")
 
-[node name="Segment3" type="RigidBody2D" parent="." unique_id=1482501048]
-position = Vector2(-48, 0)
-collision_layer = 0
-collision_mask = 0
-angular_damp = 2.0
+[node name="BodySprite1" type="Sprite2D" parent="Sprites" unique_id=1696218758]
+position = Vector2(-24, 0)
+rotation = 0.0017453292
+scale = Vector2(0.059190962, 0.05774696)
+texture = ExtResource("2_cfxot")
 
-[node name="Body3" type="CollisionShape2D" parent="Segment3" unique_id=1375705151]
-shape = SubResource("CircleShape2D_ibhg1")
+[node name="HeadSprite" type="Sprite2D" parent="Sprites" unique_id=826663796]
+position = Vector2(1.4404154, -2.3841858e-06)
+scale = Vector2(0.050178, 0.048220437)
+texture = ExtResource("5_ho8qh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Segment3" unique_id=1520843431]
-position = Vector2(-13, -4)
-rotation = -0.2617994
-scale = Vector2(0.05908585, 0.055692196)
-texture = ExtResource("4_vvskw")
+[node name="LightTexture" type="Sprite2D" parent="Sprites/HeadSprite" unique_id=663011457]
+modulate = Color(2.1535146, 2.1535146, 2.1535146, 1)
+show_behind_parent = true
+position = Vector2(-8.777061, 4.9443475e-05)
+scale = Vector2(0.7971622, 0.8295238)
+texture = ExtResource("2_0hg72")

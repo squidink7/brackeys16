@@ -27,11 +27,6 @@ color = Color(0.11803245, 0.14740784, 0.33509827, 1)
 
 [node name="PlayerBrain" parent="Eel" unique_id=805582152 instance=ExtResource("4_v5dby")]
 
-[node name="Label" type="Label" parent="Eel" unique_id=1737408695]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "plr"
-
 [node name="Player" parent="." unique_id=1210504219 instance=ExtResource("13_mxkvs")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1618770858]
