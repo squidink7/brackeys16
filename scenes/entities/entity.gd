@@ -36,4 +36,5 @@ func reset(new_position: Vector2) -> void:
 
 # Controls the rotation of the entities rigidbodys'
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	RotationLimiter.clamp_rotation(state)
+	#RotationLimiter.clamp_rotation(state)
+	pass
