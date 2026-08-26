@@ -1,4 +1,5 @@
 extends Node2D
+class_name World
 
 var current_level: int = 0
 
@@ -33,4 +34,4 @@ func set_level(level: int):
 func checkpoint_reached(level: int):
 	if level >= current_level:
 		current_level = level
-		$/root/Game/SaveData.set_level(level)
+		$/root/Main/SaveData.set_level(level)

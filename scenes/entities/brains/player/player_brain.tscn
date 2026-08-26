@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmdnb37smsm3a"]
 
 [ext_resource type="Script" uid="uid://42khcpau4yh3" path="res://scenes/entities/brains/player/player_brain.gd" id="1_hk3yk"]
+[ext_resource type="PackedScene" uid="uid://cxfmum0kd2l4x" path="res://scenes/menu/pause_menu.tscn" id="2_r2cya"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
 offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
@@ -15,6 +16,7 @@ metadata/_snap_enabled = true
 metadata/_snap_count = 8
 
 [node name="PlayerBrain" type="Node2D" unique_id=805582152]
+process_mode = 3
 script = ExtResource("1_hk3yk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=5080585]
@@ -29,3 +31,6 @@ shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_2m7xf")
 texture_scale = 5.0
+
+[node name="PauseMenu" parent="." unique_id=1314057822 instance=ExtResource("2_r2cya")]
+visible = false

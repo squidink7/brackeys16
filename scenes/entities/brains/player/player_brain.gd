@@ -21,3 +21,8 @@ func set_light(on: bool) -> void:
 
 	light_tween = create_tween()
 	light_tween.tween_property($Light, "energy", target_energy, 0.5)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("game_pause"):
+		$PauseMenu.visible = !get_tree().paused
+		get_tree().paused = !get_tree().paused

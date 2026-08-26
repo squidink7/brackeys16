@@ -13,51 +13,31 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibhg1"]
 radius = 16.0
 
-[node name="Eel" type="Node2D" unique_id=1080764933]
-
-[node name="Head" type="RigidBody2D" parent="." unique_id=1292844991 node_paths=PackedStringArray("segments")]
+[node name="Head" type="RigidBody2D" unique_id=1292844991 node_paths=PackedStringArray("segments")]
 mass = 5.0
 linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_lbdt2")
-segments = [NodePath("../Segment1"), NodePath("../Segment2"), NodePath("../Segment3")]
-physical_turn = null
-swim_force = 1000.0
-max_speed = null
-head_align_stiffness = null
-head_align_damping = null
-max_head_torque = null
-joint_stiffness = null
-joint_damping = null
-max_joint_torque = null
-max_bend = null
-vertical_bend_factor = null
-wave_amplitude = null
-wave_frequency = null
-wave_phase_step = null
-backward_speed_threshold = null
-flip_delay = null
-tail_drag = null
+segments = [NodePath("."), NodePath("Segment1"), NodePath("Segment2"), NodePath("Segment3")]
 speed = 3000.0
 
-[node name="Head" type="CollisionShape2D" parent="Head" unique_id=1976375687]
+[node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
 shape = SubResource("CircleShape2D_wt5ax")
 
-[node name="Neck" type="PinJoint2D" parent="Head" unique_id=800580869]
+[node name="Neck" type="PinJoint2D" parent="." unique_id=800580869]
 node_a = NodePath("..")
-node_b = NodePath("../../Segment1")
-bias = 0.9
+node_b = NodePath("../Segment1")
 softness = 1.0
 angular_limit_lower = -0.61086524
 angular_limit_upper = 0.61086524
 
-[node name="LightTexture" type="Sprite2D" parent="Head" unique_id=663011457]
+[node name="LightTexture" type="Sprite2D" parent="." unique_id=663011457]
 modulate = Color(2.1535146, 2.1535146, 2.1535146, 1)
 position = Vector2(0, -1)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_0hg72")
 
-[node name="Sprite2D" type="Sprite2D" parent="Head" unique_id=826663796]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
 position = Vector2(1, -0.9999995)
 scale = Vector2(0.051376406, 0.054598995)
 texture = ExtResource("5_ho8qh")
@@ -74,7 +54,6 @@ shape = SubResource("CircleShape2D_ibhg1")
 [node name="Joint1" type="PinJoint2D" parent="Segment1" unique_id=1877317375]
 node_a = NodePath("..")
 node_b = NodePath("../../Segment2")
-bias = 0.9
 softness = 1.0
 angular_limit_lower = -0.61086524
 angular_limit_upper = 0.61086524
@@ -97,7 +76,6 @@ shape = SubResource("CircleShape2D_ibhg1")
 position = Vector2(2.9999924, -1.0000005)
 node_a = NodePath("..")
 node_b = NodePath("../../Segment3")
-bias = 0.9
 softness = 1.0
 angular_limit_lower = -0.61086524
 angular_limit_upper = 0.61086524
