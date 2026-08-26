@@ -374,4 +374,5 @@ animations = [{
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_qquw7")
 animation = &"PlantAnimation"
+autoplay = "PlantAnimation"
 script = ExtResource("91_ems3f")
