@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmyqe31qf676x"]
 
-[ext_resource type="Script" uid="uid://cftce6oghrsqo" path="res://scenes/world/checkpoint/checkpoint.gd" id="1_1jmdt"]
+[ext_resource type="Script" uid="uid://cftce6oghrsqo" path="res://scenes/world/meta/checkpoint/checkpoint.gd" id="1_1jmdt"]
 
 [node name="Checkpoint" type="Area2D" unique_id=1173495694]
 script = ExtResource("1_1jmdt")
