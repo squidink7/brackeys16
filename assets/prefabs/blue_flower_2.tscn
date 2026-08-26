@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://b2aauo2xixswx" path="res://assets/textures/Plant Animations/BlueFlower2/BluePlantClosed_00057.png" id="58_kysmk"]
 [ext_resource type="Texture2D" uid="uid://dg7uroohnyyol" path="res://assets/textures/Plant Animations/BlueFlower2/BluePlantClosed_00058.png" id="59_vyt3g"]
 [ext_resource type="Texture2D" uid="uid://y1wi8i44s112" path="res://assets/textures/Plant Animations/BlueFlower2/BluePlantClosed_00059.png" id="60_irdk2"]
+[ext_resource type="Script" uid="uid://babcbcjy2ufur" path="res://scripts/light_flower.gd" id="61_sv741"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8bdhr"]
 animations = [{
@@ -245,10 +246,33 @@ animations = [{
 "texture": ExtResource("60_irdk2")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"FlowerAnimation",
 "speed": 20.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_3fpub"]
+offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
+colors = PackedColorArray(1, 1, 0.99215686, 1, 0.8690938, 0.8690938, 0.8690938, 1, 0.28313255, 0.28313255, 0.28313255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gkpv5"]
+gradient = SubResource("Gradient_3fpub")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
 [node name="BlueFlower2" type="AnimatedSprite2D" unique_id=926322469]
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_8bdhr")
-frame_progress = 0.5222519
+animation = &"FlowerAnimation"
+script = ExtResource("61_sv741")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1050907334]
+position = Vector2(-105, -165)
+color = Color(1, 0.8862745, 0.56078434, 1)
+energy = 0.35
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_gkpv5")
+texture_scale = 30.0

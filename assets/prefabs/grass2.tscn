@@ -90,6 +90,7 @@
 [ext_resource type="Texture2D" uid="uid://blqln5pdw2cry" path="res://assets/textures/Plant Animations/Plant 2/Plant2_00087.png" id="88_7fs5y"]
 [ext_resource type="Texture2D" uid="uid://buenmpigd64av" path="res://assets/textures/Plant Animations/Plant 2/Plant2_00088.png" id="89_eqxc1"]
 [ext_resource type="Texture2D" uid="uid://t8wkh6fsu0xo" path="res://assets/textures/Plant Animations/Plant 2/Plant2_00089.png" id="90_a0ubr"]
+[ext_resource type="Script" uid="uid://0std2f2wmbue" path="res://scripts/animated_plant.gd" id="91_7iox8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bfuwn"]
 animations = [{
@@ -365,10 +366,12 @@ animations = [{
 "texture": ExtResource("90_a0ubr")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"PlantAnimation",
 "speed": 20.0
 }]
 
 [node name="Plant2" type="AnimatedSprite2D" unique_id=1374490748]
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_bfuwn")
-frame_progress = 0.9952826
+animation = &"PlantAnimation"
+script = ExtResource("91_7iox8")
