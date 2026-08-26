@@ -543,6 +543,7 @@ texture = ExtResource("5_umvgx")
 [node name="TileMap" type="Node2D" parent="." unique_id=337416252]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="TileMap" unique_id=70516643]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_wt5ax")
 
 [node name="CollisionMap" type="TileMapLayer" parent="TileMap" unique_id=735698941 groups=["navigation"]]

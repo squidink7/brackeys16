@@ -1,0 +1,27 @@
+[gd_resource type="TileSet" format=3 uid="uid://cf0d2ynq0jsij"]
+
+[ext_resource type="Texture2D" uid="uid://qxh0lxau7hel" path="res://assets/textures/Mossy Tileset/Mossy - Hanging Plants.png" id="1_of63l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnaf6"]
+texture = ExtResource("1_of63l")
+texture_region_size = Vector2i(128, 128)
+1:1/size_in_atlas = Vector2i(3, 10)
+1:1/0 = 0
+4:1/size_in_atlas = Vector2i(3, 8)
+4:1/0 = 0
+7:1/size_in_atlas = Vector2i(3, 8)
+7:1/0 = 0
+10:1/size_in_atlas = Vector2i(3, 7)
+10:1/0 = 0
+13:1/size_in_atlas = Vector2i(3, 8)
+13:1/0 = 0
+0:11/size_in_atlas = Vector2i(5, 11)
+0:11/0 = 0
+5:11/size_in_atlas = Vector2i(4, 11)
+5:11/0 = 0
+9:18/size_in_atlas = Vector2i(7, 5)
+9:18/0 = 0
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_cnaf6")

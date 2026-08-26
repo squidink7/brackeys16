@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://b7kur666uriwg"]
+
+[ext_resource type="Texture2D" uid="uid://1rpduvoyuqpc" path="res://assets/textures/Mossy Tileset/Mossy - Decorations&Hazards.png" id="1_bcirt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7goi"]
+texture = ExtResource("1_bcirt")
+texture_region_size = Vector2i(64, 64)
+3:2/size_in_atlas = Vector2i(21, 12)
+3:2/0 = 0
+24:6/size_in_atlas = Vector2i(20, 8)
+24:6/0 = 0
+44:0/size_in_atlas = Vector2i(19, 14)
+44:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_k7goi")
