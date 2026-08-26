@@ -3,8 +3,21 @@
 [ext_resource type="TileSet" uid="uid://cqkwsmhn4nkii" path="res://assets/Tilesets/CollisionMap.tres" id="1_mtxbg"]
 [ext_resource type="TileSet" uid="uid://uhcsdhvqn7r" path="res://assets/Tilesets/BackgroundWorldWhapes.tres" id="2_7aepu"]
 [ext_resource type="TileSet" uid="uid://b7kur666uriwg" path="res://assets/Tilesets/Rocks.tres" id="3_6de0p"]
+[ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="3_q2c88"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/Tilesets/Vines.tres" id="3_w7sl8"]
 [ext_resource type="TileSet" uid="uid://cf0d2ynq0jsij" path="res://assets/Tilesets/Leaves.tres" id="4_6de0p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_of63l"]
+shader = ExtResource("3_q2c88")
+shader_parameter/blur_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6de0p"]
+shader = ExtResource("3_q2c88")
+shader_parameter/blur_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q2c88"]
+shader = ExtResource("3_q2c88")
+shader_parameter/blur_amount = 0.5
 
 [node name="Level1" type="Node2D" unique_id=151000013]
 
@@ -17,6 +30,7 @@ tile_set = ExtResource("1_mtxbg")
 
 [node name="BackgroundWorldElements" type="CanvasGroup" parent="Node2D" unique_id=2051244869]
 z_index = -20
+use_mipmaps = true
 
 [node name="BackgroundWorldShapes" type="TileMapLayer" parent="Node2D/BackgroundWorldElements" unique_id=1920196451]
 scale = Vector2(0.5, 0.5)
@@ -32,6 +46,8 @@ tile_set = ExtResource("2_7aepu")
 
 [node name="BackgroundRocks" type="CanvasGroup" parent="Node2D" unique_id=2135027076]
 z_index = -15
+material = SubResource("ShaderMaterial_of63l")
+use_mipmaps = true
 
 [node name="Rocks" type="TileMapLayer" parent="Node2D/BackgroundRocks" unique_id=1707229499]
 scale = Vector2(0.4, 0.4)
@@ -40,6 +56,8 @@ tile_set = ExtResource("3_6de0p")
 
 [node name="BackgroundVines" type="CanvasGroup" parent="Node2D" unique_id=774771933]
 z_index = -10
+material = SubResource("ShaderMaterial_6de0p")
+use_mipmaps = true
 
 [node name="Vines" type="TileMapLayer" parent="Node2D/BackgroundVines" unique_id=1586384664]
 scale = Vector2(0.5, 0.5)
@@ -48,6 +66,8 @@ tile_set = ExtResource("3_w7sl8")
 
 [node name="BackgroundLeaves" type="CanvasGroup" parent="Node2D" unique_id=956224751]
 z_index = -5
+material = SubResource("ShaderMaterial_q2c88")
+use_mipmaps = true
 
 [node name="Leaves" type="TileMapLayer" parent="Node2D/BackgroundLeaves" unique_id=1087051821]
 scale = Vector2(0.25, 0.25)
