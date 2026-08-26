@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cg72gsbh2hp52"]
+
+[ext_resource type="Texture2D" uid="uid://c3m22131das1i" path="res://assets/textures/light_texture.svg" id="1_v6abi"]
+
+[sub_resource type="Gradient" id="Gradient_qsu78"]
+offsets = PackedFloat32Array(0, 0.20655827, 0.7380733, 1)
+colors = PackedColorArray(0.52091455, 0.8313241, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_v6abi"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v6abi"]
+gradient = SubResource("Gradient_v6abi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[node name="Energy" type="Node2D" unique_id=1694014108]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2089028702]
+amount = 16
+texture = ExtResource("1_v6abi")
+spread = 180.0
+gravity = Vector2(0, -50)
+initial_velocity_min = 25.0
+initial_velocity_max = 30.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+linear_accel_min = 0.5
+linear_accel_max = 1.0
+scale_amount_min = 0.01
+scale_amount_max = 0.04
+color_ramp = SubResource("Gradient_qsu78")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1332686007]
+texture = SubResource("GradientTexture2D_v6abi")

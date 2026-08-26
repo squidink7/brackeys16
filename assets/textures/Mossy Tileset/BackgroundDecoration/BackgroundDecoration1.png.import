@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwg0qy5qs4b43"
-path.s3tc="res://.godot/imported/BlueFlower_00000.png-c8bf70d0985213fe4aade9b9e553b3d5.s3tc.ctex"
+uid="uid://d0n8b3c52smf6"
+path="res://.godot/imported/BackgroundDecoration1.png-339739f7a9e105ae73352c67987843e1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/Plant Animations/BlueFlower1/BlueFlower_00000.png"
-dest_files=["res://.godot/imported/BlueFlower_00000.png-c8bf70d0985213fe4aade9b9e553b3d5.s3tc.ctex"]
+source_file="res://assets/textures/Mossy Tileset/BackgroundDecoration/BackgroundDecoration1.png"
+dest_files=["res://.godot/imported/BackgroundDecoration1.png-339739f7a9e105ae73352c67987843e1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

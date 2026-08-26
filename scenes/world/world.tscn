@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://brm5jrge3amgf" path="res://scenes/world/world.gd" id="1_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://0en8oe8m05o1" path="res://scenes/world/levels/level1.tscn" id="2_6m72w"]
+[ext_resource type="PackedScene" uid="uid://bwre50o4nwt88" path="res://scenes/entities/eel/eel.tscn" id="3_v5dby"]
 [ext_resource type="PackedScene" uid="uid://dmdnb37smsm3a" path="res://scenes/entities/brains/player/player_brain.tscn" id="4_v5dby"]
-[ext_resource type="PackedScene" uid="uid://bhv8smylr5su5" path="res://scenes/entities/eel.tscn" id="13_mxkvs"]
+[ext_resource type="PackedScene" uid="uid://bhv8smylr5su5" path="res://scenes/entities/demo_eel.tscn" id="13_mxkvs"]
 
 [sub_resource type="Environment" id="Environment_mxkvs"]
 background_mode = 3
@@ -22,14 +23,16 @@ script = ExtResource("1_sl2e5")
 visible = false
 color = Color(0.11803245, 0.14740784, 0.33509827, 1)
 
-[node name="Player" parent="." unique_id=1292844991 instance=ExtResource("13_mxkvs")]
+[node name="Eel" parent="." unique_id=1292844991 instance=ExtResource("3_v5dby")]
 
-[node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
+[node name="PlayerBrain" parent="Eel" unique_id=805582152 instance=ExtResource("4_v5dby")]
 
-[node name="Label" type="Label" parent="Player" unique_id=1737408695]
+[node name="Label" type="Label" parent="Eel" unique_id=1737408695]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "plr"
+
+[node name="Player" parent="." unique_id=1210504219 instance=ExtResource("13_mxkvs")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1618770858]
 environment = SubResource("Environment_mxkvs")
