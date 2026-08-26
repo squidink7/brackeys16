@@ -91,4 +91,5 @@ animations = [{
 
 [node name="PlantJump2" type="AnimatedSprite2D" unique_id=1797371765]
 sprite_frames = SubResource("SpriteFrames_bn4a6")
+autoplay = "default"
 frame_progress = 0.98263335

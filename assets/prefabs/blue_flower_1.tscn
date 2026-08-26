@@ -267,6 +267,7 @@ texture_filter = 1
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_20cm6")
 animation = &"FlowerAnimation"
+autoplay = "FlowerAnimation"
 frame_progress = 0.35577214
 script = ExtResource("61_0xgce")
 

@@ -131,4 +131,5 @@ animations = [{
 
 [node name="PoisonPlant" type="AnimatedSprite2D" unique_id=633835526]
 sprite_frames = SubResource("SpriteFrames_us0h6")
+autoplay = "default"
 frame_progress = 0.11139444
