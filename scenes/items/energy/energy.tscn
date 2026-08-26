@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cg72gsbh2hp52"]
 
+[ext_resource type="Script" uid="uid://c2h2c4ki485ru" path="res://scenes/items/energy/energy.gd" id="1_r6fpv"]
 [ext_resource type="Texture2D" uid="uid://c3m22131das1i" path="res://assets/textures/light_texture.svg" id="1_v6abi"]
 
 [sub_resource type="Gradient" id="Gradient_qsu78"]
@@ -16,7 +17,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3oqa"]
+
 [node name="Energy" type="Node2D" unique_id=1694014108]
+script = ExtResource("1_r6fpv")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2089028702]
 amount = 16
@@ -35,3 +39,10 @@ color_ramp = SubResource("Gradient_qsu78")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1332686007]
 texture = SubResource("GradientTexture2D_v6abi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=918279447]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=868661754]
+shape = SubResource("RectangleShape2D_a3oqa")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
