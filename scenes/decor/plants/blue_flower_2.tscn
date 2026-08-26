@@ -60,7 +60,6 @@
 [ext_resource type="Texture2D" uid="uid://b2aauo2xixswx" path="res://assets/textures/Plant Animations/BlueFlower2/BluePlantClosed_00057.png" id="58_kysmk"]
 [ext_resource type="Texture2D" uid="uid://dg7uroohnyyol" path="res://assets/textures/Plant Animations/BlueFlower2/BluePlantClosed_00058.png" id="59_vyt3g"]
 [ext_resource type="Texture2D" uid="uid://y1wi8i44s112" path="res://assets/textures/Plant Animations/BlueFlower2/BluePlantClosed_00059.png" id="60_irdk2"]
-[ext_resource type="Script" uid="uid://babcbcjy2ufur" path="res://scripts/light_flower.gd" id="61_sv741"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8bdhr"]
 animations = [{
@@ -267,7 +266,6 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_8bdhr")
 animation = &"FlowerAnimation"
 autoplay = "FlowerAnimation"
-script = ExtResource("61_sv741")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1050907334]
 position = Vector2(-105, -165)

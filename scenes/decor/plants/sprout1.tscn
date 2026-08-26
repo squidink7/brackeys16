@@ -60,7 +60,6 @@
 [ext_resource type="Texture2D" uid="uid://bxjotx0kgtrg1" path="res://assets/textures/Plant Animations/Plant 4/Plant4_00057.png" id="58_18lmp"]
 [ext_resource type="Texture2D" uid="uid://b3qcb8f1fagov" path="res://assets/textures/Plant Animations/Plant 4/Plant4_00058.png" id="59_u6nxs"]
 [ext_resource type="Texture2D" uid="uid://c7lqcdpuyp41w" path="res://assets/textures/Plant Animations/Plant 4/Plant4_00059.png" id="60_cjxva"]
-[ext_resource type="Script" uid="uid://0std2f2wmbue" path="res://scripts/animated_plant.gd" id="61_f1wbx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lps7n"]
 animations = [{
@@ -255,4 +254,3 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_lps7n")
 animation = &"PlantAnimation"
 autoplay = "PlantAnimation"
-script = ExtResource("61_f1wbx")
