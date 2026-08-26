@@ -33,3 +33,7 @@ func reset(new_position: Vector2) -> void:
 	set_deferred("global_position", new_position)
 	# 4. Unfreeze the body to hand control back to the engine
 	set_deferred("freeze", false)
+
+# Controls the rotation of the entities rigidbodys'
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	RotationLimiter.clamp_rotation(state)
