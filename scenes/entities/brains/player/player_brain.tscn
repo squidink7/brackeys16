@@ -22,10 +22,10 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=994008787]
+[node name="Light" type="PointLight2D" parent="." unique_id=994008787]
 color = Color(1, 0.8862745, 0.56078434, 1)
-energy = 1.5
+energy = 0.0
 shadow_enabled = true
-shadow_filter = 2
+shadow_filter = 1
 texture = SubResource("GradientTexture2D_2m7xf")
 texture_scale = 5.0

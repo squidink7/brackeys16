@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bfsu1cl7bmh68"]
+
+[ext_resource type="Script" uid="uid://bbcj6f2bx5ooe" path="res://scenes/world/meta/no_light_region/no_light_region.gd" id="1_gac6p"]
+
+[node name="NoLightRegion" type="Area2D" unique_id=1961197184]
+script = ExtResource("1_gac6p")
+
+[connection signal="body_entered" from="." to="." method="on_enter"]
+[connection signal="body_exited" from="." to="." method="on_exit"]
