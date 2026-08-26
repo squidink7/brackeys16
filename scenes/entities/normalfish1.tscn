@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://cunsiegb8udgh"]
 
 [ext_resource type="Script" uid="uid://dgqornu4ttjy4" path="res://scenes/entities/entity.gd" id="1_rfwb5"]
-[ext_resource type="Texture2D" uid="uid://drva15l2kj57b" path="res://assets/models/fishes/normalfish1/normalf_b.png" id="2_mac8r"]
-[ext_resource type="Script" uid="uid://dcoa8vcgvep43" path="res://scenes/entities/fish_rotation.gd" id="2_rvura"]
-[ext_resource type="Texture2D" uid="uid://dk4lj8prfmo76" path="res://assets/models/fishes/normalfish1/normalf_t.png" id="3_rvura"]
-[ext_resource type="Texture2D" uid="uid://cd4mgip30ny1x" path="res://assets/models/fishes/normalfish1/normalf_h.png" id="4_3nfd7"]
+[ext_resource type="Texture2D" uid="uid://drva15l2kj57b" path="res://assets/models/fishes/1normf1/normalf_b.png" id="2_mac8r"]
+[ext_resource type="Texture2D" uid="uid://dk4lj8prfmo76" path="res://assets/models/fishes/1normf1/normalf_t.png" id="3_rvura"]
+[ext_resource type="Texture2D" uid="uid://cd4mgip30ny1x" path="res://assets/models/fishes/1normf1/normalf_h.png" id="4_3nfd7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
 radius = 16.0
@@ -17,6 +16,7 @@ radius = 8.0
 
 [node name="NormalFish1" type="RigidBody2D" unique_id=1292844991]
 mass = 5.0
+lock_rotation = true
 linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_rfwb5")
@@ -39,7 +39,6 @@ collision_layer = 0
 collision_mask = 0
 mass = 3.0
 angular_damp = 5.0
-script = ExtResource("2_rvura")
 
 [node name="Body1" type="CollisionShape2D" parent="Segment1" unique_id=371936276]
 position = Vector2(3, 0)
@@ -66,7 +65,6 @@ position = Vector2(-40, 0)
 collision_layer = 0
 collision_mask = 0
 angular_damp = 5.0
-script = ExtResource("2_rvura")
 
 [node name="Body2" type="CollisionShape2D" parent="Segment2" unique_id=820629842]
 position = Vector2(3, 0)

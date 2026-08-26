@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bst04op8b84jc"
-path="res://.godot/imported/eel.png-25e366e664fac9013614f3e65192cd28.ctex"
+uid="uid://cd4mgip30ny1x"
+path="res://.godot/imported/normalf_h.png-a40d438f200a5da54923ab705d0b64b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/fishes/3eel/eel.png"
-dest_files=["res://.godot/imported/eel.png-25e366e664fac9013614f3e65192cd28.ctex"]
+source_file="res://assets/models/fishes/1normf1/normalf_h.png"
+dest_files=["res://.godot/imported/normalf_h.png-a40d438f200a5da54923ab705d0b64b4.ctex"]
 
 [params]
 

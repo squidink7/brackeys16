@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd4mgip30ny1x"
-path="res://.godot/imported/normalf_h.png-aa146132a69cacb63d9339efd074a6f6.ctex"
+uid="uid://bfcpf5nu6dfhx"
+path="res://.godot/imported/anglerf_b.png-258f754422f3a3646d74aaed02eebc67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/fishes/normalfish1/normalf_h.png"
-dest_files=["res://.godot/imported/normalf_h.png-aa146132a69cacb63d9339efd074a6f6.ctex"]
+source_file="res://assets/models/fishes/2anglerf/anglerf_b.png"
+dest_files=["res://.godot/imported/anglerf_b.png-258f754422f3a3646d74aaed02eebc67.ctex"]
 
 [params]
 
