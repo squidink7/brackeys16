@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c46unporgt5to" path="res://scenes/world/levels/level3/level3.tscn" id="7_j2gmx"]
 [ext_resource type="PackedScene" uid="uid://drqsfkk8ebuu8" path="res://scenes/world/levels/level4.tscn" id="8_1yooq"]
 [ext_resource type="PackedScene" uid="uid://cfr7mup0f3fln" path="res://scenes/world/levels/level5.tscn" id="9_gb53w"]
-[ext_resource type="PackedScene" uid="uid://bhv8smylr5su5" path="res://scenes/entities/demo_eel.tscn" id="13_mxkvs"]
 
 [sub_resource type="Environment" id="Environment_mxkvs"]
 background_mode = 3
@@ -28,8 +27,6 @@ script = ExtResource("1_sl2e5")
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=764757781]
 visible = false
 color = Color(0.11803245, 0.14740784, 0.33509827, 1)
-
-[node name="Player" parent="." unique_id=1210504219 instance=ExtResource("13_mxkvs")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1618770858]
 environment = SubResource("Environment_mxkvs")
