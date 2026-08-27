@@ -7,3 +7,7 @@ func _ready() -> void:
 		# var pos = Vector2.ZERO
 		var xform = Transform2D(randf_range(PI/4, PI/4 + 0.2), pos)
 		multimesh.set_instance_transform_2d(i, xform)
+
+	# Set paralax offset correctly
+
+	# $"../../".screen_offset = -$"../../../".global_position

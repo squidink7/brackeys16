@@ -16,21 +16,23 @@ lock_rotation = true
 script = ExtResource("1_j6bxv")
 speed = 800.0
 
-[node name="Sprites" type="Node2D" parent="." unique_id=706908541]
+[node name="Visuals" type="Node2D" parent="." unique_id=751613624]
 
-[node name="Sub1" type="Sprite2D" parent="Sprites" unique_id=1467847441]
-scale = Vector2(0.17, 0.17)
+[node name="Sprites" type="Node2D" parent="Visuals" unique_id=706908541]
+
+[node name="Sub1" type="Sprite2D" parent="Visuals/Sprites" unique_id=1467847441]
+scale = Vector2(0.176, 0.176)
 texture = ExtResource("2_xp67s")
 
-[node name="Sub2" type="Sprite2D" parent="Sprites" unique_id=545107382]
+[node name="Sub2" type="Sprite2D" parent="Visuals/Sprites" unique_id=545107382]
 scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("3_irrs2")
 
-[node name="Sub3" type="Sprite2D" parent="Sprites" unique_id=790419029]
+[node name="Sub3" type="Sprite2D" parent="Visuals/Sprites" unique_id=790419029]
 scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("4_edkew")
 
-[node name="SubGlowingWindow" type="Sprite2D" parent="." unique_id=1528008158]
+[node name="SubGlowingWindow" type="Sprite2D" parent="Visuals" unique_id=1528008158]
 modulate = Color(0.1, 0.091466665, 0.036000002, 1)
 self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
 scale = Vector2(0.17630431, 0.17630431)

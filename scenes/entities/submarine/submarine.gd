@@ -9,7 +9,7 @@ var energy: int
 func _ready() -> void:
 	energy = max_energy
 
-	frames_count = $Sprites.get_child_count()
+	frames_count = $Visuals/Sprites.get_child_count()
 
 func take_damage(damage: int) -> void:
 	energy -= damage
@@ -28,4 +28,6 @@ func _physics_process(delta: float) -> void:
 		frame -= frames_count
 
 	for i in frames_count:
-		$Sprites.get_child(i).visible = i == int(frame)
+		$Visuals/Sprites.get_child(i).visible = i == int(frame)
+
+	$Visuals.rotation = lerp_angle($Visuals.rotation, linear_velocity.y / 512, 0.1)

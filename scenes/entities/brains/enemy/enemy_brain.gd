@@ -10,14 +10,14 @@ func move(_entity: Entity, _delta: float) -> Vector2:
 		return Vector2.ZERO
 	else:
 		# Seeking entity
-		var minplayerdist = INT32_MAX
+		var minplayerdist := INT32_MAX
 		var target_pos = last_seen_entity
 
 		for p in target_entities:
 			var dist = p.global_position - global_position
 			if dist.length_squared() < minplayerdist:
 				target_pos = p.global_position
-				minplayerdist = dist
+				minplayerdist = dist.length_squared()
 		
 		$Navigation.target_position = target_pos
 		
