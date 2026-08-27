@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b0tl6pwtcnhli" path="res://scenes/decor/plants/sprout1.tscn" id="12_bc2wf"]
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="13_bc2wf"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="14_v4xar"]
+[ext_resource type="Texture2D" uid="uid://0l3r1626fec2" path="res://assets/textures/black_background.jpg" id="15_v4xar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23o0u"]
 shader = ExtResource("2_oeykw")
@@ -398,6 +399,17 @@ position = Vector2(8662.975, 1218.8)
 position = Vector2(7642.9746, 1201.7998)
 rotation = 0.7153411
 
+<<<<<<< HEAD:scenes/world/levels/level5.tscn
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1023351785]
 position = Vector2(1168, -376)
 navigation_polygon = SubResource("NavigationPolygon_40nuf")
+=======
+[node name="BlackBackground" type="Sprite2D" parent="." unique_id=674271685]
+z_index = -50
+position = Vector2(5039.0005, 857.5)
+scale = Vector2(12.5625, 3.6616666)
+texture = ExtResource("15_v4xar")
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=631911069]
+color = Color(0.46456856, 0.53752714, 0.8527969, 1)
+>>>>>>> 4004281 (Itch page asset creation scene. Not important.):scenes/world/level5.tscn
