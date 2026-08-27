@@ -7,29 +7,36 @@
 [ext_resource type="Texture2D" uid="uid://baylu8toakut1" path="res://assets/models/submarine/sub_glowing_window.png" id="5_k16x5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geaiy"]
-radius = 142.00589
-height = 577.02765
+radius = 16.0
+height = 96.0
 
 [node name="Submarine" type="RigidBody2D" unique_id=550745919]
+mass = 5.0
+lock_rotation = true
 script = ExtResource("1_j6bxv")
+speed = 800.0
 
-[node name="Sub1" type="Sprite2D" parent="." unique_id=1467847441]
+[node name="Sprites" type="Node2D" parent="." unique_id=706908541]
+
+[node name="Sub1" type="Sprite2D" parent="Sprites" unique_id=1467847441]
+scale = Vector2(0.17, 0.17)
 texture = ExtResource("2_xp67s")
 
-[node name="Sub2" type="Sprite2D" parent="." unique_id=545107382]
+[node name="Sub2" type="Sprite2D" parent="Sprites" unique_id=545107382]
+scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("3_irrs2")
 
-[node name="Sub3" type="Sprite2D" parent="." unique_id=790419029]
+[node name="Sub3" type="Sprite2D" parent="Sprites" unique_id=790419029]
+scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("4_edkew")
 
 [node name="SubGlowingWindow" type="Sprite2D" parent="." unique_id=1528008158]
 modulate = Color(0.1, 0.091466665, 0.036000002, 1)
 self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
-position = Vector2(-1, 1)
+scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("5_k16x5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76476538]
-visible = false
-position = Vector2(20.999998, 38)
-rotation = -1.5956187
+position = Vector2(8, 8)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_geaiy")
