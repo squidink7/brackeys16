@@ -1,3 +1,4 @@
+class_name FriendBrain
 extends Brain
 
 @export var anchor: Node2D
