@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#check if the collision object is the player
-	if body is Eel:
+	if body is Submarine:
 		var brain: PlayerBrain = body.get_brain()
 		brain.add_battery(energy)
 		

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxmfkqej44y11"]
+
+[ext_resource type="Script" uid="uid://bbs2w3ogj4nv8" path="res://scenes/entities/submarine/submarine.gd" id="1_j6bxv"]
+
+[node name="Submarine" type="RigidBody2D" unique_id=550745919]
+script = ExtResource("1_j6bxv")

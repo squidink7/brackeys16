@@ -12,3 +12,6 @@ func get_entity() -> Entity:
 	if p is Entity:
 		return p
 	return null
+func attack() -> int:
+	return 0
+	

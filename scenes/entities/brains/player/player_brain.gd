@@ -3,11 +3,7 @@ class_name PlayerBrain
 
 var last_checkpoint: Checkpoint
 var light_tween: Tween
-var battery_level: int
-@export var max_level: int = 0
-func _ready():
-	battery_level = max_level
-	
+
 func move(_entity: Entity, _delta: float) -> Vector2:
 	return Input.get_vector('move_left', 'move_right', 'move_up', 'move_down').normalized()
 
@@ -15,6 +11,7 @@ func died(entity: Entity) -> void:
 	if last_checkpoint:
 		print('Reviving at level ' + str(last_checkpoint.level))
 		entity.reset(last_checkpoint.global_position)
+
 
 func set_light(on: bool) -> void:
 	# Kill existing tween
@@ -25,13 +22,3 @@ func set_light(on: bool) -> void:
 
 	light_tween = create_tween()
 	light_tween.tween_property($Light, "energy", target_energy, 0.5)
-func add_battery(amount) -> void:
-	battery_level += amount
-	if battery_level > max_level:
-		battery_level = max_level
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("game_pause"):
-		$PauseMenu.visible = !get_tree().paused
-		get_tree().paused = !get_tree().paused
-		
