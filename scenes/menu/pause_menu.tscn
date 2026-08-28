@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://cxfmum0kd2l4x"]
+[gd_scene format=4 uid="uid://cxfmum0kd2l4x"]
 
 [ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="1_n54lc"]
 [ext_resource type="Script" uid="uid://byxwrdo6ym7l2" path="res://scenes/menu/pause_menu.gd" id="1_ux7g8"]
+[ext_resource type="TileSet" uid="uid://cqkwsmhn4nkii" path="res://assets/tilesets/CollisionMap.tres" id="3_xtxec"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ux7g8"]
 shader = ExtResource("1_n54lc")
@@ -73,5 +74,21 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "MAIN MENU"
 
-[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="resume"]
-[connection signal="pressed" from="PauseMenu/Button2" to="." method="exit"]
+[node name="Background" type="CanvasGroup" parent="." unique_id=619202003]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Background" unique_id=1837931847]
+position = Vector2(-50, -50)
+tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAA=")
+tile_set = ExtResource("3_xtxec")
+collision_enabled = false
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Background" unique_id=2062447517]
+position = Vector2(1200, 736)
+rotation = 3.1415925
+tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAA=")
+tile_set = ExtResource("3_xtxec")
+occlusion_enabled = false
+collision_enabled = false
+
+[connection signal="pressed" from="UI/ResumeButton" to="." method="resume"]
+[connection signal="pressed" from="UI/Button2" to="." method="exit"]

@@ -64,4 +64,5 @@ game_pause={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true
 environment/defaults/default_clear_color=Color(0.03841871, 0.34361684, 0.37964377, 1)
