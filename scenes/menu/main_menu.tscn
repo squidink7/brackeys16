@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://q3l8rxemf1er" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
 [ext_resource type="Texture2D" uid="uid://dj3w1aecfvov1" path="res://assets/textures/Mossy Tileset/Mossy - TileSet.png" id="2_kiqgm"]
 [ext_resource type="PackedScene" uid="uid://cxkfmfs18ntsl" path="res://scenes/decor/plants/grass1.tscn" id="3_247la"]
+[ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="3_xn6kt"]
+[ext_resource type="PackedScene" uid="uid://klgl03416sjd" path="res://scenes/decor/plants/grass3.tscn" id="4_isoef"]
+[ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="5_qgo02"]
+[ext_resource type="FontFile" uid="uid://bsmrxywnqyes2" path="res://assets/NewRocker-Regular.ttf" id="7_isoef"]
+[ext_resource type="PackedScene" uid="uid://014aj3vm7nvm" path="res://scenes/decor/plants/grass2.tscn" id="9_bbqo6"]
+[ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="11_bbqo6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hj162"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vovv2"]
 texture = ExtResource("2_kiqgm")
 texture_region_size = Vector2i(512, 512)
 3:0/0 = 0
@@ -318,13 +324,13 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Autotile"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_hj162")
+sources/1 = SubResource("TileSetAtlasSource_vovv2")
 
-[sub_resource type="Gradient" id="Gradient_kiqgm"]
+[sub_resource type="Gradient" id="Gradient_1k4da"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_avebp"]
-gradient = SubResource("Gradient_kiqgm")
+gradient = SubResource("Gradient_1k4da")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -333,16 +339,6 @@ metadata/_snap_enabled = true
 [sub_resource type="Environment" id="Environment_avebp"]
 background_mode = 3
 glow_enabled = true
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7s40"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn6kt"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isoef"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgo02"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_monte"]
 
@@ -354,9 +350,25 @@ glow_enabled = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj162"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7s40"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn6kt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isoef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgo02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27h4x"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1k4da"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdhp0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbqo6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4hu8"]
 
 [node name="MainMenu" type="Control" unique_id=849427100]
 layout_mode = 3
@@ -384,21 +396,84 @@ size_2d_override = Vector2i(1152, 648)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Background" type="CanvasGroup" parent="SubViewportContainer/SubViewport" unique_id=440634607]
+[node name="Background Plants" type="CanvasGroup" parent="SubViewportContainer/SubViewport" unique_id=1287085560]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Background" unique_id=1317314288]
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Background Plants" unique_id=544408856]
+z_index = -15
+position = Vector2(-100, -100)
+tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAAPAAQAAAAxAB0AAAAFAAMAAAAxAB0AAAAGAAcAAAAoACgAAAAOAAkAAAAZAB0AAAA=")
+tile_set = ExtResource("11_bbqo6")
+collision_enabled = false
+
+[node name="Plants2" type="CanvasGroup" parent="SubViewportContainer/SubViewport" unique_id=440634607]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Plants2" unique_id=1317314288]
 position = Vector2(-50, -50)
 tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAA=")
 tile_set = SubResource("TileSet_xn6kt")
 collision_enabled = false
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Background" unique_id=1193841381]
-position = Vector2(1200, 736)
+[node name="TileMapLayer2" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Plants2" unique_id=1193841381]
+position = Vector2(1200, 704)
 rotation = 3.1415925
 tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAA=")
 tile_set = SubResource("TileSet_xn6kt")
 occlusion_enabled = false
 collision_enabled = false
+
+[node name="Moving Plants" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=658784577]
+
+[node name="BlueFlower1" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1616021930 instance=ExtResource("3_xn6kt")]
+position = Vector2(1056, 319.99997)
+rotation = -0.5235988
+scale = Vector2(0.2667172, 0.2567324)
+
+[node name="BlueFlower2" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=402659148 instance=ExtResource("3_xn6kt")]
+position = Vector2(96, 136)
+rotation = 1.5707964
+scale = Vector2(0.26673204, 0.29463807)
+
+[node name="BlueFlower3" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=926322469 instance=ExtResource("5_qgo02")]
+position = Vector2(207.99998, 583.99994)
+rotation = 0.31415924
+scale = Vector2(0.25625002, 0.22500001)
+
+[node name="Plant1" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1510706641 instance=ExtResource("3_247la")]
+position = Vector2(720, 616)
+scale = Vector2(0.7249999, 0.6781249)
+
+[node name="Plant2" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=122128077 instance=ExtResource("3_247la")]
+position = Vector2(72.00002, 600.00006)
+rotation = 0.85346603
+scale = Vector2(0.714053, 0.50977063)
+
+[node name="Plant3" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1374490748 instance=ExtResource("9_bbqo6")]
+position = Vector2(456, 55.999985)
+rotation = -3.1415925
+scale = Vector2(0.5330531, 0.41475564)
+
+[node name="Plant4" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=300943166 instance=ExtResource("4_isoef")]
+position = Vector2(371.19998, 592)
+scale = Vector2(0.4562502, 0.36562496)
+
+[node name="Plant5" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=706226998 instance=ExtResource("4_isoef")]
+position = Vector2(880, 56.000004)
+rotation = -3.1415925
+scale = Vector2(0.53669304, 0.44023514)
+
+[node name="Plant6" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=359541882 instance=ExtResource("9_bbqo6")]
+position = Vector2(1096, 184)
+rotation = -1.5707964
+scale = Vector2(0.4620748, 0.38381615)
+
+[node name="Plant7" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1988283475 instance=ExtResource("4_isoef")]
+position = Vector2(64, 344)
+rotation = 1.5707964
+scale = Vector2(0.5093937, 0.42385557)
+
+[node name="Plant8" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1767132396 instance=ExtResource("4_isoef")]
+position = Vector2(976, 616)
+scale = Vector2(0.553125, 0.39687496)
 
 [node name="PointLight2D" type="PointLight2D" parent="SubViewportContainer/SubViewport" unique_id=357569036]
 unique_name_in_owner = true
@@ -408,59 +483,32 @@ color = Color(1, 1, 0, 1)
 energy = 2.5
 texture = SubResource("GradientTexture2D_avebp")
 
-[node name="Plant1" parent="SubViewportContainer/SubViewport" unique_id=1510706641 instance=ExtResource("3_247la")]
-position = Vector2(720, 616)
-scale = Vector2(0.7249999, 0.6781249)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=903212442]
 environment = SubResource("Environment_avebp")
 
 [node name="Darken Background" type="CanvasModulate" parent="SubViewportContainer/SubViewport" unique_id=1110134341]
 color = Color(0.35, 0.35, 0.35, 1)
 
-[node name="Title" type="Label" parent="." unique_id=1567489430]
-layout_mode = 1
+[node name="Title" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1567489430]
 anchors_preset = -1
-anchor_left = 0.646
-anchor_top = 0.531
-anchor_right = 0.646
-anchor_bottom = 0.531
-offset_left = -584.192
-offset_top = -224.08801
-offset_right = 602.808
-offset_bottom = 188.91199
+anchor_left = 0.514
+anchor_top = 0.50600004
+anchor_right = 0.514
+anchor_bottom = 0.50600004
+offset_left = -432.128
+offset_top = -223.88803
+offset_right = 399.87195
+offset_bottom = 190.11197
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 150
-text = "Something
-Fishy"
+theme_override_constants/line_spacing = -50
+theme_override_fonts/font = ExtResource("7_isoef")
+theme_override_font_sizes/font_size = 180
+text = "Something Fishy..."
+autowrap_mode = 2
 
-[node name="Button" type="Button" parent="." unique_id=1660611577]
-self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
-light_mask = 0
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.84400004
-anchor_top = 0.76500005
-anchor_right = 0.84400004
-anchor_bottom = 0.76500005
-offset_left = -52.288025
-offset_top = -15.720032
-offset_right = 51.711975
-offset_bottom = 16.279968
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_x7s40")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_xn6kt")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_isoef")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_qgo02")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vovv2")
-text = "Continue"
-
-[node name="Button2" type="Button" parent="." unique_id=1642553999]
-self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
-light_mask = 0
-layout_mode = 1
+[node name="Button" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1642553999]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
 anchors_preset = -1
 anchor_left = 0.82600003
 anchor_top = 0.716
@@ -478,11 +526,32 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_247la")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_kiqgm")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hj162")
 text = "Start New Game"
+alignment = 2
 
-[node name="Button3" type="Button" parent="." unique_id=1842360940]
-self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
+[node name="Button2" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1660611577]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+anchors_preset = -1
+anchor_left = 0.84400004
+anchor_top = 0.76500005
+anchor_right = 0.84400004
+anchor_bottom = 0.76500005
+offset_left = -52.288025
+offset_top = -15.720032
+offset_right = 51.711975
+offset_bottom = 16.279968
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x7s40")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xn6kt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_isoef")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qgo02")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vovv2")
+text = "Continue"
+alignment = 2
+
+[node name="Button3" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1842360940]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
 light_mask = 0
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.84400004
 anchor_top = 0.81500006
@@ -494,11 +563,14 @@ offset_right = 48.25592
 offset_bottom = 15.879944
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_hover_color = Color(1.2852538, 1.2852538, 1.2852538, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_27h4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1k4da")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_gdhp0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbqo6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d4hu8")
 text = "Reset Data"
+alignment = 2
 
-[connection signal="pressed" from="Button" to="." method="continue_pressed"]
-[connection signal="pressed" from="Button2" to="." method="new_game_pressed"]
-[connection signal="pressed" from="Button3" to="." method="reset_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Button" to="." method="new_game_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Button2" to="." method="continue_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Button3" to="." method="reset_pressed"]
