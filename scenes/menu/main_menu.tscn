@@ -45,11 +45,20 @@ void fragment() {
     COLOR = mix(screen_color, water_tint, water_tint.a);
 }"
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iavi8"]
+noise_type = 0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g35mx"]
+noise = SubResource("FastNoiseLite_iavi8")
+seamless = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bbqo6"]
 shader = SubResource("Shader_1k4da")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_g35mx")
 shader_parameter/scroll_speed = Vector2(0.05, 0.08)
 shader_parameter/noise_scale = 3.0
-shader_parameter/distortion_strength = 0.005
+shader_parameter/distortion_strength = 0.010000000475
 shader_parameter/water_tint = Color(0.077999994, 0.17159997, 0.39, 0.65882355)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vovv2"]
