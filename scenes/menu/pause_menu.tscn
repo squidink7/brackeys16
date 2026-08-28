@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="1_n54lc"]
 [ext_resource type="Script" uid="uid://byxwrdo6ym7l2" path="res://scenes/menu/pause_menu.gd" id="1_ux7g8"]
+[ext_resource type="FontFile" uid="uid://bsmrxywnqyes2" path="res://assets/NewRocker-Regular.ttf" id="3_eb3yi"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="3_rdkub"]
 [ext_resource type="Texture2D" uid="uid://dj3w1aecfvov1" path="res://assets/textures/Mossy Tileset/Mossy - TileSet.png" id="4_eb3yi"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="5_a7btn"]
@@ -13,6 +14,22 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ux7g8"]
 shader = ExtResource("1_n54lc")
 shader_parameter/blur_amount = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1k4da"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbqo6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4hu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1nwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prbor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27h4x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdhp0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d2ur"]
 texture = ExtResource("4_eb3yi")
@@ -382,21 +399,22 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Label" type="Label" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1089318354]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.439
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = -22.5
-offset_right = 62.0
-offset_bottom = 22.5
+anchor_bottom = 0.439
+offset_left = -364.5
+offset_top = -79.472015
+offset_right = 364.5
+offset_bottom = 79.527985
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "PAUSED"
+theme_override_fonts/font = ExtResource("3_eb3yi")
+theme_override_font_sizes/font_size = 128
+text = "Game Paused"
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=740864933]
+[node name="Button" type="Button" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=740864933]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -408,6 +426,13 @@ offset_right = 160.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_eb3yi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vovv2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1k4da")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bbqo6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d4hu8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1nwe")
 text = "RESUME"
 
 [node name="Button2" type="Button" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1368022289]
@@ -422,6 +447,11 @@ offset_right = 160.0
 offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_eb3yi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prbor")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_27h4x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gdhp0")
 text = "MAIN MENU"
 
 [node name="Background Plants" type="CanvasGroup" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1804655803]
@@ -451,7 +481,7 @@ collision_enabled = false
 
 [node name="PointLight2D" type="PointLight2D" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1739414818]
 unique_name_in_owner = true
-position = Vector2(672, 400)
+position = Vector2(677, 324)
 scale = Vector2(2.8749998, 2.7500005)
 color = Color(1, 1, 0, 1)
 energy = 2.5
