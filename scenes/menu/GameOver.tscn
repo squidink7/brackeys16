@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dacqn3cbus0sn"]
+
+[ext_resource type="Script" uid="uid://xoyqdnl4qc8n" path="res://scenes/menu/game_over.gd" id="1_6fdmy"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=1248405987]
+script = ExtResource("1_6fdmy")
+
+[node name="Control" type="Control" parent="." unique_id=747292001]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1147.0
+offset_bottom = 646.0
+
+[node name="Label" type="Label" parent="Control" unique_id=316896418]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 153.0
+offset_right = 775.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+
+[node name="Button" type="Button" parent="Control" unique_id=932906455]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 318.0
+offset_right = 632.0
+offset_bottom = 395.0
+text = "Restart
+"
+
+[node name="Button2" type="Button" parent="Control" unique_id=970799954]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 433.0
+offset_right = 629.0
+offset_bottom = 510.0
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="Control/Button" to="." method="resume"]
+[connection signal="pressed" from="Control/Button2" to="." method="exit"]

@@ -18,9 +18,7 @@ func _physics_process(delta: float) -> void:
 	
 	apply_central_force(get_brain().move(self, delta) * speed)
 
-func kill() -> void:
-	if get_brain():
-		get_brain().died(self)
+
 
 func take_damage(damage:int) -> void:
 	pass
