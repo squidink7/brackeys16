@@ -58,10 +58,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=911662508]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
+size_2d_override = Vector2i(1152, 648)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Background" type="CanvasGroup" parent="SubViewportContainer/SubViewport" unique_id=440634607]
@@ -116,7 +120,7 @@ text = "Something
 Fishy"
 
 [node name="Button" type="Button" parent="." unique_id=1660611577]
-self_modulate = Color(4.415934, 4.415934, 4.415934, 1)
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
 light_mask = 0
 layout_mode = 1
 anchors_preset = -1
@@ -138,7 +142,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vovv2")
 text = "Continue"
 
 [node name="Button2" type="Button" parent="." unique_id=1642553999]
-modulate = Color(4.415934, 4.415934, 4.415934, 1)
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
 light_mask = 0
 layout_mode = 1
 anchors_preset = -1
@@ -160,7 +164,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hj162")
 text = "Start New Game"
 
 [node name="Button3" type="Button" parent="." unique_id=1842360940]
-modulate = Color(4.415934, 4.415934, 4.415934, 1)
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
 light_mask = 0
 layout_mode = 1
 anchors_preset = -1
