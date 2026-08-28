@@ -1,6 +1,46 @@
-[gd_scene format=3 uid="uid://doew7nnvltgbb"]
+[gd_scene format=4 uid="uid://doew7nnvltgbb"]
 
 [ext_resource type="Script" uid="uid://q3l8rxemf1er" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
+[ext_resource type="TileSet" uid="uid://cqkwsmhn4nkii" path="res://assets/tilesets/CollisionMap.tres" id="2_3rkf3"]
+[ext_resource type="PackedScene" uid="uid://cxkfmfs18ntsl" path="res://scenes/decor/plants/grass1.tscn" id="3_247la"]
+
+[sub_resource type="Gradient" id="Gradient_kiqgm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_avebp"]
+gradient = SubResource("Gradient_kiqgm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Environment" id="Environment_avebp"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7s40"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn6kt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isoef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgo02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_monte"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rkf3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_247la"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kiqgm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj162"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27h4x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdhp0"]
 
 [node name="MainMenu" type="Control" unique_id=849427100]
 layout_mode = 3
@@ -11,65 +51,133 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nl8w3")
 
-[node name="Title" type="Label" parent="." unique_id=1567489430]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1870859778]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Brackeys16 Fish Game"
-
-[node name="Button" type="Button" parent="." unique_id=1660611577]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = 44.0
-offset_right = 64.0
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "continue"
-
-[node name="Button2" type="Button" parent="." unique_id=1642553999]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = 84.0
-offset_right = 64.0
-offset_bottom = 115.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "new game"
-
-[node name="Button3" type="Button" parent="." unique_id=1842360940]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -48.0
-offset_right = -16.0
-offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=911662508]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Background" type="CanvasGroup" parent="SubViewportContainer/SubViewport" unique_id=440634607]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Background" unique_id=1317314288]
+position = Vector2(-50, -50)
+tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAA=")
+tile_set = ExtResource("2_3rkf3")
+collision_enabled = false
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="SubViewportContainer/SubViewport/Background" unique_id=1193841381]
+position = Vector2(1200, 736)
+rotation = 3.1415925
+tile_map_data = PackedByteArray("AAD7/xQAAQACAAEAAAD7/zQAAQACAAIAAAD7//T/AQACAAAAAAAiAPv/AQABAAIAAAACAPv/AQAAAAIAAABCAPv/AQACAAIAAAA=")
+tile_set = ExtResource("2_3rkf3")
+occlusion_enabled = false
+collision_enabled = false
+
+[node name="PointLight2D" type="PointLight2D" parent="SubViewportContainer/SubViewport" unique_id=357569036]
+unique_name_in_owner = true
+position = Vector2(672, 400)
+scale = Vector2(2.8749998, 2.7500005)
+color = Color(1, 1, 0, 1)
+energy = 2.5
+texture = SubResource("GradientTexture2D_avebp")
+
+[node name="Plant1" parent="SubViewportContainer/SubViewport" unique_id=1510706641 instance=ExtResource("3_247la")]
+position = Vector2(720, 616)
+scale = Vector2(0.7249999, 0.6781249)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=903212442]
+environment = SubResource("Environment_avebp")
+
+[node name="Darken Background" type="CanvasModulate" parent="SubViewportContainer/SubViewport" unique_id=1110134341]
+color = Color(0.35, 0.35, 0.35, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1567489430]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646
+anchor_top = 0.531
+anchor_right = 0.646
+anchor_bottom = 0.531
+offset_left = -584.192
+offset_top = -224.08801
+offset_right = 602.808
+offset_bottom = 188.91199
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "Something
+Fishy"
+
+[node name="Button" type="Button" parent="." unique_id=1660611577]
+self_modulate = Color(4.415934, 4.415934, 4.415934, 1)
+light_mask = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84400004
+anchor_top = 0.76500005
+anchor_right = 0.84400004
+anchor_bottom = 0.76500005
+offset_left = -52.288025
+offset_top = -15.720032
+offset_right = 51.711975
+offset_bottom = 16.279968
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x7s40")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xn6kt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_isoef")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qgo02")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vovv2")
+text = "Continue"
+
+[node name="Button2" type="Button" parent="." unique_id=1642553999]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+light_mask = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.82600003
+anchor_top = 0.716
+anchor_right = 0.82600003
+anchor_bottom = 0.716
+offset_left = -71.55206
+offset_top = -15.968018
+offset_right = 72.44794
+offset_bottom = 16.031982
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_monte")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3rkf3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_247la")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kiqgm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hj162")
+text = "Start New Game"
+
+[node name="Button3" type="Button" parent="." unique_id=1842360940]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+light_mask = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84400004
+anchor_top = 0.81500006
+anchor_right = 0.84700006
+anchor_bottom = 0.81500006
+offset_left = -52.288025
+offset_top = -16.120056
+offset_right = 48.25592
+offset_bottom = 15.879944
 grow_horizontal = 0
 grow_vertical = 0
-text = "reset data"
+theme_override_colors/font_hover_color = Color(1.2852538, 1.2852538, 1.2852538, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_27h4x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gdhp0")
+text = "Reset Data"
 
 [connection signal="pressed" from="Button" to="." method="continue_pressed"]
 [connection signal="pressed" from="Button2" to="." method="new_game_pressed"]

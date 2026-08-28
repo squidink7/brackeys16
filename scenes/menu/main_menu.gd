@@ -21,3 +21,6 @@ func play_pressed() -> void:
 
 func reset_pressed() -> void:
 	%SaveData.delete_data()
+
+func _process(delta): 
+	%PointLight2D.global_position = get_viewport().get_mouse_position()
