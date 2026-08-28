@@ -65,7 +65,6 @@ position = Vector2(2101, -75)
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=1173495694 instance=ExtResource("9_1yooq")]
 position = Vector2(1652, 1383)
-level = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint" unique_id=1249733149]
 position = Vector2(-0.5, 19.5)
@@ -73,14 +72,14 @@ shape = SubResource("RectangleShape2D_wt5ax")
 
 [node name="Checkpoint2" parent="Checkpoints" unique_id=1739424503 instance=ExtResource("9_1yooq")]
 position = Vector2(8288, 2638)
-level = 2
+level = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2" unique_id=244640405]
 shape = SubResource("RectangleShape2D_1yooq")
 
 [node name="Checkpoint3" parent="Checkpoints" unique_id=501470377 instance=ExtResource("9_1yooq")]
 position = Vector2(15087, 9749)
-level = 3
+level = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3" unique_id=1125503407]
 position = Vector2(-3, 0.5)
@@ -88,7 +87,7 @@ shape = SubResource("RectangleShape2D_gb53w")
 
 [node name="Checkpoint4" parent="Checkpoints" unique_id=1819135704 instance=ExtResource("9_1yooq")]
 position = Vector2(18516, 12900)
-level = 4
+level = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4" unique_id=732910005]
 position = Vector2(1, 1.5)

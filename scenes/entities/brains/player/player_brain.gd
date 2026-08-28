@@ -24,3 +24,8 @@ func set_light(on: bool) -> void:
 
 func set_checkpoint(cp: Checkpoint) -> void:
 	last_checkpoint = cp
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("game_pause"):
+		$PauseMenu.visible = !get_tree().paused
+		get_tree().paused = !get_tree().paused
