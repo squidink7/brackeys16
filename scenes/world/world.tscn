@@ -36,18 +36,19 @@ script = ExtResource("1_sl2e5")
 [node name="Levels" type="Node2D" parent="." unique_id=924673930]
 
 [node name="Level1" parent="Levels" unique_id=151000013 instance=ExtResource("2_6m72w")]
+position = Vector2(-58, 0)
 
 [node name="Level2" parent="Levels" unique_id=1471474625 instance=ExtResource("6_bq33v")]
 position = Vector2(1128, 3080)
 
-[node name="Level3" parent="Levels" unique_id=1489467403 instance=ExtResource("7_j2gmx")]
-position = Vector2(8496, 3224)
+[node name="Level3" parent="." unique_id=1489467403 instance=ExtResource("7_j2gmx")]
+position = Vector2(8212, 3331)
 
-[node name="Level4" parent="Levels" unique_id=158575735 instance=ExtResource("8_1yooq")]
-position = Vector2(14576, 9984)
+[node name="Level4" parent="." unique_id=158575735 instance=ExtResource("8_1yooq")]
+position = Vector2(14404, 10113)
 
-[node name="Level5" parent="Levels" unique_id=750222323 instance=ExtResource("9_gb53w")]
-position = Vector2(18488, 11928)
+[node name="Level5" parent="." unique_id=750222323 instance=ExtResource("9_gb53w")]
+position = Vector2(18324, 12061)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=764757781]
 visible = false
