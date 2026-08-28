@@ -6,6 +6,23 @@
 [ext_resource type="Texture2D" uid="uid://fhd0ldpiiobm" path="res://assets/models/submarine/sub3.png" id="4_edkew"]
 [ext_resource type="Texture2D" uid="uid://baylu8toakut1" path="res://assets/models/submarine/sub_glowing_window.png" id="5_k16x5"]
 
+[sub_resource type="Gradient" id="Gradient_edkew"]
+offsets = PackedFloat32Array(0, 0.67016816, 0.88653547, 0.94416696, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xp67s"]
+gradient = SubResource("Gradient_edkew")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_irrs2"]
+offsets = PackedFloat32Array(0, 0.824439, 1)
+colors = PackedColorArray(0, 0.5231397, 1, 1, 0, 0.49665892, 0.94938105, 0.94938105, 0, 0, 0, 0)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geaiy"]
 radius = 16.0
 height = 96.0
@@ -20,13 +37,24 @@ fill_from = Vector2(0, 1)
 metadata/_snap_enabled = true
 
 [node name="Submarine" type="RigidBody2D" unique_id=550745919]
-mass = 10.0
+mass = 5.0
 lock_rotation = true
 linear_damp = 2.0
 script = ExtResource("1_j6bxv")
 speed = 1500.0
 
 [node name="Visuals" type="Node2D" parent="." unique_id=751613624]
+
+[node name="Bubbles" type="CPUParticles2D" parent="Visuals" unique_id=1760156701]
+position = Vector2(-40, 8)
+emitting = false
+texture = SubResource("GradientTexture2D_xp67s")
+direction = Vector2(-1, 0)
+gravity = Vector2(0, -50)
+initial_velocity_min = 50.0
+initial_velocity_max = 80.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_irrs2")
 
 [node name="Sprites" type="Node2D" parent="Visuals" unique_id=706908541]
 

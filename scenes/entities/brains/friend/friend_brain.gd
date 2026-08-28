@@ -63,4 +63,9 @@ func on_screen_exit() -> void:
 func on_seen(body: Node2D) -> void:
 	if body is Entity and body.get_brain() is PlayerBrain:
 		seen = true
-		$Navigation.target_position = Vector2.ZERO
+		
+		if get_node_or_null("/root/Main/Game/WorldEnd") is Node2D:
+			$Navigation.target_position = $/root/Main/Game/WorldEnd.global_position
+		else:
+			print("Cannot find world end")
+			$Navigation.target_position = Vector2.ZERO

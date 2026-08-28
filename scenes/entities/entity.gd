@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 
 
 
-func take_damage(damage:int) -> void:
+func take_damage(_damage: float) -> void:
 	pass
 
 func reset(new_position: Vector2) -> void:
