@@ -23,10 +23,6 @@ metadata/_snap_enabled = true
 offsets = PackedFloat32Array(0, 0.824439, 1)
 colors = PackedColorArray(0, 0.5231397, 1, 1, 0, 0.49665892, 0.94938105, 0.94938105, 0, 0, 0, 0)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geaiy"]
-radius = 16.0
-height = 96.0
-
 [sub_resource type="Gradient" id="Gradient_xp67s"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.47368422, 0.4868421)
@@ -35,6 +31,10 @@ offsets = PackedFloat32Array(0.47368422, 0.4868421)
 gradient = SubResource("Gradient_xp67s")
 fill_from = Vector2(0, 1)
 metadata/_snap_enabled = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geaiy"]
+radius = 16.0
+height = 96.0
 
 [node name="Submarine" type="RigidBody2D" unique_id=550745919]
 mass = 5.0
@@ -76,14 +76,14 @@ self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
 scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("5_k16x5")
 
+[node name="PointLight2D" type="PointLight2D" parent="Visuals" unique_id=338667030]
+modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.9529412)
+position = Vector2(113, 21)
+rotation = -0.10106064
+scale = Vector2(1.8228781, 0.61780035)
+texture = SubResource("GradientTexture2D_edkew")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76476538]
 position = Vector2(8, 8)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_geaiy")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=338667030]
-modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.9529412)
-position = Vector2(113, 21)
-rotation = -0.10106063
-scale = Vector2(1.8228781, 0.61780035)
-texture = SubResource("GradientTexture2D_edkew")

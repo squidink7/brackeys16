@@ -26,7 +26,7 @@ func take_damage(damage: float) -> void:
 
 func update_light():
 	$Visuals/SubGlowingWindow.modulate.v = energy / max_energy
-	$PointLight2D.modulate.v = energy / max_energy
+	$Visuals/PointLight2D.modulate.v = energy / max_energy
 
 func add_energy(amount: int) -> void:
 	energy = min(energy + amount, max_energy)
