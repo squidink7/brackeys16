@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://42khcpau4yh3" path="res://scenes/entities/brains/player/player_brain.gd" id="1_hk3yk"]
 [ext_resource type="PackedScene" uid="uid://cxfmum0kd2l4x" path="res://scenes/menu/pause_menu.tscn" id="2_r2cya"]
 [ext_resource type="PackedScene" uid="uid://dacqn3cbus0sn" path="res://scenes/menu/GameOver.tscn" id="3_cr8le"]
+[ext_resource type="Shader" uid="uid://div4ytnkkb8n8" path="res://shaders/ripple.gdshader" id="4_g35mx"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
 offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
@@ -15,6 +16,22 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 8
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iavi8"]
+noise_type = 0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g35mx"]
+noise = SubResource("FastNoiseLite_iavi8")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iavi8"]
+shader = ExtResource("4_g35mx")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_g35mx")
+shader_parameter/scroll_speed = Vector2(0.05, 0.08)
+shader_parameter/noise_scale = 2.00000007125
+shader_parameter/distortion_strength = 0.0030000001425
+shader_parameter/water_tint = Color(0.75, 0.85, 1, 0.02)
 
 [node name="PlayerBrain" type="Node2D" unique_id=805582152]
 process_mode = 3
@@ -38,5 +55,15 @@ visible = false
 
 [node name="GameOver" parent="." unique_id=1248405987 instance=ExtResource("3_cr8le")]
 visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=953975981]
+
+[node name="RippleShader" type="ColorRect" parent="CanvasLayer" unique_id=828913702]
+material = SubResource("ShaderMaterial_iavi8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="reset" from="GameOver" to="." method="died"]

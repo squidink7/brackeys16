@@ -44,6 +44,9 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 agent_radius = 50.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt5ax"]
+size = Vector2(637, 1059)
+
 [node name="Level5" type="Node2D" unique_id=750222323]
 
 [node name="LevelObject" type="Node2D" parent="." unique_id=2066105930]
@@ -411,3 +414,19 @@ texture = ExtResource("15_v4xar")
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=631911069]
 color = Color(0.46456856, 0.53752714, 0.8527969, 1)
+
+[node name="EndSequence" type="Node2D" parent="." unique_id=1875145546]
+
+[node name="EndArea" type="Area2D" parent="EndSequence" unique_id=1310547798]
+position = Vector2(8399, 1064)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/EndArea" unique_id=84471481]
+position = Vector2(43.5, -1.5)
+shape = SubResource("RectangleShape2D_wt5ax")
+
+[node name="AmbushArea" type="Area2D" parent="EndSequence" unique_id=245544651]
+position = Vector2(6098, 1005)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/AmbushArea" unique_id=1654784531]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_wt5ax")
