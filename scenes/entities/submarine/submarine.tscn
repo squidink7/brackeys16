@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dxmfkqej44y11"]
 
 [ext_resource type="Script" uid="uid://bbs2w3ogj4nv8" path="res://scenes/entities/submarine/submarine.gd" id="1_j6bxv"]
-[ext_resource type="Texture2D" uid="uid://dcfpwo5hybcx" path="res://assets/models/submarine/sub1.png" id="2_xp67s"]
-[ext_resource type="Texture2D" uid="uid://dilrrjusoxor7" path="res://assets/models/submarine/sub2.png" id="3_irrs2"]
-[ext_resource type="Texture2D" uid="uid://fhd0ldpiiobm" path="res://assets/models/submarine/sub3.png" id="4_edkew"]
+[ext_resource type="Texture2D" uid="uid://nuq1siw2hlct" path="res://assets/models/submarine/subm1.png" id="2_xp67s"]
+[ext_resource type="Texture2D" uid="uid://bej0lp0eg3cx3" path="res://assets/models/submarine/subm2.png" id="3_irrs2"]
+[ext_resource type="Texture2D" uid="uid://v81ted1atu85" path="res://assets/models/submarine/subm3.png" id="4_edkew"]
 [ext_resource type="Texture2D" uid="uid://baylu8toakut1" path="res://assets/models/submarine/sub_glowing_window.png" id="5_k16x5"]
 
 [sub_resource type="Gradient" id="Gradient_edkew"]
