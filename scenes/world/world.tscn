@@ -58,7 +58,7 @@ color = Color(0.11803245, 0.14740784, 0.33509827, 1)
 environment = SubResource("Environment_mxkvs")
 
 [node name="Player" parent="." unique_id=550745919 instance=ExtResource("6_t5ptc")]
-position = Vector2(2101, -75)
+position = Vector2(2101, -311)
 
 [node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
 

@@ -37,3 +37,6 @@ texture_scale = 5.0
 visible = false
 
 [node name="GameOver" parent="." unique_id=1248405987 instance=ExtResource("3_cr8le")]
+visible = false
+
+[connection signal="reset" from="GameOver" to="." method="died"]
