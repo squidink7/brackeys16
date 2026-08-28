@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk8wuke0lrolt"]
 
 [ext_resource type="Script" uid="uid://dgqornu4ttjy4" path="res://scenes/entities/entity.gd" id="1_x1t6o"]
+[ext_resource type="Texture2D" uid="uid://c3m22131das1i" path="res://assets/textures/light_texture.svg" id="2_hd1st"]
 [ext_resource type="Texture2D" uid="uid://dl8kqd1542e81" path="res://assets/models/fishes/5staticfish/statfish1.png" id="2_uwnf1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
@@ -13,6 +14,12 @@ linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_x1t6o")
 speed = 200.0
+
+[node name="LightTexture" type="Sprite2D" parent="." unique_id=207526722]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+position = Vector2(-6, 2)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_hd1st")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
 shape = SubResource("CircleShape2D_wt5ax")

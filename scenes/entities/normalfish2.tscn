@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0teweu4hmfsi"]
 
 [ext_resource type="Script" uid="uid://dgqornu4ttjy4" path="res://scenes/entities/entity.gd" id="1_5e8s2"]
+[ext_resource type="Texture2D" uid="uid://c3m22131das1i" path="res://assets/textures/light_texture.svg" id="2_qstoo"]
 [ext_resource type="Texture2D" uid="uid://biustnvcjpw1u" path="res://assets/models/fishes/4normf2/normalf2_b.png" id="3_qstoo"]
 [ext_resource type="Texture2D" uid="uid://b2r3oba2gyph7" path="res://assets/models/fishes/4normf2/normalf2_h.png" id="4_5e8s2"]
 
@@ -17,6 +18,12 @@ linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_5e8s2")
 speed = 200.0
+
+[node name="LightTexture" type="Sprite2D" parent="." unique_id=1360792916]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+position = Vector2(2, -3)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_qstoo")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
 shape = SubResource("CircleShape2D_wt5ax")

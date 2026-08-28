@@ -357,10 +357,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="Environment" id="Environment_i4h4x"]
-background_mode = 3
-glow_enabled = true
-
 [node name="PauseMenu" type="CanvasLayer" unique_id=417342657]
 script = ExtResource("1_ux7g8")
 
@@ -486,9 +482,6 @@ scale = Vector2(2.8749998, 2.7500005)
 color = Color(1, 1, 0, 1)
 energy = 2.5
 texture = SubResource("GradientTexture2D_pxr7b")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=455248406]
-environment = SubResource("Environment_i4h4x")
 
 [node name="Darken Background" type="CanvasModulate" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1990295405]
 color = Color(0.35, 0.35, 0.35, 1)

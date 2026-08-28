@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://42khcpau4yh3" path="res://scenes/entities/brains/player/player_brain.gd" id="1_hk3yk"]
 [ext_resource type="PackedScene" uid="uid://cxfmum0kd2l4x" path="res://scenes/menu/pause_menu.tscn" id="2_r2cya"]
-[ext_resource type="PackedScene" uid="uid://dacqn3cbus0sn" path="res://scenes/menu/GameOver.tscn" id="3_cr8le"]
+[ext_resource type="PackedScene" uid="uid://dacqn3cbus0sn" path="res://scenes/menu/game_over.tscn" id="3_cr8le"]
 [ext_resource type="Shader" uid="uid://div4ytnkkb8n8" path="res://shaders/ripple.gdshader" id="4_g35mx"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
@@ -51,9 +51,11 @@ texture = SubResource("GradientTexture2D_2m7xf")
 texture_scale = 5.0
 
 [node name="PauseMenu" parent="." unique_id=1314057822 instance=ExtResource("2_r2cya")]
+layer = 5
 visible = false
 
 [node name="GameOver" parent="." unique_id=1248405987 instance=ExtResource("3_cr8le")]
+layer = 4
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=953975981]

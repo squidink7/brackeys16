@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="13_bc2wf"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="14_v4xar"]
 [ext_resource type="Texture2D" uid="uid://0l3r1626fec2" path="res://assets/textures/black_background.jpg" id="15_v4xar"]
+[ext_resource type="Script" uid="uid://be2pkwed6f81m" path="res://scenes/world/levels/level5/end_sequence.gd" id="16_as488"]
+[ext_resource type="PackedScene" uid="uid://6laauge5rn4p" path="res://scenes/entities/anglerfish.tscn" id="17_caq7s"]
+[ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="18_6lp7l"]
+[ext_resource type="PackedScene" uid="uid://c0teweu4hmfsi" path="res://scenes/entities/normalfish2.tscn" id="19_i38ar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23o0u"]
 shader = ExtResource("2_oeykw")
@@ -45,7 +49,120 @@ source_geometry_group_name = &"navigation"
 agent_radius = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt5ax"]
-size = Vector2(637, 1059)
+size = Vector2(143, 556)
+
+[sub_resource type="Animation" id="Animation_ecpym"]
+resource_name = "HideExit"
+length = 0.5
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../EndSequence/ExitBlock/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../EndSequence/AmbushEntities:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../EndSequence/AmbushEntities:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_as488"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../EndSequence/ExitBlock/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../EndSequence/AmbushEntities:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../EndSequence/AmbushEntities:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as488"]
+_data = {
+&"HideExit": SubResource("Animation_ecpym"),
+&"RESET": SubResource("Animation_as488")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
+size = Vector2(147, 398)
 
 [node name="Level5" type="Node2D" unique_id=750222323]
 
@@ -57,6 +174,7 @@ tile_map_data = PackedByteArray("AAAUAAcAAQAAAAAAAAATAAAAAQABAAIAAAASAAAAAQABAAI
 tile_set = ExtResource("1_ywet4")
 
 [node name="ToggleableTilemap" type="TileMapLayer" parent="LevelObject" unique_id=1439828197]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 scale = Vector2(0.2, 0.2)
 tile_map_data = PackedByteArray("AABWAAoAAQAAAAEAAABWAAkAAQAAAAEAAABWAAsAAQAAAAEAAABXAAkAAQABAAEAAABXAAoAAQABAAEAAABYAAoAAQABAAEAAABYAAsAAQABAAEAAABZAAsAAQABAAEAAABXAAsAAQABAAEAAABZAAoAAQABAAEAAABaAAoAAQABAAEAAABZAAkAAQABAAEAAABZAAgAAQABAAEAAABYAAgAAQABAAEAAABYAAkAAQABAAEAAABaAAgAAQABAAEAAABbAAgAAQABAAEAAABcAAgAAQABAAEAAABdAAgAAQABAAEAAABdAAkAAQABAAEAAABcAAkAAQABAAEAAABbAAkAAQABAAEAAABaAAkAAQABAAEAAABaAAsAAQABAAEAAABbAAsAAQABAAEAAABbAAoAAQABAAEAAABcAAoAAQABAAEAAABdAAoAAQABAAEAAABeAAoAAQABAAEAAABeAAkAAQABAAEAAABeAAgAAQABAAEAAABdAAcAAQABAAEAAABcAAcAAQABAAEAAABeAAcAAQABAAEAAABfAAgAAQABAAEAAABfAAkAAQABAAEAAABfAAcAAQABAAEAAABgAAcAAQABAAEAAABgAAgAAQABAAEAAABgAAkAAQABAAEAAABhAAkAAQABAAEAAABhAAgAAQABAAEAAABiAAgAAQABAAEAAABiAAcAAQABAAEAAABhAAcAAQABAAEAAABiAAkAAQABAAEAAAA=")
@@ -425,17 +543,105 @@ visible = false
 color = Color(0.46456856, 0.53752714, 0.8527969, 1)
 
 [node name="EndSequence" type="Node2D" parent="." unique_id=1875145546]
+script = ExtResource("16_as488")
 
 [node name="EndArea" type="Area2D" parent="EndSequence" unique_id=1310547798]
-position = Vector2(8399, 1064)
+position = Vector2(8693, 1074)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/EndArea" unique_id=84471481]
-position = Vector2(43.5, -1.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_wt5ax")
 
 [node name="AmbushArea" type="Area2D" parent="EndSequence" unique_id=245544651]
-position = Vector2(6098, 1005)
+position = Vector2(7991, 1082)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/AmbushArea" unique_id=1654784531]
-position = Vector2(0, -0.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wt5ax")
+
+[node name="ExitAnimation" type="AnimationPlayer" parent="EndSequence" unique_id=1314133698]
+root_node = NodePath("../../LevelObject/ToggleableTilemap")
+libraries/ = SubResource("AnimationLibrary_as488")
+
+[node name="ExitBlock" type="StaticBody2D" parent="EndSequence" unique_id=1776614372]
+position = Vector2(8898, 1063)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/ExitBlock" unique_id=997505582]
+position = Vector2(0.5, 0)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_mqj7i")
+disabled = true
+
+[node name="AmbushEntities" type="Node2D" parent="EndSequence" unique_id=266249501]
+process_mode = 4
+visible = false
+position = Vector2(7383, 1052)
+
+[node name="Anglerfish" parent="EndSequence/AmbushEntities" unique_id=1292844991 instance=ExtResource("17_caq7s")]
+position = Vector2(64, -80)
+
+[node name="Anglerfish2" parent="EndSequence/AmbushEntities" unique_id=1449735026 instance=ExtResource("17_caq7s")]
+position = Vector2(64, 90)
+
+[node name="Anglerfish3" parent="EndSequence/AmbushEntities" unique_id=572151348 instance=ExtResource("17_caq7s")]
+position = Vector2(115, -38)
+
+[node name="Anglerfish9" parent="EndSequence/AmbushEntities" unique_id=1661338419 instance=ExtResource("17_caq7s")]
+position = Vector2(2, 135)
+
+[node name="Anglerfish5" parent="EndSequence/AmbushEntities" unique_id=522231861 instance=ExtResource("17_caq7s")]
+position = Vector2(125, 40)
+
+[node name="Anglerfish6" parent="EndSequence/AmbushEntities" unique_id=1900057378 instance=ExtResource("17_caq7s")]
+position = Vector2(125, 133)
+
+[node name="Anglerfish7" parent="EndSequence/AmbushEntities" unique_id=308821364 instance=ExtResource("17_caq7s")]
+position = Vector2(175, -105)
+
+[node name="Anglerfish8" parent="EndSequence/AmbushEntities" unique_id=266991239 instance=ExtResource("17_caq7s")]
+position = Vector2(24, 12)
+
+[node name="Anglerfish4" parent="EndSequence/AmbushEntities" unique_id=525211833 instance=ExtResource("17_caq7s")]
+position = Vector2(0, 65)
+
+[node name="NormalFish1" parent="EndSequence/AmbushEntities" unique_id=1984738179 instance=ExtResource("18_6lp7l")]
+position = Vector2(0, -58)
+
+[node name="NormalFish2" parent="EndSequence/AmbushEntities" unique_id=364211658 instance=ExtResource("18_6lp7l")]
+position = Vector2(175, 0)
+
+[node name="NormalFish4" parent="EndSequence/AmbushEntities" unique_id=1365923331 instance=ExtResource("18_6lp7l")]
+position = Vector2(-80, 59)
+
+[node name="NormalFish3" parent="EndSequence/AmbushEntities" unique_id=543203869 instance=ExtResource("18_6lp7l")]
+position = Vector2(175, 92)
+
+[node name="Normal Fish 2" parent="EndSequence/AmbushEntities" unique_id=1980207542 instance=ExtResource("19_i38ar")]
+position = Vector2(-40, 0)
+
+[node name="Normal Fish 7" parent="EndSequence/AmbushEntities" unique_id=405553909 instance=ExtResource("19_i38ar")]
+position = Vector2(2, -105)
+
+[node name="Normal Fish 8" parent="EndSequence/AmbushEntities" unique_id=936175070 instance=ExtResource("19_i38ar")]
+position = Vector2(-52, 107)
+
+[node name="Normal Fish 9" parent="EndSequence/AmbushEntities" unique_id=1781274852 instance=ExtResource("19_i38ar")]
+position = Vector2(-114, 152)
+
+[node name="Normal Fish 10" parent="EndSequence/AmbushEntities" unique_id=1101510663 instance=ExtResource("19_i38ar")]
+position = Vector2(197, -47)
+
+[node name="Normal Fish 3" parent="EndSequence/AmbushEntities" unique_id=1310036549 instance=ExtResource("19_i38ar")]
+position = Vector2(85, 2)
+
+[node name="Normal Fish 4" parent="EndSequence/AmbushEntities" unique_id=1691618771 instance=ExtResource("19_i38ar")]
+position = Vector2(42, -36)
+
+[node name="Normal Fish 5" parent="EndSequence/AmbushEntities" unique_id=2132515491 instance=ExtResource("19_i38ar")]
+position = Vector2(115, -105)
+
+[node name="Normal Fish 6" parent="EndSequence/AmbushEntities" unique_id=1876047770 instance=ExtResource("19_i38ar")]
+position = Vector2(64, 152)
+
+[connection signal="body_entered" from="EndSequence/EndArea" to="EndSequence" method="on_exit_area_entered"]

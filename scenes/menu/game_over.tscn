@@ -348,10 +348,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="Environment" id="Environment_1c0rl"]
-background_mode = 3
-glow_enabled = true
-
 [node name="GameOver" type="CanvasLayer" unique_id=1248405987]
 script = ExtResource("1_6fdmy")
 
@@ -459,9 +455,6 @@ scale = Vector2(2.8749998, 2.7500005)
 color = Color(1, 1, 0, 1)
 energy = 2.5
 texture = SubResource("GradientTexture2D_rxn4l")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1451956290]
-environment = SubResource("Environment_1c0rl")
 
 [node name="Darken Background" type="CanvasModulate" parent="SubViewportContainer/SubViewport" unique_id=678386020]
 color = Color(0.35, 0.35, 0.35, 1)
