@@ -20,14 +20,16 @@ func take_damage(damage: int) -> void:
 			get_brain().end_game()
 			
 		return	
-	modulate = Color.from_hsv(changed_color.h, changed_color.s, changed_color.v - 1, changed_color.a)
+	modulate = Color.from_hsv(changed_color.h, changed_color.s, changed_color.v - 0.01, changed_color.a)
 
 func add_energy(amount: int) -> void:
 	energy += amount
 
+func toggle_light():
+	pass
 func _physics_process(delta: float) -> void:
 	super(delta)
-
+	take_damage(0.000001)
 	var current_speed = abs(linear_velocity.x) / 64
 	frame += current_speed
 	while frame > frames_count:
