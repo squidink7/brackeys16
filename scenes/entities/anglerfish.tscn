@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://6laauge5rn4p"]
+
+[ext_resource type="Script" uid="uid://dgqornu4ttjy4" path="res://scenes/entities/entity.gd" id="1_y8cf8"]
+[ext_resource type="Texture2D" uid="uid://bfcpf5nu6dfhx" path="res://assets/models/fishes/2anglerf/anglerf_b.png" id="2_y8cf8"]
+[ext_resource type="Texture2D" uid="uid://cg5xw3vexwewf" path="res://assets/models/fishes/2anglerf/anglerf_h.png" id="3_58fwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibhg1"]
+radius = 8.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1292844991]
+mass = 5.0
+lock_rotation = true
+linear_damp = 3.0
+angular_damp = 3.0
+script = ExtResource("1_y8cf8")
+speed = 200.0
+
+[node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
+shape = SubResource("CircleShape2D_wt5ax")
+
+[node name="Neck" type="PinJoint2D" parent="." unique_id=800580869]
+scale = Vector2(1.25, 1.25)
+node_a = NodePath("..")
+node_b = NodePath("../Segment1")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = -0.61086524
+angular_limit_upper = 0.61086524
+
+[node name="Segment1" type="RigidBody2D" parent="." unique_id=4537708]
+position = Vector2(-40, 0)
+collision_layer = 0
+collision_mask = 0
+angular_damp = 5.0
+
+[node name="Body2" type="CollisionShape2D" parent="Segment1" unique_id=820629842]
+position = Vector2(30, 2)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_ibhg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Segment1" unique_id=1696218758]
+position = Vector2(23.000002, -1.999999)
+rotation = -0.10646509
+scale = Vector2(0.039702408, 0.03915831)
+texture = ExtResource("2_y8cf8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
+position = Vector2(2.3841858e-07, -3)
+scale = Vector2(0.05749885, 0.05808158)
+texture = ExtResource("3_58fwp")
