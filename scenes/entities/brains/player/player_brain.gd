@@ -12,7 +12,6 @@ func died(entity: Entity) -> void:
 		print('Reviving at level ' + str(last_checkpoint.level))
 		entity.reset(last_checkpoint.global_position)
 
-
 func set_light(on: bool) -> void:
 	# Kill existing tween
 	if light_tween:
@@ -22,3 +21,6 @@ func set_light(on: bool) -> void:
 
 	light_tween = create_tween()
 	light_tween.tween_property($Light, "energy", target_energy, 0.5)
+
+func set_checkpoint(cp: Checkpoint) -> void:
+	last_checkpoint = cp

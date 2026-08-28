@@ -10,7 +10,7 @@ shader_parameter/blur_amount = 2.0
 [node name="PauseMenu" type="CanvasLayer" unique_id=417342657]
 script = ExtResource("1_ux7g8")
 
-[node name="UI" type="Control" parent="." unique_id=1314057822]
+[node name="PauseMenu" type="Control" parent="." unique_id=1314057822]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI" unique_id=1138099034]
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=1138099034]
 material = SubResource("ShaderMaterial_ux7g8")
 layout_mode = 1
 anchors_preset = 15
@@ -27,7 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI" unique_id=1089318354]
+[node name="Label" type="Label" parent="PauseMenu" unique_id=1089318354]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,7 +43,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "PAUSED"
 
-[node name="ResumeButton" type="Button" parent="UI" unique_id=740864933]
+[node name="ResumeButton" type="Button" parent="PauseMenu" unique_id=740864933]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "RESUME"
 
-[node name="Button2" type="Button" parent="UI" unique_id=1368022289]
+[node name="Button2" type="Button" parent="PauseMenu" unique_id=1368022289]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,5 +73,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "MAIN MENU"
 
-[connection signal="pressed" from="UI/ResumeButton" to="." method="resume"]
-[connection signal="pressed" from="UI/Button2" to="." method="exit"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="resume"]
+[connection signal="pressed" from="PauseMenu/Button2" to="." method="exit"]

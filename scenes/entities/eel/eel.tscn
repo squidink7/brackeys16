@@ -218,7 +218,7 @@ _data = {
 &"swim": SubResource("Animation_lbdt2")
 }
 
-[node name="Head" type="RigidBody2D" unique_id=1292844991]
+[node name="Eel" type="RigidBody2D" unique_id=1292844991]
 linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_lbdt2")

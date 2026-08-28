@@ -17,6 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://dblnbc70ioatq" path="res://scenes/decor/plants/sprout3.tscn" id="13_cnhyw"]
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="14_gmiel"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="15_fi5hx"]
+[ext_resource type="PackedScene" uid="uid://c80cu3ienh8n4" path="res://scenes/entities/friend_anchor/friend_anchor.tscn" id="18_gmiel"]
+[ext_resource type="PackedScene" uid="uid://bwre50o4nwt88" path="res://scenes/entities/eel/eel.tscn" id="19_fbwfy"]
+[ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="20_7uk10"]
+[ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="21_ar3b1"]
 
 [sub_resource type="GDScript" id="GDScript_cnhyw"]
 script/source = "extends AnimatedSprite2D
@@ -382,8 +386,23 @@ tile_set = ExtResource("4_6de0p")
 [node name="Entities" type="Node2D" parent="." unique_id=1076607018]
 
 [node name="Enemy" parent="Entities" unique_id=1484594402 instance=ExtResource("7_k7goi")]
-position = Vector2(2080, -112)
+position = Vector2(2328, -480)
 linear_damp = 1.0
 speed = 200.0
 
 [node name="EnemyBrain" parent="Entities/Enemy" unique_id=865101945 instance=ExtResource("8_f1u2x")]
+
+[node name="FriendAnchor" parent="Entities" unique_id=2133297876 instance=ExtResource("18_gmiel")]
+position = Vector2(2520, 520)
+
+[node name="Eel" parent="Entities/FriendAnchor" unique_id=1292844991 instance=ExtResource("19_fbwfy")]
+
+[node name="FriendBrain" parent="Entities/FriendAnchor/Eel" unique_id=46602389 instance=ExtResource("20_7uk10")]
+
+[node name="FriendAnchor2" parent="Entities" unique_id=733628005 instance=ExtResource("18_gmiel")]
+position = Vector2(1720, 360)
+
+[node name="NormalFish1" parent="Entities/FriendAnchor2" unique_id=1238244162 instance=ExtResource("21_ar3b1")]
+
+[node name="FriendBrain" parent="Entities/FriendAnchor2/NormalFish1" unique_id=2126730687 instance=ExtResource("20_7uk10")]
+position = Vector2(1720, 360)
