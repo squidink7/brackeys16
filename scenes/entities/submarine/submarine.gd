@@ -29,7 +29,8 @@ func toggle_light():
 	pass
 func _physics_process(delta: float) -> void:
 	super(delta)
-	take_damage(0.000001)
+	if energy > 10:
+		take_damage(delta/2)
 	var current_speed = abs(linear_velocity.x) / 64
 	frame += current_speed
 	while frame > frames_count:
