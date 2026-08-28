@@ -11,9 +11,15 @@ func _ready() -> void:
 
 	frames_count = $Visuals/Sprites.get_child_count()
 
+
 func take_damage(damage: int) -> void:
 	energy -= damage
 	var changed_color = modulate
+	if energy <= 0:
+		if get_brain() is PlayerBrain:
+			get_brain().end_game()
+			
+		return	
 	modulate = Color.from_hsv(changed_color.h, changed_color.s, changed_color.v - 1, changed_color.a)
 
 func add_energy(amount: int) -> void:
