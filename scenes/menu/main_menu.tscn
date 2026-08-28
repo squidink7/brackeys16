@@ -8,7 +8,49 @@
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="5_qgo02"]
 [ext_resource type="FontFile" uid="uid://bsmrxywnqyes2" path="res://assets/NewRocker-Regular.ttf" id="7_isoef"]
 [ext_resource type="PackedScene" uid="uid://014aj3vm7nvm" path="res://scenes/decor/plants/grass2.tscn" id="9_bbqo6"]
+[ext_resource type="Texture2D" uid="uid://bnsq57grpja1n" path="res://assets/textures/bgNoise.png" id="10_1k4da"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="11_bbqo6"]
+
+[sub_resource type="Shader" id="Shader_1k4da"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture;
+
+uniform vec2 scroll_speed = vec2(0.05, 0.08);
+uniform float noise_scale : hint_range(0.5, 10.0) = 3.0;
+
+uniform float distortion_strength : hint_range(0.0, 0.05) = 0.005;
+uniform vec4 water_tint : source_color = vec4(0.75, 0.85, 1.0, 0.02);
+
+void fragment() {
+    // 1. Calculate the raw animated UVs
+    vec2 raw_noise_uv = (UV * noise_scale) + (TIME * scroll_speed);
+
+    // 2. Force the UVs to wrap around using fract().
+    // This ensures the texture repeats infinitely across the screen 
+    // and never scrolls off the edge.
+    vec2 noise_uv = fract(raw_noise_uv);
+
+    // 3. Sample the noise texture
+    vec4 noise = texture(noise_texture, noise_uv);
+
+    // 4. Calculate distortion (map 0..1 to -1..1)
+    vec2 distortion = (noise.rg * 2.0 - 1.0) * distortion_strength;
+
+    // 5. Apply the refraction to the screen
+    vec2 distorted_uv = UV + distortion;
+    vec4 screen_color = texture(TEXTURE, distorted_uv);
+
+    // 6. Apply the subtle water tint
+    COLOR = mix(screen_color, water_tint, water_tint.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbqo6"]
+shader = SubResource("Shader_1k4da")
+shader_parameter/scroll_speed = Vector2(0.05, 0.08)
+shader_parameter/noise_scale = 3.0
+shader_parameter/distortion_strength = 0.005
+shader_parameter/water_tint = Color(0.077999994, 0.17159997, 0.39, 0.65882355)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vovv2"]
 texture = ExtResource("2_kiqgm")
@@ -379,6 +421,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nl8w3")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1113939151]
+material = SubResource("ShaderMaterial_bbqo6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1k4da")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1870859778]
 layout_mode = 1
 anchors_preset = 15
@@ -424,12 +476,12 @@ collision_enabled = false
 [node name="Moving Plants" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=658784577]
 
 [node name="BlueFlower1" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1616021930 instance=ExtResource("3_xn6kt")]
-position = Vector2(1056, 319.99997)
+position = Vector2(1000, 215.99997)
 rotation = -0.5235988
 scale = Vector2(0.2667172, 0.2567324)
 
 [node name="BlueFlower2" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=402659148 instance=ExtResource("3_xn6kt")]
-position = Vector2(96, 136)
+position = Vector2(143.99998, 280)
 rotation = 1.5707964
 scale = Vector2(0.26673204, 0.29463807)
 
@@ -441,39 +493,47 @@ scale = Vector2(0.25625002, 0.22500001)
 [node name="Plant1" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1510706641 instance=ExtResource("3_247la")]
 position = Vector2(720, 616)
 scale = Vector2(0.7249999, 0.6781249)
+frame = 20
 
 [node name="Plant2" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=122128077 instance=ExtResource("3_247la")]
 position = Vector2(72.00002, 600.00006)
 rotation = 0.85346603
 scale = Vector2(0.714053, 0.50977063)
+frame = 41
 
 [node name="Plant3" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1374490748 instance=ExtResource("9_bbqo6")]
 position = Vector2(456, 55.999985)
 rotation = -3.1415925
 scale = Vector2(0.5330531, 0.41475564)
+frame = 62
 
 [node name="Plant4" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=300943166 instance=ExtResource("4_isoef")]
 position = Vector2(371.19998, 592)
 scale = Vector2(0.4562502, 0.36562496)
+frame = 7
 
 [node name="Plant5" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=706226998 instance=ExtResource("4_isoef")]
 position = Vector2(880, 56.000004)
 rotation = -3.1415925
 scale = Vector2(0.53669304, 0.44023514)
+frame = 78
 
 [node name="Plant6" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=359541882 instance=ExtResource("9_bbqo6")]
 position = Vector2(1096, 184)
 rotation = -1.5707964
 scale = Vector2(0.4620748, 0.38381615)
+frame = 14
 
 [node name="Plant7" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1988283475 instance=ExtResource("4_isoef")]
 position = Vector2(64, 344)
 rotation = 1.5707964
 scale = Vector2(0.5093937, 0.42385557)
+frame = 56
 
 [node name="Plant8" parent="SubViewportContainer/SubViewport/Moving Plants" unique_id=1767132396 instance=ExtResource("4_isoef")]
 position = Vector2(976, 616)
 scale = Vector2(0.553125, 0.39687496)
+frame = 32
 
 [node name="PointLight2D" type="PointLight2D" parent="SubViewportContainer/SubViewport" unique_id=357569036]
 unique_name_in_owner = true
@@ -487,9 +547,11 @@ texture = SubResource("GradientTexture2D_avebp")
 environment = SubResource("Environment_avebp")
 
 [node name="Darken Background" type="CanvasModulate" parent="SubViewportContainer/SubViewport" unique_id=1110134341]
+position = Vector2(0, 3)
 color = Color(0.35, 0.35, 0.35, 1)
 
 [node name="Title" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1567489430]
+z_index = -1
 anchors_preset = -1
 anchor_left = 0.514
 anchor_top = 0.50600004
@@ -501,14 +563,17 @@ offset_right = 399.87195
 offset_bottom = 190.11197
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.59633803, 0.69311154, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.17791748, 0.03967336, 1)
 theme_override_constants/line_spacing = -50
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("7_isoef")
 theme_override_font_sizes/font_size = 180
-text = "Something Fishy..."
-autowrap_mode = 2
+text = "Something
+Fishy..."
 
-[node name="Button" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1642553999]
-modulate = Color(4.415934, 4.415934, 4.415934, 1)
+[node name="Button" type="Button" parent="." unique_id=1642553999]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.81700003
 anchor_top = 0.679
@@ -520,6 +585,7 @@ offset_right = 82.81598
 offset_bottom = 16.007996
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
 theme_override_fonts/font = ExtResource("7_isoef")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_monte")
@@ -530,8 +596,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hj162")
 text = "Start New Game"
 alignment = 2
 
-[node name="Button2" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1660611577]
-modulate = Color(4.415934, 4.415934, 4.415934, 1)
+[node name="Button2" type="Button" parent="." unique_id=1660611577]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.84400004
 anchor_top = 0.74100006
@@ -543,6 +609,7 @@ offset_right = 51.711975
 offset_bottom = 15.83197
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
 theme_override_fonts/font = ExtResource("7_isoef")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_x7s40")
@@ -553,9 +620,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vovv2")
 text = "Continue"
 alignment = 2
 
-[node name="Button3" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1842360940]
-modulate = Color(4.415934, 4.415934, 4.415934, 1)
+[node name="Button3" type="Button" parent="." unique_id=1842360940]
 light_mask = 0
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.84000003
 anchor_top = 0.804
@@ -567,6 +634,7 @@ offset_right = 56.319946
 offset_bottom = 16.007996
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
 theme_override_fonts/font = ExtResource("7_isoef")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_27h4x")
@@ -577,6 +645,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_d4hu8")
 text = "Reset Data"
 alignment = 2
 
-[connection signal="pressed" from="SubViewportContainer/SubViewport/Button" to="." method="new_game_pressed"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/Button2" to="." method="continue_pressed"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/Button3" to="." method="reset_pressed"]
+[connection signal="pressed" from="Button" to="." method="new_game_pressed"]
+[connection signal="pressed" from="Button2" to="." method="continue_pressed"]
+[connection signal="pressed" from="Button3" to="." method="reset_pressed"]
