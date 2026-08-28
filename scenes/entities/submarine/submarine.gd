@@ -14,14 +14,15 @@ func _ready() -> void:
 
 func take_damage(damage: int) -> void:
 	energy -= damage
-	var changed_color = modulate
+	var changed_color_window = $Visuals/SubGlowingWindow.modulate
+	var changed_color_point = $PointLight2D.modulate
 	if energy <= 0:
 		if get_brain() is PlayerBrain:
 			get_brain().end_game()
-			
+			#TODO: $PointLight2D and SubGLOWING WINDOW nedd to be tied to hp system
 		return	
-	modulate = Color.from_hsv(changed_color.h, changed_color.s, changed_color.v - 0.01, changed_color.a)
-
+	$Visuals/SubGlowingWindow.modulate = Color.from_hsv(changed_color_window.h, changed_color_window.s, changed_color_window.v - 1, changed_color_window.a)
+	$PointLight2D.modulate = Color.from_hsv(changed_color_point.h, changed_color_point.s, changed_color_point.v - 1, changed_color_point.a)
 func add_energy(amount: int) -> void:
 	energy += amount
 

@@ -54,7 +54,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_geaiy")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=338667030]
-modulate = Color(0.1, 0.1, 0.1, 1)
+modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.9529412)
 position = Vector2(113, 21)
 rotation = -0.10106063
 scale = Vector2(1.8228781, 0.61780035)
