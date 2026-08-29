@@ -22,7 +22,12 @@ func move(_entity: Entity, _delta: float) -> Vector2:
 		
 		$Navigation.target_position = target_pos
 	
-	return global_position.direction_to($Navigation.get_next_path_position()).normalized()
+	var direction = global_position.direction_to($Navigation.get_next_path_position()).normalized()
+
+	if attacked:
+		direction *= 1.3
+	
+	return direction
 
 func seen_entity(body: Node2D) -> void:
 	if body is Entity && body.get_brain() is PlayerBrain:
