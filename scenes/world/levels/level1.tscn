@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="3_q2c88"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="3_w7sl8"]
 [ext_resource type="TileSet" uid="uid://cf0d2ynq0jsij" path="res://assets/tilesets/Leaves.tres" id="4_6de0p"]
+[ext_resource type="PackedScene" uid="uid://dk8wuke0lrolt" path="res://scenes/entities/normalfish3.tscn" id="5_fbwfy"]
 [ext_resource type="PackedScene" uid="uid://bfsu1cl7bmh68" path="res://scenes/world/meta/no_light_region/no_light_region.tscn" id="7_f1u2x"]
 [ext_resource type="PackedScene" uid="uid://31xuy5csay30" path="res://scenes/entities/entity.tscn" id="7_k7goi"]
 [ext_resource type="PackedScene" uid="uid://cxkfmfs18ntsl" path="res://scenes/decor/plants/grass1.tscn" id="8_31cha"]
@@ -116,10 +117,12 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="Enemies" type="Node2D" parent="LevelObject/Entities" unique_id=2091702415]
 
 [node name="Entity" parent="LevelObject/Entities/Enemies" unique_id=1484594402 instance=ExtResource("7_k7goi")]
-position = Vector2(2562, 713)
+position = Vector2(1022, -46)
 metadata/_edit_group_ = true
 
-[node name="EnemyBrain" parent="LevelObject/Entities/Enemies/Entity" unique_id=865101945 instance=ExtResource("8_f1u2x")]
+[node name="RigidBody2D" parent="LevelObject/Entities/Enemies/Entity" unique_id=614360438 instance=ExtResource("5_fbwfy")]
+
+[node name="EnemyBrain" parent="LevelObject/Entities/Enemies/Entity/RigidBody2D" unique_id=865101945 instance=ExtResource("8_f1u2x")]
 
 [node name="Entity2" parent="LevelObject/Entities/Enemies" unique_id=1814383250 instance=ExtResource("7_k7goi")]
 position = Vector2(1029, 596)
