@@ -43,3 +43,9 @@ func attack() -> int:
 		print("Cannot find world end")
 		$Navigation.target_position = Vector2.ZERO
 	return damage
+
+func on_screen_exit() -> void:
+	if attacked:
+		var e = get_entity()
+		if e:
+			e.queue_free()
