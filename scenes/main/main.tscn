@@ -8,6 +8,7 @@
 script = ExtResource("1_7h61r")
 
 [node name="MainMenu" parent="." unique_id=849427100 instance=ExtResource("1_sul5r")]
+z_index = 101
 
 [node name="SaveData" parent="." unique_id=1056436628 instance=ExtResource("3_0sr1o")]
 unique_name_in_owner = true

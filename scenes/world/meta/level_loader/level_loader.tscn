@@ -7,5 +7,5 @@ script = ExtResource("1_o8rhd")
 
 [node name="Level" type="Node2D" parent="." unique_id=154708782]
 
-[connection signal="body_entered" from="." to="." method="load_level"]
-[connection signal="body_exited" from="." to="." method="unload_level"]
+[connection signal="body_entered" from="." to="." method="area_entered"]
+[connection signal="body_exited" from="." to="." method="area_exited"]

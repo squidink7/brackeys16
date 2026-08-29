@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://1vuo8cdeict3"]
 
 [ext_resource type="Script" uid="uid://brm5jrge3amgf" path="res://scenes/world/world.gd" id="1_sl2e5"]
-[ext_resource type="PackedScene" uid="uid://0en8oe8m05o1" path="res://scenes/world/levels/level1.tscn" id="2_6m72w"]
 [ext_resource type="PackedScene" uid="uid://brqkfldjcj7cm" path="res://scenes/world/meta/level_loader/level_loader.tscn" id="4_gb53w"]
 [ext_resource type="PackedScene" uid="uid://dmdnb37smsm3a" path="res://scenes/entities/brains/player/player_brain.tscn" id="4_v5dby"]
 [ext_resource type="PackedScene" uid="uid://dxmfkqej44y11" path="res://scenes/entities/submarine/submarine.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/meta/checkpoint/checkpoint.tscn" id="9_1yooq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
+size = Vector2(4468, 3130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
 size = Vector2(10868, 6879)
@@ -44,45 +46,51 @@ size = Vector2(150, 443)
 
 [node name="World" type="Node2D" unique_id=1757495392]
 script = ExtResource("1_sl2e5")
+player_scene = ExtResource("6_t5ptc")
+player_brain_scene = ExtResource("4_v5dby")
 
 [node name="Levels" type="Node2D" parent="." unique_id=924673930]
 
-[node name="Level1" parent="Levels" unique_id=151000013 instance=ExtResource("2_6m72w")]
-position = Vector2(-58, 0)
+[node name="LevelLoader0" parent="Levels" unique_id=1937361620 instance=ExtResource("4_gb53w")]
+scene_path = "uid://0en8oe8m05o1"
 
-[node name="LevelLoader2" parent="Levels" unique_id=1937361620 instance=ExtResource("4_gb53w")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelLoader0" unique_id=1473429891]
+position = Vector2(1266, 29)
+shape = SubResource("RectangleShape2D_t5ptc")
+
+[node name="LevelLoader1" parent="Levels" unique_id=712783502 instance=ExtResource("4_gb53w")]
 position = Vector2(1128, 3080)
 scene_path = "uid://cpyk7kevc6rf2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelLoader2" unique_id=920942373]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelLoader1" unique_id=920942373]
 position = Vector2(2570, 1213.5)
 shape = SubResource("RectangleShape2D_mqj7i")
 
-[node name="LevelLoader3" parent="Levels" unique_id=317753241 instance=ExtResource("4_gb53w")]
+[node name="LevelLoader2" parent="Levels" unique_id=317753241 instance=ExtResource("4_gb53w")]
 position = Vector2(8212, 3331)
 scene_path = "uid://c46unporgt5to"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Levels/LevelLoader3" unique_id=164596594]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Levels/LevelLoader2" unique_id=164596594]
 position = Vector2(4786, 2094.75)
 shape = SubResource("RectangleShape2D_dlabj")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Levels/LevelLoader3" unique_id=79980868]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Levels/LevelLoader2" unique_id=79980868]
 position = Vector2(1857, 3992.25)
 shape = SubResource("RectangleShape2D_srmg5")
 
-[node name="LevelLoader4" parent="Levels" unique_id=1810135430 instance=ExtResource("4_gb53w")]
+[node name="LevelLoader3" parent="Levels" unique_id=1810135430 instance=ExtResource("4_gb53w")]
 position = Vector2(14404, 10113)
 scene_path = "uid://drqsfkk8ebuu8"
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Levels/LevelLoader4" unique_id=505666570]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Levels/LevelLoader3" unique_id=505666570]
 position = Vector2(1278, 1391)
 shape = SubResource("RectangleShape2D_umvgx")
 
-[node name="LevelLoader5" parent="Levels" unique_id=1937878794 instance=ExtResource("4_gb53w")]
+[node name="LevelLoader4" parent="Levels" unique_id=1937878794 instance=ExtResource("4_gb53w")]
 position = Vector2(18324, 12061)
 scene_path = "uid://cfr7mup0f3fln"
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Levels/LevelLoader5" unique_id=1511936460]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Levels/LevelLoader4" unique_id=1511936460]
 position = Vector2(5036, 970)
 shape = SubResource("RectangleShape2D_mxkvs")
 
@@ -93,35 +101,31 @@ color = Color(0.11803245, 0.14740784, 0.33509827, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1618770858]
 environment = SubResource("Environment_mxkvs")
 
-[node name="Player" parent="." unique_id=550745919 instance=ExtResource("6_t5ptc")]
-
-[node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
-
 [node name="Checkpoints" type="Node2D" parent="." unique_id=1579576105]
 
-[node name="Checkpoint" parent="Checkpoints" unique_id=1173495694 instance=ExtResource("9_1yooq")]
+[node name="Checkpoint0" parent="Checkpoints" unique_id=1173495694 instance=ExtResource("9_1yooq")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint" unique_id=1249733149]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint0" unique_id=1249733149]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_wt5ax")
 
-[node name="Checkpoint5" parent="Checkpoints" unique_id=2018367563 instance=ExtResource("9_1yooq")]
+[node name="Checkpoint1" parent="Checkpoints" unique_id=2018367563 instance=ExtResource("9_1yooq")]
 position = Vector2(1652, 1383)
 level = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5" unique_id=1004114545]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1" unique_id=1004114545]
 position = Vector2(-0.5, 19.5)
 shape = SubResource("RectangleShape2D_wt5ax")
 
 [node name="Checkpoint2" parent="Checkpoints" unique_id=1739424503 instance=ExtResource("9_1yooq")]
-position = Vector2(8288, 2638)
+position = Vector2(8188, 2837)
 level = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2" unique_id=244640405]
 shape = SubResource("RectangleShape2D_1yooq")
 
 [node name="Checkpoint3" parent="Checkpoints" unique_id=501470377 instance=ExtResource("9_1yooq")]
-position = Vector2(15087, 9749)
+position = Vector2(14824, 9750)
 level = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3" unique_id=1125503407]
@@ -129,7 +133,7 @@ position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_gb53w")
 
 [node name="Checkpoint4" parent="Checkpoints" unique_id=1819135704 instance=ExtResource("9_1yooq")]
-position = Vector2(18516, 12900)
+position = Vector2(18517, 13044)
 level = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4" unique_id=732910005]

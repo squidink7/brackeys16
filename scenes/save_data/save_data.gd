@@ -20,12 +20,6 @@ func set_level_record(level: int, record: LevelRecord) -> void:
 	data.set_level_record(level, record)
 	write_save_data()
 
-func unlocked_level(level: int) -> void:
-	print('New level unlocked: ' + str(level))
-	var data = get_save_data()
-	data.unlock_level(level)
-	write_save_data()
-
 func delete_data():
 	if FileAccess.file_exists(save_path):
 		var error = DirAccess.remove_absolute(save_path)
@@ -59,7 +53,7 @@ func save_file(path: String, data: String) -> void:
 
 # In-game progress tracking
 var current_level := 0
-var current_level_start_time
+var current_level_start_time := Time.get_ticks_msec()
 var current_level_record := LevelRecord.new()
 
 func checkpoint_activated(level: int) -> void:

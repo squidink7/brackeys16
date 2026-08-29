@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="21_4gg5m"]
 [ext_resource type="PackedScene" uid="uid://31xuy5csay30" path="res://scenes/entities/entity.tscn" id="22_xojd0"]
 [ext_resource type="PackedScene" uid="uid://de5vbait5u81e" path="res://scenes/entities/brains/enemy/enemy_brain.tscn" id="23_j1brb"]
+[ext_resource type="PackedScene" uid="uid://dm5fir7okiws6" path="res://scenes/entities/brains/ambush/ambush_brain.tscn" id="24_4gg5m"]
+[ext_resource type="PackedScene" uid="uid://cg72gsbh2hp52" path="res://scenes/items/energy/energy.tscn" id="25_xojd0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23o0u"]
 shader = ExtResource("2_oeykw")
@@ -74,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../EndSequence/ExitBlock/CollisionShape2D:disabled")
+tracks/1/path = NodePath("../../BadEndSequence/ExitBlock/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,7 +88,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../EndSequence/AmbushEntities:visible")
+tracks/2/path = NodePath("../../BadEndSequence/AmbushEntities:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -98,7 +100,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../EndSequence/AmbushEntities:process_mode")
+tracks/3/path = NodePath("../../BadEndSequence/AmbushEntities:process_mode")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -125,7 +127,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../EndSequence/ExitBlock/CollisionShape2D:disabled")
+tracks/1/path = NodePath("../../BadEndSequence/ExitBlock/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -137,7 +139,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../EndSequence/AmbushEntities:process_mode")
+tracks/2/path = NodePath("../../BadEndSequence/AmbushEntities:process_mode")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -149,7 +151,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../EndSequence/AmbushEntities:visible")
+tracks/3/path = NodePath("../../BadEndSequence/AmbushEntities:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -546,107 +548,115 @@ texture = ExtResource("15_v4xar")
 visible = false
 color = Color(0.46456856, 0.53752714, 0.8527969, 1)
 
-[node name="EndSequence" type="Node2D" parent="." unique_id=1875145546]
+[node name="BadEndSequence" type="Node2D" parent="." unique_id=1875145546]
 script = ExtResource("16_as488")
 
-[node name="EndArea" type="Area2D" parent="EndSequence" unique_id=1310547798]
+[node name="EndArea" type="Area2D" parent="BadEndSequence" unique_id=1310547798]
 position = Vector2(8693, 1074)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/EndArea" unique_id=84471481]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndSequence/EndArea" unique_id=84471481]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_wt5ax")
 
-[node name="AmbushArea" type="Area2D" parent="EndSequence" unique_id=245544651]
+[node name="AmbushArea" type="Area2D" parent="BadEndSequence" unique_id=245544651]
 position = Vector2(7991, 1082)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/AmbushArea" unique_id=1654784531]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndSequence/AmbushArea" unique_id=1654784531]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wt5ax")
 
-[node name="ExitAnimation" type="AnimationPlayer" parent="EndSequence" unique_id=1314133698]
+[node name="ExitAnimation" type="AnimationPlayer" parent="BadEndSequence" unique_id=1314133698]
 root_node = NodePath("../../LevelObject/ToggleableTilemap")
 libraries/ = SubResource("AnimationLibrary_as488")
 
-[node name="ExitBlock" type="StaticBody2D" parent="EndSequence" unique_id=1776614372]
+[node name="ExitBlock" type="StaticBody2D" parent="BadEndSequence" unique_id=1776614372]
 position = Vector2(8898, 1063)
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndSequence/ExitBlock" unique_id=997505582]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndSequence/ExitBlock" unique_id=997505582]
 position = Vector2(0.5, 0)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mqj7i")
 disabled = true
 
-[node name="AmbushEntities" type="Node2D" parent="EndSequence" unique_id=266249501]
+[node name="AmbushEntities" type="Node2D" parent="BadEndSequence" unique_id=266249501]
 process_mode = 4
 visible = false
 position = Vector2(7383, 1052)
 
-[node name="Anglerfish" parent="EndSequence/AmbushEntities" unique_id=1292844991 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish" parent="BadEndSequence/AmbushEntities" unique_id=1292844991 instance=ExtResource("17_caq7s")]
 position = Vector2(64, -80)
 
-[node name="Anglerfish2" parent="EndSequence/AmbushEntities" unique_id=1449735026 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish2" parent="BadEndSequence/AmbushEntities" unique_id=1449735026 instance=ExtResource("17_caq7s")]
 position = Vector2(64, 90)
 
-[node name="Anglerfish3" parent="EndSequence/AmbushEntities" unique_id=572151348 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish3" parent="BadEndSequence/AmbushEntities" unique_id=572151348 instance=ExtResource("17_caq7s")]
 position = Vector2(115, -38)
 
-[node name="Anglerfish9" parent="EndSequence/AmbushEntities" unique_id=1661338419 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish9" parent="BadEndSequence/AmbushEntities" unique_id=1661338419 instance=ExtResource("17_caq7s")]
 position = Vector2(2, 135)
 
-[node name="Anglerfish5" parent="EndSequence/AmbushEntities" unique_id=522231861 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish5" parent="BadEndSequence/AmbushEntities" unique_id=522231861 instance=ExtResource("17_caq7s")]
 position = Vector2(125, 40)
 
-[node name="Anglerfish6" parent="EndSequence/AmbushEntities" unique_id=1900057378 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish6" parent="BadEndSequence/AmbushEntities" unique_id=1900057378 instance=ExtResource("17_caq7s")]
 position = Vector2(125, 133)
 
-[node name="Anglerfish7" parent="EndSequence/AmbushEntities" unique_id=308821364 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish7" parent="BadEndSequence/AmbushEntities" unique_id=308821364 instance=ExtResource("17_caq7s")]
 position = Vector2(175, -105)
 
-[node name="Anglerfish8" parent="EndSequence/AmbushEntities" unique_id=266991239 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish8" parent="BadEndSequence/AmbushEntities" unique_id=266991239 instance=ExtResource("17_caq7s")]
 position = Vector2(24, 12)
 
-[node name="Anglerfish4" parent="EndSequence/AmbushEntities" unique_id=525211833 instance=ExtResource("17_caq7s")]
+[node name="Anglerfish4" parent="BadEndSequence/AmbushEntities" unique_id=525211833 instance=ExtResource("17_caq7s")]
 position = Vector2(0, 65)
 
-[node name="NormalFish1" parent="EndSequence/AmbushEntities" unique_id=1984738179 instance=ExtResource("18_6lp7l")]
+[node name="NormalFish1" parent="BadEndSequence/AmbushEntities" unique_id=1984738179 instance=ExtResource("18_6lp7l")]
 position = Vector2(0, -58)
 
-[node name="NormalFish2" parent="EndSequence/AmbushEntities" unique_id=364211658 instance=ExtResource("18_6lp7l")]
+[node name="NormalFish2" parent="BadEndSequence/AmbushEntities" unique_id=364211658 instance=ExtResource("18_6lp7l")]
 position = Vector2(175, 0)
 
-[node name="NormalFish4" parent="EndSequence/AmbushEntities" unique_id=1365923331 instance=ExtResource("18_6lp7l")]
+[node name="NormalFish4" parent="BadEndSequence/AmbushEntities" unique_id=1365923331 instance=ExtResource("18_6lp7l")]
 position = Vector2(-80, 59)
 
-[node name="NormalFish3" parent="EndSequence/AmbushEntities" unique_id=543203869 instance=ExtResource("18_6lp7l")]
+[node name="NormalFish3" parent="BadEndSequence/AmbushEntities" unique_id=543203869 instance=ExtResource("18_6lp7l")]
 position = Vector2(175, 92)
 
-[node name="Normal Fish 2" parent="EndSequence/AmbushEntities" unique_id=1980207542 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 2" parent="BadEndSequence/AmbushEntities" unique_id=1980207542 instance=ExtResource("19_i38ar")]
 position = Vector2(-40, 0)
 
-[node name="Normal Fish 7" parent="EndSequence/AmbushEntities" unique_id=405553909 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 7" parent="BadEndSequence/AmbushEntities" unique_id=405553909 instance=ExtResource("19_i38ar")]
 position = Vector2(2, -105)
 
-[node name="Normal Fish 8" parent="EndSequence/AmbushEntities" unique_id=936175070 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 8" parent="BadEndSequence/AmbushEntities" unique_id=936175070 instance=ExtResource("19_i38ar")]
 position = Vector2(-52, 107)
 
-[node name="Normal Fish 9" parent="EndSequence/AmbushEntities" unique_id=1781274852 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 9" parent="BadEndSequence/AmbushEntities" unique_id=1781274852 instance=ExtResource("19_i38ar")]
 position = Vector2(-114, 152)
 
-[node name="Normal Fish 10" parent="EndSequence/AmbushEntities" unique_id=1101510663 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 10" parent="BadEndSequence/AmbushEntities" unique_id=1101510663 instance=ExtResource("19_i38ar")]
 position = Vector2(197, -47)
 
-[node name="Normal Fish 3" parent="EndSequence/AmbushEntities" unique_id=1310036549 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 3" parent="BadEndSequence/AmbushEntities" unique_id=1310036549 instance=ExtResource("19_i38ar")]
 position = Vector2(85, 2)
 
-[node name="Normal Fish 4" parent="EndSequence/AmbushEntities" unique_id=1691618771 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 4" parent="BadEndSequence/AmbushEntities" unique_id=1691618771 instance=ExtResource("19_i38ar")]
 position = Vector2(42, -36)
 
-[node name="Normal Fish 5" parent="EndSequence/AmbushEntities" unique_id=2132515491 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 5" parent="BadEndSequence/AmbushEntities" unique_id=2132515491 instance=ExtResource("19_i38ar")]
 position = Vector2(115, -105)
 
-[node name="Normal Fish 6" parent="EndSequence/AmbushEntities" unique_id=1876047770 instance=ExtResource("19_i38ar")]
+[node name="Normal Fish 6" parent="BadEndSequence/AmbushEntities" unique_id=1876047770 instance=ExtResource("19_i38ar")]
 position = Vector2(64, 152)
+
+[node name="NormalFish1" parent="BadEndSequence" unique_id=1781086954 instance=ExtResource("18_6lp7l")]
+position = Vector2(5522, 1044)
+
+[node name="AmbushBrain" parent="BadEndSequence/NormalFish1" unique_id=1212784190 instance=ExtResource("24_4gg5m")]
+
+[node name="Energy" parent="BadEndSequence/NormalFish1" unique_id=1694014108 instance=ExtResource("25_xojd0")]
+show_behind_parent = true
 
 [node name="Entities" type="Node2D" parent="." unique_id=2022306264]
 
@@ -669,4 +679,4 @@ metadata/_edit_group_ = true
 
 [node name="EnemyBrain" parent="Entities/Enemies/Entity" unique_id=865101945 instance=ExtResource("23_j1brb")]
 
-[connection signal="body_entered" from="EndSequence/EndArea" to="EndSequence" method="on_exit_area_entered"]
+[connection signal="body_entered" from="BadEndSequence/EndArea" to="BadEndSequence" method="on_exit_area_entered"]

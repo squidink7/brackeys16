@@ -1,10 +1,11 @@
 extends Node
 
 func start_level(level: int):
+	print("Starting from level " + str(level))
 	var world_scene = load('res://scenes/world/world.tscn').instantiate()
 	world_scene.name = "Game"
-	world_scene.set_level(level)
 	add_child(world_scene)
+	await world_scene.set_level(level)
 	$MainMenu.hide()
 
 func main_menu() -> void:

@@ -22,7 +22,6 @@ func take_damage(damage: float) -> void:
 	if energy <= 0:
 		if get_brain() is PlayerBrain:
 			get_brain().end_game()
-			#TODO: SubGLOWING WINDOW nedd to be tied to hp system
 		return
 
 func add_energy(amount: int) -> void:
@@ -60,5 +59,5 @@ func _physics_process(delta: float) -> void:
 	$Visuals/Bubbles.emitting = abs(linear_velocity.x) > 10
 
 func _process(delta: float) -> void:
-	$Visuals/SubGlowingWindow.modulate.v = lerpf($Visuals/SubGlowingWindow.modulate.v, energy / max_energy, delta*2)
+	%SubGlowingWindow.modulate.v = lerpf(%SubGlowingWindow.modulate.v, 5 * energy / max_energy, delta*8)
 	%FrontLight.modulate.v = lerpf(%FrontLight.modulate.v, energy / max_energy, delta*2)

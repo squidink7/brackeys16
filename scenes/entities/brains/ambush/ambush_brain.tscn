@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbxgutv7m0yjv" path="res://scenes/entities/brains/ambush/ambush_brain.gd" id="1_h5ybl"]
 
-[node name="FriendBrain" type="Node2D" unique_id=46602389]
+[node name="AmbushBrain" type="Node2D" unique_id=46602389]
 script = ExtResource("1_h5ybl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=882885145]

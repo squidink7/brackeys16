@@ -14,7 +14,7 @@ func continue_pressed() -> void:
 		start_level.emit(0)
 		return
 	
-	start_level.emit(data.unlocked_levels)
+	start_level.emit(len(data.level_records))
 
 func play_pressed() -> void:
 	start_level.emit(0)
@@ -22,5 +22,5 @@ func play_pressed() -> void:
 func reset_pressed() -> void:
 	%SaveData.delete_data()
 
-func _process(delta): 
+func _process(_delta: float) -> void:
 	%PointLight2D.global_position = get_viewport().get_mouse_position()
