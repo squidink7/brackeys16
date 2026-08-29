@@ -3,6 +3,7 @@ class_name PlayerBrain
 
 var last_checkpoint: Checkpoint
 var light_tween: Tween
+var active
 
 func move(_entity: Entity, delta: float) -> Vector2:
 	var direction = Input.get_vector('move_left', 'move_right', 'move_up', 'move_down').normalized()

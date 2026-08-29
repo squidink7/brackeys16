@@ -13,12 +13,15 @@ config_version=5
 config/name="Brackeys16"
 run/main_scene="uid://cmx0b2qqhra2p"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0.055233184, 0.080958396, 0.115982056, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+display_server/driver.linuxbsd="wayland"
 
 [global_group]
 

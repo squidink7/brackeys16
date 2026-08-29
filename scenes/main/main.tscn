@@ -3,14 +3,26 @@
 [ext_resource type="Script" uid="uid://bkhes18dgj25q" path="res://scenes/main/main.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://doew7nnvltgbb" path="res://scenes/menu/main_menu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://dno2d8nt578fd" path="res://scenes/save_data/save_data.tscn" id="3_0sr1o"]
+[ext_resource type="AudioStream" uid="uid://dthq8ng42icss" path="res://assets/music/level1.wav" id="3_a8run"]
+[ext_resource type="AudioStream" uid="uid://cnfwnhy04sjnc" path="res://assets/music/menu.wav" id="4_l3cfh"]
+[ext_resource type="AudioStream" uid="uid://bnthwme2cmolm" path="res://assets/music/level2.wav" id="4_ouso4"]
+[ext_resource type="AudioStream" uid="uid://00jg34amdu7e" path="res://assets/music/level3.wav" id="5_blune"]
+[ext_resource type="AudioStream" uid="uid://cskwqqo8jhydj" path="res://assets/music/level4.wav" id="6_th5th"]
+[ext_resource type="AudioStream" uid="uid://calfpftgppg4e" path="res://assets/music/level5.wav" id="7_7smn1"]
+[ext_resource type="AudioStream" uid="uid://5ld7t2j1ciyy" path="res://assets/music/flowers.wav" id="8_raeie"]
 
 [node name="Main" type="Node" unique_id=1580294639]
 script = ExtResource("1_7h61r")
+songs = Array[AudioStream]([ExtResource("4_l3cfh"), ExtResource("3_a8run"), ExtResource("4_ouso4"), ExtResource("5_blune"), ExtResource("6_th5th"), ExtResource("7_7smn1"), ExtResource("8_raeie")])
 
 [node name="MainMenu" parent="." unique_id=849427100 instance=ExtResource("1_sul5r")]
 z_index = 101
 
 [node name="SaveData" parent="." unique_id=1056436628 instance=ExtResource("3_0sr1o")]
 unique_name_in_owner = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=48202790]
+stream = ExtResource("4_l3cfh")
+autoplay = true
 
 [connection signal="start_level" from="MainMenu" to="." method="start_level"]

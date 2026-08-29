@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://014aj3vm7nvm" path="res://scenes/decor/plants/grass2.tscn" id="9_bbqo6"]
 [ext_resource type="Texture2D" uid="uid://bnsq57grpja1n" path="res://assets/textures/bgNoise.png" id="10_1k4da"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="11_bbqo6"]
+[ext_resource type="PackedScene" uid="uid://b67kws2saeir" path="res://scenes/main/splash.tscn" id="11_d4hu8"]
 
 [sub_resource type="Shader" id="Shader_1k4da"]
 code = "shader_type canvas_item;
@@ -391,6 +392,69 @@ metadata/_snap_enabled = true
 background_mode = 3
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_bbqo6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 104)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1k4da"]
+resource_name = "TitleAnimation"
+length = 13.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.4, 6.8333335, 10, 13),
+"transitions": PackedFloat32Array(0.62803036, 2.013585, 0.55908245, 1.7956806, 0.62803036),
+"update": 0,
+"values": [Vector2(160, 104), Vector2(158, 95), Vector2(160, 104), Vector2(164, 108), Vector2(160, 104)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.4, 6.8333335, 10, 13),
+"transitions": PackedFloat32Array(0.62803036, 2.013585, 0.55908245, 1.7956806, 0.62803036),
+"update": 0,
+"values": [0.0, -0.040784236, 0.0, 0.04284891, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bbqo6"]
+_data = {
+&"RESET": SubResource("Animation_bbqo6"),
+&"TitleAnimation": SubResource("Animation_1k4da")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_monte"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rkf3"]
@@ -569,10 +633,11 @@ anchor_right = 0.514
 anchor_bottom = 0.50600004
 offset_left = -432.128
 offset_top = -223.88803
-offset_right = 399.87195
-offset_bottom = 190.11197
+offset_right = 399.8719
+offset_bottom = 190.11392
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.59633803, 0.69311154, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0.17791748, 0.03967336, 1)
 theme_override_constants/line_spacing = -50
@@ -581,6 +646,10 @@ theme_override_fonts/font = ExtResource("7_isoef")
 theme_override_font_sizes/font_size = 180
 text = "Something
 Fishy..."
+
+[node name="MenuAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport" unique_id=1583339122]
+libraries/ = SubResource("AnimationLibrary_bbqo6")
+autoplay = &"TitleAnimation"
 
 [node name="Button" type="Button" parent="." unique_id=1642553999]
 layout_mode = 1
@@ -654,6 +723,26 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbqo6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d4hu8")
 text = "Reset Data"
 alignment = 2
+
+[node name="Counter" type="Label" parent="." unique_id=1400675121]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13900001
+anchor_top = 0.79700005
+anchor_right = 0.13900001
+anchor_bottom = 0.79700005
+offset_left = -24.128021
+offset_top = -20.456055
+offset_right = 97.87198
+offset_bottom = 28.543945
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_isoef")
+theme_override_font_sizes/font_size = 22
+text = "Current Level: 0
+Encounters: 0"
+
+[node name="Splash" parent="." unique_id=992549312 instance=ExtResource("11_d4hu8")]
+layout_mode = 1
 
 [connection signal="pressed" from="Button" to="." method="new_game_pressed"]
 [connection signal="pressed" from="Button2" to="." method="continue_pressed"]

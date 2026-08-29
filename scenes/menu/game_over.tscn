@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xoyqdnl4qc8n" path="res://scenes/menu/game_over.gd" id="1_6fdmy"]
 [ext_resource type="FontFile" uid="uid://bsmrxywnqyes2" path="res://assets/NewRocker-Regular.ttf" id="2_8io6m"]
+[ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="2_nxbsi"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="3_43lp5"]
 [ext_resource type="Texture2D" uid="uid://dj3w1aecfvov1" path="res://assets/textures/Mossy Tileset/Mossy - TileSet.png" id="4_l46gp"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="5_8dj0u"]
@@ -9,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://cxkfmfs18ntsl" path="res://scenes/decor/plants/grass1.tscn" id="7_imt7y"]
 [ext_resource type="PackedScene" uid="uid://014aj3vm7nvm" path="res://scenes/decor/plants/grass2.tscn" id="8_f2ydr"]
 [ext_resource type="PackedScene" uid="uid://klgl03416sjd" path="res://scenes/decor/plants/grass3.tscn" id="9_rkl3v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0j85"]
+shader = ExtResource("2_nxbsi")
+shader_parameter/blur_amount = 2.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy0xa"]
 texture = ExtResource("4_l46gp")
@@ -364,6 +369,14 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1147.0
 offset_bottom = 646.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1456535539]
+material = SubResource("ShaderMaterial_q0j85")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=656620685]
 anchors_preset = 15

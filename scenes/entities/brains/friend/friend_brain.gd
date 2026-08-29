@@ -7,6 +7,8 @@ var seen = false
 var _angle: float = 0.0
 var _time: float = 0.0
 
+var drop := preload("res://scenes/items/energy/energy.tscn")
+
 @export var radius: float = 100.0        # distance from the anchor
 @export var orbit_speed: float = 0.5     # radians per second
 @export var drift_amplitude: float = 30.0 # how far it bobs up/down
@@ -69,3 +71,6 @@ func on_seen(body: Node2D) -> void:
 		else:
 			print("Cannot find world end")
 			$Navigation.target_position = Vector2.ZERO
+		
+		var item = drop.instantiate()
+		$"../../".add_child(item)

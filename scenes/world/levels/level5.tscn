@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cfr7mup0f3fln"]
 
+[ext_resource type="Script" uid="uid://6rdlypjwdmr8" path="res://scenes/world/levels/good_end_sequence.gd" id="1_76ds4"]
+[ext_resource type="Texture2D" uid="uid://dwysi53n8whsb" path="res://assets/textures/Mossy Tileset/Mossy - BackgroundDecoration.png" id="1_l0dgq"]
 [ext_resource type="TileSet" uid="uid://cqkwsmhn4nkii" path="res://assets/tilesets/CollisionMap.tres" id="1_ywet4"]
 [ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="2_oeykw"]
 [ext_resource type="TileSet" uid="uid://uhcsdhvqn7r" path="res://assets/tilesets/BackgroundWorldWhapes.tres" id="2_qlap7"]
@@ -25,6 +27,77 @@
 [ext_resource type="PackedScene" uid="uid://dm5fir7okiws6" path="res://scenes/entities/brains/ambush/ambush_brain.tscn" id="24_4gg5m"]
 [ext_resource type="PackedScene" uid="uid://dk8wuke0lrolt" path="res://scenes/entities/normalfish3.tscn" id="24_xojd0"]
 [ext_resource type="PackedScene" uid="uid://cg72gsbh2hp52" path="res://scenes/items/energy/energy.tscn" id="25_xojd0"]
+[ext_resource type="Texture2D" uid="uid://c7tgprtaq14j3" path="res://assets/models/door/back_door.png" id="27_76ds4"]
+[ext_resource type="Texture2D" uid="uid://cymbiui23lq66" path="res://assets/models/door/front_door.png" id="28_jqwkc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt5ax"]
+atlas = ExtResource("1_l0dgq")
+region = Rect2(2675, 127, 1085, 1001)
+
+[sub_resource type="Animation" id="Animation_l0dgq"]
+resource_name = "DoorOpen"
+length = 7.0
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/FrontDoor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 2.6120021),
+"update": 0,
+"values": [0.0, 12.566370614359172]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/FrontDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 3.0666666, 3.1333334, 3.2, 4.0666666, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 2.6684747, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(0, 0), Vector2(0, 0), Vector2(130, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_76ds4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/FrontDoor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/FrontDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_76ds4"]
+_data = {
+&"DoorOpen": SubResource("Animation_l0dgq"),
+&"RESET": SubResource("Animation_76ds4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76ds4"]
+size = Vector2(488, 445)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23o0u"]
 shader = ExtResource("2_oeykw")
@@ -171,6 +244,35 @@ _data = {
 size = Vector2(147, 398)
 
 [node name="Level5" type="Node2D" unique_id=750222323]
+
+[node name="GoodEndSequence" type="Node2D" parent="." unique_id=1607915745]
+script = ExtResource("1_76ds4")
+
+[node name="Rock" type="Sprite2D" parent="GoodEndSequence" unique_id=323553139]
+position = Vector2(8399, 1142)
+scale = Vector2(0.5, 0.504995)
+texture = SubResource("AtlasTexture_wt5ax")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GoodEndSequence" unique_id=846644821]
+libraries/ = SubResource("AnimationLibrary_76ds4")
+
+[node name="Door" type="Node2D" parent="GoodEndSequence" unique_id=852700935]
+position = Vector2(8416.5, 1140)
+
+[node name="BackDoor" type="Sprite2D" parent="GoodEndSequence/Door" unique_id=1800876419]
+scale = Vector2(0.18281226, 0.18281226)
+texture = ExtResource("27_76ds4")
+
+[node name="FrontDoor" type="Sprite2D" parent="GoodEndSequence/Door" unique_id=336119959]
+scale = Vector2(0.18937474, 0.19500004)
+texture = ExtResource("28_jqwkc")
+
+[node name="Area2D" type="Area2D" parent="GoodEndSequence" unique_id=458806453]
+position = Vector2(8417, 1120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodEndSequence/Area2D" unique_id=916391158]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_76ds4")
 
 [node name="LevelObject" type="Node2D" parent="." unique_id=2066105930]
 
