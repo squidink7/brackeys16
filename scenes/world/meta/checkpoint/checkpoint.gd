@@ -9,4 +9,5 @@ signal reached(level: int)
 func on_body_entered(body: Node2D) -> void:
 	if body is Entity && body.get_brain() is PlayerBrain:
 		body.get_brain().set_checkpoint(self)
+		$/root/Main/SaveData.checkpoint_activated(level)
 		reached.emit(level)
