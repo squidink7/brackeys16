@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://6laauge5rn4p" path="res://scenes/entities/anglerfish.tscn" id="17_caq7s"]
 [ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="18_6lp7l"]
 [ext_resource type="PackedScene" uid="uid://c0teweu4hmfsi" path="res://scenes/entities/normalfish2.tscn" id="19_i38ar"]
+[ext_resource type="PackedScene" uid="uid://c80cu3ienh8n4" path="res://scenes/entities/friend_anchor/friend_anchor.tscn" id="20_ancog"]
+[ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="21_4gg5m"]
+[ext_resource type="PackedScene" uid="uid://31xuy5csay30" path="res://scenes/entities/entity.tscn" id="22_xojd0"]
+[ext_resource type="PackedScene" uid="uid://de5vbait5u81e" path="res://scenes/entities/brains/enemy/enemy_brain.tscn" id="23_j1brb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23o0u"]
 shader = ExtResource("2_oeykw")
@@ -643,5 +647,26 @@ position = Vector2(115, -105)
 
 [node name="Normal Fish 6" parent="EndSequence/AmbushEntities" unique_id=1876047770 instance=ExtResource("19_i38ar")]
 position = Vector2(64, 152)
+
+[node name="Entities" type="Node2D" parent="." unique_id=2022306264]
+
+[node name="Friends" type="Node2D" parent="Entities" unique_id=2012607287]
+
+[node name="FriendAnchor2" parent="Entities/Friends" unique_id=2133297876 instance=ExtResource("20_ancog")]
+position = Vector2(2354, 1393)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="Entities/Friends/FriendAnchor2" unique_id=1491657717 instance=ExtResource("18_6lp7l")]
+
+[node name="FriendBrain" parent="Entities/Friends/FriendAnchor2/NormalFish1" unique_id=46602389 instance=ExtResource("21_4gg5m")]
+
+[node name="Enemies" type="Node2D" parent="Entities" unique_id=355830287]
+position = Vector2(578, -834)
+
+[node name="Entity" parent="Entities/Enemies" unique_id=1484594402 instance=ExtResource("22_xojd0")]
+position = Vector2(3013, 1522)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="Entities/Enemies/Entity" unique_id=865101945 instance=ExtResource("23_j1brb")]
 
 [connection signal="body_entered" from="EndSequence/EndArea" to="EndSequence" method="on_exit_area_entered"]

@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="14_gmiel"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="15_fi5hx"]
 [ext_resource type="PackedScene" uid="uid://c80cu3ienh8n4" path="res://scenes/entities/friend_anchor/friend_anchor.tscn" id="18_gmiel"]
-[ext_resource type="PackedScene" uid="uid://bwre50o4nwt88" path="res://scenes/entities/eel/eel.tscn" id="19_fbwfy"]
 [ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="20_7uk10"]
 [ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="21_ar3b1"]
 
@@ -93,6 +92,40 @@ shader_parameter/blur_amount = 0.45
 [node name="Level1" type="Node2D" unique_id=151000013]
 
 [node name="LevelObject" type="Node2D" parent="." unique_id=1274633131]
+
+[node name="Entities" type="Node2D" parent="LevelObject" unique_id=262650810]
+
+[node name="Friends" type="Node2D" parent="LevelObject/Entities" unique_id=455801550]
+
+[node name="FriendAnchor2" parent="LevelObject/Entities/Friends" unique_id=2133297876 instance=ExtResource("18_gmiel")]
+position = Vector2(1053.0001, -675)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="LevelObject/Entities/Friends/FriendAnchor2" unique_id=1292844991 instance=ExtResource("21_ar3b1")]
+
+[node name="FriendBrain" parent="LevelObject/Entities/Friends/FriendAnchor2/NormalFish1" unique_id=46602389 instance=ExtResource("20_7uk10")]
+
+[node name="FriendAnchor3" parent="LevelObject/Entities/Friends" unique_id=550822368 instance=ExtResource("18_gmiel")]
+position = Vector2(2323, -475)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="LevelObject/Entities/Friends/FriendAnchor3" unique_id=1760895120 instance=ExtResource("21_ar3b1")]
+
+[node name="FriendBrain" parent="LevelObject/Entities/Friends/FriendAnchor3/NormalFish1" unique_id=1502374627 instance=ExtResource("20_7uk10")]
+
+[node name="Enemies" type="Node2D" parent="LevelObject/Entities" unique_id=2091702415]
+
+[node name="Entity" parent="LevelObject/Entities/Enemies" unique_id=1484594402 instance=ExtResource("7_k7goi")]
+position = Vector2(2562, 713)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="LevelObject/Entities/Enemies/Entity" unique_id=865101945 instance=ExtResource("8_f1u2x")]
+
+[node name="Entity2" parent="LevelObject/Entities/Enemies" unique_id=1814383250 instance=ExtResource("7_k7goi")]
+position = Vector2(1029, 596)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="LevelObject/Entities/Enemies/Entity2" unique_id=361265145 instance=ExtResource("8_f1u2x")]
 
 [node name="AnimatedSprites" type="Node2D" parent="LevelObject" unique_id=1299715739]
 z_index = -1
@@ -393,27 +426,3 @@ tile_set = ExtResource("4_6de0p")
 scale = Vector2(0.15, 0.15)
 tile_map_data = PackedByteArray("AAD9/xsAAAAEAAEAAAANABgAAAAEAAEAAAAQABYAAAAEAAEAAAAYABEAAAAEAAEAAAAbABIAAAABAAEAAAAeABEAAAAKAAEAAAArABYAAAAKAAEAAAAuABgAAAAEAAEAAAAdADIAAAAEAAEAAAAYADcAAAAEAAEAAAAWADgAAAABAAEAAABQABwAAAANAAEAAABNABwAAAAKAAEAAABKABcAAAAEAAEAAABHABcAAAABAAEAAABDABYAAAAKAAEAAAA/AA0AAAABAAEAAAA3AOf/AAABAAEAAAA0AOf/AAAEAAEAAAAwAOf/AAAKAAEAAAA/AOH/AAAKAAEAAAA7AOL/AAABAAEAAAAXAPL/AAAEAAEAAAAUAPH/AAAEAAEAAAAhAPb/AAAEAAEAAAAkAPb/AAAKAAEAAAAmAPb/AAAKAAEAAAAJAOv/AAAKAAEAAAAPAOz/AAAEAAEAAAD7/9z/AAAEAAEAAAD+/9z/AAABAAEAAAABANr/AAABAAEAAAAFAN3/AAANAAEAAADy/9f/AAAHAAEAAAD3//z/AAAHAAEAAADw//3/AAABAAEAAADn/wcAAAAEAAEAAADl/wYAAAAKAAEAAADi/wUAAAAKAAEAAADf/wcAAAABAAEAAADa/wUAAAAEAAEAAADS/wAAAAAEAAEAAADB//b/AAAKAAEAAAC7//z/AAAKAAEAAAC4/wAAAAAKAAEAAAC2/wEAAAAHAAEAAABKAC0AAAAJABIAAABJACUAAAAJABIAAAACACoAAAAJABIAAAAEACgAAAAJABIAAAD7/x4AAAAEAAEAAADx/yEAAAAEAAEAAAD0/yAAAAAEAAEAAADP/wEAAAAEAAEAAADN/wAAAAAEAAEAAAA=")
 tile_set = ExtResource("4_6de0p")
-
-[node name="Entities" type="Node2D" parent="." unique_id=1076607018]
-
-[node name="Enemy" parent="Entities" unique_id=1484594402 instance=ExtResource("7_k7goi")]
-position = Vector2(2328, -480)
-linear_damp = 1.0
-speed = 200.0
-
-[node name="EnemyBrain" parent="Entities/Enemy" unique_id=865101945 instance=ExtResource("8_f1u2x")]
-
-[node name="FriendAnchor" parent="Entities" unique_id=2133297876 instance=ExtResource("18_gmiel")]
-position = Vector2(2520, 520)
-
-[node name="Eel" parent="Entities/FriendAnchor" unique_id=1292844991 instance=ExtResource("19_fbwfy")]
-
-[node name="FriendBrain" parent="Entities/FriendAnchor/Eel" unique_id=46602389 instance=ExtResource("20_7uk10")]
-
-[node name="FriendAnchor2" parent="Entities" unique_id=733628005 instance=ExtResource("18_gmiel")]
-position = Vector2(1720, 360)
-
-[node name="NormalFish1" parent="Entities/FriendAnchor2" unique_id=1238244162 instance=ExtResource("21_ar3b1")]
-
-[node name="FriendBrain" parent="Entities/FriendAnchor2/NormalFish1" unique_id=2126730687 instance=ExtResource("20_7uk10")]
-position = Vector2(1720, 360)

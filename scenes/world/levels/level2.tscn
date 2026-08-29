@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://b0tl6pwtcnhli" path="res://scenes/decor/plants/sprout1.tscn" id="12_erlma"]
 [ext_resource type="PackedScene" uid="uid://dblnbc70ioatq" path="res://scenes/decor/plants/sprout3.tscn" id="13_8sat7"]
 [ext_resource type="PackedScene" uid="uid://gy6etookgfj5" path="res://scenes/decor/plants/sprout2.tscn" id="14_nfsh2"]
+[ext_resource type="PackedScene" uid="uid://c80cu3ienh8n4" path="res://scenes/entities/friend_anchor/friend_anchor.tscn" id="15_rdhst"]
+[ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="16_segvk"]
+[ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="17_od87d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_llayc"]
 shader = ExtResource("3_mij83")
@@ -520,7 +523,62 @@ tile_set = ExtResource("6_g1gwa")
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_8sat7")
 
-[node name="Entity" parent="WorldObject" unique_id=1484594402 instance=ExtResource("7_8sat7")]
-position = Vector2(3567, 591)
+[node name="Entities" type="Node2D" parent="WorldObject" unique_id=1658175]
 
-[node name="EnemyBrain" parent="WorldObject/Entity" unique_id=865101945 instance=ExtResource("8_nfsh2")]
+[node name="Friends" type="Node2D" parent="WorldObject/Entities" unique_id=671030636]
+
+[node name="FriendAnchor2" parent="WorldObject/Entities/Friends" unique_id=2133297876 instance=ExtResource("15_rdhst")]
+position = Vector2(2482.0002, -826.9999)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="WorldObject/Entities/Friends/FriendAnchor2" unique_id=1292844991 instance=ExtResource("16_segvk")]
+
+[node name="FriendBrain" parent="WorldObject/Entities/Friends/FriendAnchor2/NormalFish1" unique_id=46602389 instance=ExtResource("17_od87d")]
+
+[node name="FriendAnchor3" parent="WorldObject/Entities/Friends" unique_id=1449679577 instance=ExtResource("15_rdhst")]
+position = Vector2(4292, 2280)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="WorldObject/Entities/Friends/FriendAnchor3" unique_id=1924015392 instance=ExtResource("16_segvk")]
+
+[node name="FriendBrain" parent="WorldObject/Entities/Friends/FriendAnchor3/NormalFish1" unique_id=1014623157 instance=ExtResource("17_od87d")]
+
+[node name="FriendAnchor4" parent="WorldObject/Entities/Friends" unique_id=775282565 instance=ExtResource("15_rdhst")]
+position = Vector2(-514.9995, 17.000244)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="WorldObject/Entities/Friends/FriendAnchor4" unique_id=633919972 instance=ExtResource("16_segvk")]
+
+[node name="FriendBrain" parent="WorldObject/Entities/Friends/FriendAnchor4/NormalFish1" unique_id=1696587521 instance=ExtResource("17_od87d")]
+
+[node name="Enemies" type="Node2D" parent="WorldObject/Entities" unique_id=986550131]
+
+[node name="Entity" parent="WorldObject/Entities/Enemies" unique_id=1484594402 instance=ExtResource("7_8sat7")]
+position = Vector2(2168, -46)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="WorldObject/Entities/Enemies/Entity" unique_id=865101945 instance=ExtResource("8_nfsh2")]
+
+[node name="Entity2" parent="WorldObject/Entities/Enemies" unique_id=1152038086 instance=ExtResource("7_8sat7")]
+position = Vector2(3866, 1187)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="WorldObject/Entities/Enemies/Entity2" unique_id=1908372447 instance=ExtResource("8_nfsh2")]
+
+[node name="Entity3" parent="WorldObject/Entities/Enemies" unique_id=1147720942 instance=ExtResource("7_8sat7")]
+position = Vector2(1885, 2531)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="WorldObject/Entities/Enemies/Entity3" unique_id=1352901404 instance=ExtResource("8_nfsh2")]
+
+[node name="Entity4" parent="WorldObject/Entities/Enemies" unique_id=364518263 instance=ExtResource("7_8sat7")]
+position = Vector2(2714, 2571)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="WorldObject/Entities/Enemies/Entity4" unique_id=982151496 instance=ExtResource("8_nfsh2")]
+
+[node name="Entity5" parent="WorldObject/Entities/Enemies" unique_id=1508251599 instance=ExtResource("7_8sat7")]
+position = Vector2(1315, -1291)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="WorldObject/Entities/Enemies/Entity5" unique_id=1474694050 instance=ExtResource("8_nfsh2")]
