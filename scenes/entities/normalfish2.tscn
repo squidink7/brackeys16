@@ -53,12 +53,12 @@ shape = SubResource("CircleShape2D_ibhg1")
 [node name="Sprite2D" type="Sprite2D" parent="Segment1" unique_id=1696218758]
 position = Vector2(24, 3)
 rotation = -0.061086524
-scale = Vector2(0.040387634, 0.038335774)
+scale = Vector2(0.08, 0.076)
 texture = ExtResource("3_qstoo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
-position = Vector2(0, -1.0000002)
-scale = Vector2(0.046000563, 0.0460933)
+position = Vector2(17, -6)
+scale = Vector2(0.092, 0.092)
 texture = ExtResource("4_5e8s2")
 
 [connection signal="body_entered" from="." to="." method="on_collide"]

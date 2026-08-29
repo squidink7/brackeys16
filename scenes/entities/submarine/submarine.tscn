@@ -207,6 +207,7 @@ hue_variation_max = 0.1
 unique_name_in_owner = true
 modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.9529412)
 position = Vector2(310, 8)
+scale = Vector2(1, 2)
 texture = ExtResource("6_irrs2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76476538]
