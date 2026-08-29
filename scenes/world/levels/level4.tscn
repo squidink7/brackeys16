@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://dblnbc70ioatq" path="res://scenes/decor/plants/sprout3.tscn" id="11_7g0py"]
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="12_7g0py"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="13_rcjqt"]
+[ext_resource type="PackedScene" uid="uid://c0teweu4hmfsi" path="res://scenes/entities/normalfish2.tscn" id="15_dxcs1"]
+[ext_resource type="PackedScene" uid="uid://de5vbait5u81e" path="res://scenes/entities/brains/enemy/enemy_brain.tscn" id="16_62lrq"]
+[ext_resource type="PackedScene" uid="uid://dk8wuke0lrolt" path="res://scenes/entities/normalfish3.tscn" id="17_ll4j4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovyfg"]
 shader = ExtResource("2_rcjqt")
@@ -584,4 +587,20 @@ position = Vector2(473, 3377)
 position = Vector2(2853, 3124)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=952081833]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_wt5ax")
+
+[node name="Normal Fish 2" parent="." unique_id=1292844991 instance=ExtResource("15_dxcs1")]
+position = Vector2(-16, 1148)
+
+[node name="EnemyBrain" parent="Normal Fish 2" unique_id=865101945 instance=ExtResource("16_62lrq")]
+
+[node name="Fish3" parent="." unique_id=762434216 instance=ExtResource("17_ll4j4")]
+position = Vector2(2765, 2245)
+
+[node name="EnemyBrain" parent="Fish3" unique_id=1565147448 instance=ExtResource("16_62lrq")]
+
+[node name="Normal Fish 3" parent="." unique_id=21884374 instance=ExtResource("15_dxcs1")]
+position = Vector2(-804, 732)
+
+[node name="EnemyBrain" parent="Normal Fish 3" unique_id=1118767353 instance=ExtResource("16_62lrq")]

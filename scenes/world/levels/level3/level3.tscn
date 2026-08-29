@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://c80cu3ienh8n4" path="res://scenes/entities/friend_anchor/friend_anchor.tscn" id="8_bbfnl"]
 [ext_resource type="Texture2D" uid="uid://cn18n57ci1f3j" path="res://assets/textures/Plant Animations/FlowerField/field5.png" id="8_c1nx3"]
 [ext_resource type="Texture2D" uid="uid://qhue6eof58wh" path="res://assets/textures/Plant Animations/FlowerField/field6.png" id="9_cxloo"]
-[ext_resource type="PackedScene" uid="uid://31xuy5csay30" path="res://scenes/entities/entity.tscn" id="9_i6rgx"]
 [ext_resource type="PackedScene" uid="uid://de5vbait5u81e" path="res://scenes/entities/brains/enemy/enemy_brain.tscn" id="10_c1nx3"]
 [ext_resource type="PackedScene" uid="uid://cg72gsbh2hp52" path="res://scenes/items/energy/energy.tscn" id="11_cxloo"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="12_pcwlr"]
@@ -31,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://gy6etookgfj5" path="res://scenes/decor/plants/sprout2.tscn" id="28_s2mp2"]
 [ext_resource type="PackedScene" uid="uid://dblnbc70ioatq" path="res://scenes/decor/plants/sprout3.tscn" id="29_e7i64"]
 [ext_resource type="PackedScene" uid="uid://b0tl6pwtcnhli" path="res://scenes/decor/plants/sprout1.tscn" id="30_jl7a8"]
+[ext_resource type="PackedScene" uid="uid://c0teweu4hmfsi" path="res://scenes/entities/normalfish2.tscn" id="30_opkj5"]
+[ext_resource type="PackedScene" uid="uid://dk8wuke0lrolt" path="res://scenes/entities/normalfish3.tscn" id="32_ux3x8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s2mp2"]
 shader = ExtResource("2_m47u1")
@@ -1712,47 +1713,30 @@ shape = SubResource("RectangleShape2D_rpxwt")
 
 [node name="Enemies" type="Node2D" parent="Entities" unique_id=1851905422]
 
-[node name="Entity" parent="Entities/Enemies" unique_id=1484594402 instance=ExtResource("9_i6rgx")]
-position = Vector2(1424, 1792)
-metadata/_edit_group_ = true
+[node name="Normal Fish 2" parent="Entities/Enemies" unique_id=716243021 instance=ExtResource("30_opkj5")]
+position = Vector2(4487, -209)
 
-[node name="EnemyBrain" parent="Entities/Enemies/Entity" unique_id=865101945 instance=ExtResource("10_c1nx3")]
+[node name="EnemyBrain" parent="Entities/Enemies/Normal Fish 2" unique_id=1901812051 instance=ExtResource("10_c1nx3")]
 
-[node name="Entity2" parent="Entities/Enemies" unique_id=1196970249 instance=ExtResource("9_i6rgx")]
-position = Vector2(2568, 2472)
-metadata/_edit_group_ = true
+[node name="Fish3" parent="Entities/Enemies" unique_id=525155104 instance=ExtResource("32_ux3x8")]
+position = Vector2(2575, 2492)
 
-[node name="EnemyBrain" parent="Entities/Enemies/Entity2" unique_id=1351670829 instance=ExtResource("10_c1nx3")]
+[node name="EnemyBrain" parent="Entities/Enemies/Fish3" unique_id=2048159356 instance=ExtResource("10_c1nx3")]
 
-[node name="Entity3" parent="Entities/Enemies" unique_id=2065765627 instance=ExtResource("9_i6rgx")]
-position = Vector2(7277, 3028)
-metadata/_edit_group_ = true
+[node name="Normal Fish 3" parent="Entities/Enemies" unique_id=627866157 instance=ExtResource("30_opkj5")]
+position = Vector2(-756, 1533)
 
-[node name="EnemyBrain" parent="Entities/Enemies/Entity3" unique_id=270807832 instance=ExtResource("10_c1nx3")]
+[node name="EnemyBrain" parent="Entities/Enemies/Normal Fish 3" unique_id=865101945 instance=ExtResource("10_c1nx3")]
 
-[node name="Entity5" parent="Entities/Enemies" unique_id=419470018 instance=ExtResource("9_i6rgx")]
-position = Vector2(5019, 1787)
-metadata/_edit_group_ = true
+[node name="NormalFish1" parent="Entities/Enemies" unique_id=428212615 instance=ExtResource("20_cxloo")]
+position = Vector2(1303, 1920)
 
-[node name="EnemyBrain" parent="Entities/Enemies/Entity5" unique_id=1321385733 instance=ExtResource("10_c1nx3")]
+[node name="EnemyBrain" parent="Entities/Enemies/NormalFish1" unique_id=424813603 instance=ExtResource("10_c1nx3")]
 
-[node name="Entity6" parent="Entities/Enemies" unique_id=1682548939 instance=ExtResource("9_i6rgx")]
-position = Vector2(4495, -188)
-metadata/_edit_group_ = true
+[node name="NormalFish2" parent="Entities/Enemies" unique_id=1292844991 instance=ExtResource("20_cxloo")]
+position = Vector2(7322, 3037)
 
-[node name="EnemyBrain" parent="Entities/Enemies/Entity6" unique_id=809110472 instance=ExtResource("10_c1nx3")]
-
-[node name="Entity7" parent="Entities/Enemies" unique_id=1835133134 instance=ExtResource("9_i6rgx")]
-position = Vector2(-734, 1531)
-metadata/_edit_group_ = true
-
-[node name="EnemyBrain" parent="Entities/Enemies/Entity7" unique_id=999453125 instance=ExtResource("10_c1nx3")]
-
-[node name="Entity8" parent="Entities/Enemies" unique_id=372910552 instance=ExtResource("9_i6rgx")]
-position = Vector2(2492, -2)
-metadata/_edit_group_ = true
-
-[node name="EnemyBrain" parent="Entities/Enemies/Entity8" unique_id=1501638063 instance=ExtResource("10_c1nx3")]
+[node name="EnemyBrain" parent="Entities/Enemies/NormalFish2" unique_id=700447591 instance=ExtResource("10_c1nx3")]
 
 [node name="Friends" type="Node2D" parent="Entities" unique_id=810929531]
 
@@ -1760,7 +1744,7 @@ metadata/_edit_group_ = true
 position = Vector2(6090, 274)
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="NormalFish1" parent="Entities/Friends/FriendAnchor2" unique_id=1292844991 instance=ExtResource("20_cxloo")]
+[node name="NormalFish1" parent="Entities/Friends/FriendAnchor2" unique_id=1520847831 instance=ExtResource("20_cxloo")]
 
 [node name="FriendBrain" parent="Entities/Friends/FriendAnchor2/NormalFish1" unique_id=46602389 instance=ExtResource("27_s2mp2")]
 

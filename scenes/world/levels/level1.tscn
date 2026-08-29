@@ -116,9 +116,14 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="Enemies" type="Node2D" parent="LevelObject/Entities" unique_id=2091702415]
 
 [node name="RigidBody2D" parent="LevelObject/Entities/Enemies" unique_id=614360438 instance=ExtResource("5_fbwfy")]
-position = Vector2(1022, -46)
+position = Vector2(1154, 619)
 
 [node name="EnemyBrain" parent="LevelObject/Entities/Enemies/RigidBody2D" unique_id=865101945 instance=ExtResource("8_f1u2x")]
+
+[node name="Fish3" parent="LevelObject/Entities/Enemies" unique_id=657783912 instance=ExtResource("5_fbwfy")]
+position = Vector2(2509, 531)
+
+[node name="EnemyBrain" parent="LevelObject/Entities/Enemies/Fish3" unique_id=1115267959 instance=ExtResource("8_f1u2x")]
 
 [node name="AnimatedSprites" type="Node2D" parent="LevelObject" unique_id=1299715739]
 z_index = -1
