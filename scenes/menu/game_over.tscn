@@ -10,18 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://014aj3vm7nvm" path="res://scenes/decor/plants/grass2.tscn" id="8_f2ydr"]
 [ext_resource type="PackedScene" uid="uid://klgl03416sjd" path="res://scenes/decor/plants/grass3.tscn" id="9_rkl3v"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd1st"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx7qh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y76oo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nipis"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0c6jf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8votr"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy0xa"]
 texture = ExtResource("4_l46gp")
 texture_region_size = Vector2i(512, 512)
@@ -348,6 +336,26 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="Environment" id="Environment_ihuh3"]
+background_mode = 3
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+glow_enabled = true
+glow_strength = 2.0
+glow_bloom = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd1st"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx7qh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y76oo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nipis"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0c6jf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8votr"]
+
 [node name="GameOver" type="CanvasLayer" unique_id=1248405987]
 script = ExtResource("1_6fdmy")
 
@@ -387,41 +395,6 @@ theme_override_fonts/font = ExtResource("2_8io6m")
 theme_override_font_sizes/font_size = 128
 text = "Game Over"
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="SubViewportContainer/SubViewport" unique_id=932906455]
-anchors_preset = -1
-anchor_left = 0.49800003
-anchor_top = 0.62
-anchor_right = 0.49800003
-anchor_bottom = 0.62
-offset_left = -107.696045
-offset_top = -20.76001
-offset_right = 107.303955
-offset_bottom = 20.23999
-theme_override_fonts/font = ExtResource("2_8io6m")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_hd1st")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_gx7qh")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_y76oo")
-text = "Restart
-"
-
-[node name="Button2" type="Button" parent="SubViewportContainer/SubViewport" unique_id=970799954]
-anchors_preset = -1
-anchor_left = 0.507
-anchor_top = 0.712
-anchor_right = 0.507
-anchor_bottom = 0.712
-offset_left = -152.06403
-offset_top = -38.376007
-offset_right = 152.93597
-offset_bottom = 38.623993
-theme_override_fonts/font = ExtResource("2_8io6m")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nipis")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0c6jf")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8votr")
-text = "Return to Main Menu"
 
 [node name="Background Plants" type="CanvasGroup" parent="SubViewportContainer/SubViewport" unique_id=1097279229]
 
@@ -513,5 +486,45 @@ scale = Vector2(0.5093937, 0.42385557)
 position = Vector2(976, 616)
 scale = Vector2(0.553125, 0.39687496)
 
-[connection signal="pressed" from="SubViewportContainer/SubViewport/Button" to="." method="resume"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/Button2" to="." method="exit"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=174476320]
+environment = SubResource("Environment_ihuh3")
+
+[node name="RestartButton" type="Button" parent="." unique_id=932906455]
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.62
+anchor_right = 0.49800003
+anchor_bottom = 0.62
+offset_left = -107.696045
+offset_top = -20.76001
+offset_right = 107.303955
+offset_bottom = 20.23999
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
+theme_override_fonts/font = ExtResource("2_8io6m")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hd1st")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gx7qh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y76oo")
+text = "Restart
+"
+
+[node name="ExitButton" type="Button" parent="." unique_id=970799954]
+anchors_preset = -1
+anchor_left = 0.507
+anchor_top = 0.712
+anchor_right = 0.507
+anchor_bottom = 0.712
+offset_left = -152.06403
+offset_top = -38.376007
+offset_right = 152.93597
+offset_bottom = 38.623993
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
+theme_override_fonts/font = ExtResource("2_8io6m")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nipis")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0c6jf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8votr")
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="RestartButton" to="." method="resume"]
+[connection signal="pressed" from="ExitButton" to="." method="exit"]

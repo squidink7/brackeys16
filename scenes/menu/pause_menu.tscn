@@ -15,22 +15,6 @@
 shader = ExtResource("1_n54lc")
 shader_parameter/blur_amount = 2.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1k4da"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbqo6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4hu8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1nwe"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prbor"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27h4x"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdhp0"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb3yi"]
 texture = ExtResource("4_eb3yi")
 texture_region_size = Vector2i(512, 512)
@@ -357,7 +341,32 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="Environment" id="Environment_eb3yi"]
+background_mode = 3
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+glow_enabled = true
+glow_strength = 2.0
+glow_bloom = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1k4da"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbqo6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4hu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1nwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prbor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27h4x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdhp0"]
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=417342657]
+layer = 50
 script = ExtResource("1_ux7g8")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=1314057822]
@@ -409,46 +418,6 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_eb3yi")
 theme_override_font_sizes/font_size = 128
 text = "Game Paused"
-
-[node name="Button" type="Button" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=740864933]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.623
-anchor_right = 0.5
-anchor_bottom = 0.623
-offset_left = -160.0
-offset_top = -19.70401
-offset_right = 160.0
-offset_bottom = 20.29599
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_eb3yi")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vovv2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_1k4da")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_bbqo6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_d4hu8")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p1nwe")
-text = "Rresume"
-
-[node name="Button2" type="Button" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1368022289]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.71000004
-anchor_right = 0.5
-anchor_bottom = 0.71000004
-offset_left = -160.0
-offset_top = -20.080017
-offset_right = 160.0
-offset_bottom = 19.919983
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_eb3yi")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_prbor")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_27h4x")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_gdhp0")
-text = "Return to Main Menu"
 
 [node name="Background Plants" type="CanvasGroup" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1804655803]
 
@@ -539,3 +508,53 @@ scale = Vector2(0.5093937, 0.42385557)
 [node name="Plant8" parent="PauseMenu/SubViewportContainer/SubViewport/Moving Plants" unique_id=1974819009 instance=ExtResource("9_2pedh")]
 position = Vector2(976, 616)
 scale = Vector2(0.553125, 0.39687496)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=19245177]
+environment = SubResource("Environment_eb3yi")
+
+[node name="ResumeButton" type="Button" parent="PauseMenu" unique_id=740864933]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.623
+anchor_right = 0.5
+anchor_bottom = 0.623
+offset_left = -160.0
+offset_top = -20.20401
+offset_right = 160.0
+offset_bottom = 20.79599
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
+theme_override_fonts/font = ExtResource("3_eb3yi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vovv2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1k4da")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bbqo6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d4hu8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1nwe")
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="PauseMenu" unique_id=1368022289]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.71000004
+anchor_right = 0.5
+anchor_bottom = 0.71000004
+offset_left = -160.0
+offset_top = -20.580017
+offset_right = 160.0
+offset_bottom = 20.419983
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
+theme_override_fonts/font = ExtResource("3_eb3yi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prbor")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_27h4x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gdhp0")
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="resume"]
+[connection signal="pressed" from="PauseMenu/ExitButton" to="." method="exit"]

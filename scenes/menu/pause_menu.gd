@@ -1,8 +1,9 @@
 extends CanvasLayer
 
+signal resumed
+
 func resume() -> void:
-	get_tree().paused = false
-	hide()
+	resumed.emit()
 
 func exit() -> void:
 	get_tree().paused = false

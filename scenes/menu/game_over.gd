@@ -1,9 +1,10 @@
 extends CanvasLayer
 class_name GameOver
+
 signal reset
+
 func resume() -> void:
 	reset.emit()
-	
 	get_tree().paused = false
 	hide()
 

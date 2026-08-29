@@ -33,9 +33,14 @@ func set_checkpoint(cp: Checkpoint) -> void:
 
 func end_game() -> void:
 	$GameOver.visible = true
+	$Shader.visible = false
 	get_tree().paused = true
 
+func set_pause(paused: bool) -> void:
+	$PauseMenu.visible = paused
+	$Shader.visible = !paused
+	get_tree().paused = paused
+
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("game_pause"):
-		$PauseMenu.visible = !get_tree().paused
-		get_tree().paused = !get_tree().paused
+	if event.is_action_pressed("game_pause") && !$GameOver.visible:
+		set_pause(!get_tree().paused)

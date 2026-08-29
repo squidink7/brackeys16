@@ -155,4 +155,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[connection signal="resumed" from="PauseMenu" to="." method="set_pause" binds= [false]]
 [connection signal="reset" from="GameOver" to="." method="died"]
