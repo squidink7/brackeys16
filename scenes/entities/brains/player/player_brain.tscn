@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxfmum0kd2l4x" path="res://scenes/menu/pause_menu.tscn" id="2_r2cya"]
 [ext_resource type="PackedScene" uid="uid://dacqn3cbus0sn" path="res://scenes/menu/game_over.tscn" id="3_cr8le"]
 [ext_resource type="Shader" uid="uid://div4ytnkkb8n8" path="res://shaders/ripple.gdshader" id="4_g35mx"]
+[ext_resource type="Texture2D" uid="uid://bnsq57grpja1n" path="res://assets/textures/bgNoise.png" id="5_iavi8"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
 offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
@@ -120,6 +121,7 @@ layer = 4
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=953975981]
+layer = -1
 
 [node name="RippleShader" type="ColorRect" parent="CanvasLayer" unique_id=828913702]
 material = SubResource("ShaderMaterial_iavi8")
@@ -128,6 +130,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=390884705]
+modulate = Color(0.15686275, 0.4509804, 0.7490196, 1)
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("5_iavi8")
 
 [node name="StartAnimation" type="AnimationPlayer" parent="." unique_id=419464133]
 root_node = NodePath("../Camera")
