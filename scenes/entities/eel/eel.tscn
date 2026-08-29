@@ -264,3 +264,5 @@ show_behind_parent = true
 position = Vector2(-8.777061, 4.9443475e-05)
 scale = Vector2(0.7971622, 0.8295238)
 texture = ExtResource("2_0hg72")
+
+[connection signal="body_entered" from="." to="." method="on_collide"]

@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 	apply_central_force(get_brain().move(self, delta) * speed)
 
 
-
 func take_damage(_damage: float) -> void:
 	pass
 
@@ -40,12 +39,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	#RotationLimiter.clamp_rotation(state)
 	pass
 
-
-func _on_body_entered(body: Node) -> void:
+func on_collide(body: Node) -> void:
 	if body is Entity:
 		if get_brain():
 			var damage_taken = get_brain().attack()
 			body.take_damage(damage_taken)
-		
-		
-		

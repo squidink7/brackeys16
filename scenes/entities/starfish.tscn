@@ -9,6 +9,8 @@ radius = 16.0
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1292844991]
 mass = 5.0
 lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 2
 linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_ytpqb")
@@ -20,3 +22,5 @@ shape = SubResource("CircleShape2D_wt5ax")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
 scale = Vector2(0.09856813, 0.08768556)
 texture = ExtResource("2_anrlx")
+
+[connection signal="body_entered" from="." to="." method="on_collide"]
