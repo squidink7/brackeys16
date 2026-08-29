@@ -307,6 +307,17 @@ position = Vector2(-134.79999, 96.20001)
 flip_h = true
 script = SubResource("GDScript_gmiel")
 
+[node name="BlueFlower6" parent="LevelObject/AnimatedSprites/Flowers" unique_id=1653278868 instance=ExtResource("15_fi5hx")]
+position = Vector2(1347, 82)
+
+[node name="BlueFlower7" parent="LevelObject/AnimatedSprites/Flowers" unique_id=697958203 instance=ExtResource("15_fi5hx")]
+position = Vector2(2220, 248)
+flip_h = true
+
+[node name="BlueFlower8" parent="LevelObject/AnimatedSprites/Flowers" unique_id=525773018 instance=ExtResource("14_gmiel")]
+position = Vector2(1807, 692)
+flip_h = true
+
 [node name="SpawnLight" type="PointLight2D" parent="LevelObject" unique_id=201609712]
 position = Vector2(3.0517578e-05, 3.0517578e-05)
 scale = Vector2(13.375, 13.375)
