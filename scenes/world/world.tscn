@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://brm5jrge3amgf" path="res://scenes/world/world.gd" id="1_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://brqkfldjcj7cm" path="res://scenes/world/meta/level_loader/level_loader.tscn" id="4_gb53w"]
 [ext_resource type="PackedScene" uid="uid://dmdnb37smsm3a" path="res://scenes/entities/brains/player/player_brain.tscn" id="4_v5dby"]
+[ext_resource type="AudioStream" uid="uid://puiwcvym4xg2" path="res://assets/sounds/new_sounds/AmbienceLoop.wav" id="6_bq33v"]
 [ext_resource type="PackedScene" uid="uid://dxmfkqej44y11" path="res://scenes/entities/submarine/submarine.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/meta/checkpoint/checkpoint.tscn" id="9_1yooq"]
 
@@ -143,3 +144,7 @@ shape = SubResource("RectangleShape2D_5qq27")
 [node name="WorldEnd" type="Marker2D" parent="." unique_id=1079660623]
 unique_name_in_owner = true
 position = Vector2(26971, 13143)
+
+[node name="AmbienceLoopPlayer" type="AudioStreamPlayer" parent="." unique_id=1367984703]
+stream = ExtResource("6_bq33v")
+autoplay = true
