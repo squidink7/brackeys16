@@ -15,6 +15,11 @@ func _process(_delta: float) -> void:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			# Loading is complete, grab the resource
 			loading = false
+			
+			# Ensure level isn't already loaded
+			if $Level.get_child_count() > 0:
+				return
+			
 			var packed_scene = ResourceLoader.load_threaded_get(scene_path)
 			
 			# Instantiate when done
