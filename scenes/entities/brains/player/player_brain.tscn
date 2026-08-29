@@ -18,22 +18,6 @@ fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 8
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_iavi8"]
-noise_type = 0
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g35mx"]
-noise = SubResource("FastNoiseLite_iavi8")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iavi8"]
-shader = ExtResource("4_g35mx")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_g35mx")
-shader_parameter/scroll_speed = Vector2(0.05, 0.08)
-shader_parameter/noise_scale = 2.00000007125
-shader_parameter/distortion_strength = 0.0030000001425
-shader_parameter/water_tint = Color(0.75, 0.85, 1, 0.02)
-
 [sub_resource type="Animation" id="Animation_g35mx"]
 length = 0.001
 tracks/0/type = "value"
@@ -96,6 +80,29 @@ _data = {
 &"Start": SubResource("Animation_iavi8")
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iavi8"]
+noise_type = 0
+frequency = 0.005
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g35mx"]
+noise = SubResource("FastNoiseLite_iavi8")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iavi8"]
+shader = ExtResource("4_g35mx")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_g35mx")
+shader_parameter/scroll_speed_1 = Vector2(0.05, 0.08)
+shader_parameter/noise_scale_1 = 3.0
+shader_parameter/weight_1 = 0.5
+shader_parameter/scroll_speed_2 = Vector2(-0.04, 0.03)
+shader_parameter/noise_scale_2 = 6.0
+shader_parameter/weight_2 = 0.3
+shader_parameter/scroll_speed_3 = Vector2(0.02, -0.06)
+shader_parameter/noise_scale_3 = 12.0
+shader_parameter/weight_3 = 0.50000002375
+shader_parameter/distortion_strength = 0.0030000001425
+
 [node name="PlayerBrain" type="Node2D" unique_id=805582152]
 process_mode = 3
 script = ExtResource("1_hk3yk")
@@ -112,6 +119,18 @@ shadow_filter = 1
 texture = SubResource("GradientTexture2D_2m7xf")
 texture_scale = 5.0
 
+[node name="Background" type="CanvasLayer" parent="." unique_id=953975981]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=390884705]
+modulate = Color(0.15686275, 0.4509804, 0.7490196, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_iavi8")
+
 [node name="PauseMenu" parent="." unique_id=1314057822 instance=ExtResource("2_r2cya")]
 layer = 5
 visible = false
@@ -120,28 +139,20 @@ visible = false
 layer = 4
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=953975981]
-layer = -1
+[node name="StartAnimation" type="AnimationPlayer" parent="." unique_id=419464133]
+root_node = NodePath("../Camera")
+libraries/ = SubResource("AnimationLibrary_6w4u8")
+autoplay = &"Start"
 
-[node name="RippleShader" type="ColorRect" parent="CanvasLayer" unique_id=828913702]
+[node name="Shader" type="CanvasLayer" parent="." unique_id=1426587006]
+layer = 10
+
+[node name="RippleShader" type="ColorRect" parent="Shader" unique_id=828913702]
 material = SubResource("ShaderMaterial_iavi8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=390884705]
-modulate = Color(0.15686275, 0.4509804, 0.7490196, 1)
-offset_left = 1.0
-offset_top = -4.0
-offset_right = 1152.0
-offset_bottom = 647.0
-texture = ExtResource("5_iavi8")
-
-[node name="StartAnimation" type="AnimationPlayer" parent="." unique_id=419464133]
-root_node = NodePath("../Camera")
-libraries/ = SubResource("AnimationLibrary_6w4u8")
-autoplay = &"Start"
 
 [connection signal="reset" from="GameOver" to="." method="died"]

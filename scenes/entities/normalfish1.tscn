@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drva15l2kj57b" path="res://assets/models/fishes/1normf1/normalf_b.png" id="2_mac8r"]
 [ext_resource type="Texture2D" uid="uid://dk4lj8prfmo76" path="res://assets/models/fishes/1normf1/normalf_t.png" id="3_rvura"]
 [ext_resource type="Texture2D" uid="uid://cd4mgip30ny1x" path="res://assets/models/fishes/1normf1/normalf_h.png" id="4_3nfd7"]
+[ext_resource type="Texture2D" uid="uid://c3m22131das1i" path="res://assets/textures/light_texture.svg" id="5_rvura"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
 radius = 16.0
@@ -15,11 +16,16 @@ size = Vector2(36, 14)
 radius = 8.0
 
 [node name="NormalFish1" type="RigidBody2D" unique_id=1292844991]
-mass = 5.0
 lock_rotation = true
 linear_damp = 3.0
 angular_damp = 3.0
 script = ExtResource("1_rfwb5")
+
+[node name="LightTexture" type="Sprite2D" parent="." unique_id=1398751362]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+position = Vector2(0, 7.1054274e-15)
+scale = Vector2(0.060190413, 0.04312243)
+texture = ExtResource("5_rvura")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
 scale = Vector2(0.8, 0.8)

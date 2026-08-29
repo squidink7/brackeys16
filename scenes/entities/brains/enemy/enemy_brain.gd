@@ -27,6 +27,7 @@ func move(_entity: Entity, _delta: float) -> Vector2:
 func seen_entity(body: Node2D) -> void:
 	if body is Entity && body.get_brain() is PlayerBrain:
 		target_entities.append(body)
+		$AttackTimer.start()
 
 func lost_entity(body: Node2D) -> void:
 	if body is Entity && body.get_brain() is PlayerBrain:

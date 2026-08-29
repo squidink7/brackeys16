@@ -3,31 +3,51 @@ shader_type canvas_item;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D noise_texture;
 
-uniform vec2 scroll_speed = vec2(0.05, 0.08);
-uniform float noise_scale : hint_range(0.5, 10.0) = 3.0;
+// --- Layer 1: Base Waves (Large, slow movement) ---
+uniform vec2 scroll_speed_1 = vec2(0.05, 0.08);
+uniform float noise_scale_1 : hint_range(0.5, 10.0) = 3.0;
+uniform float weight_1 : hint_range(0.0, 1.0) = 0.5;
 
-uniform float distortion_strength : hint_range(0.0, 0.05) = 0.005;
-uniform vec4 water_tint : source_color = vec4(0.75, 0.85, 1.0, 0.02);
+// --- Layer 2: Mid Details (Medium scale, contrasting direction) ---
+uniform vec2 scroll_speed_2 = vec2(-0.04, 0.03);
+uniform float noise_scale_2 : hint_range(0.5, 10.0) = 6.0;
+uniform float weight_2 : hint_range(0.0, 1.0) = 0.3;
+
+// --- Layer 3: Fine Ripples (Small scale, faster movement) ---
+uniform vec2 scroll_speed_3 = vec2(0.02, -0.06);
+uniform float noise_scale_3 : hint_range(0.5, 10.0) = 12.0;
+uniform float weight_3 : hint_range(0.0, 1.0) = 0.2;
+
+// Increased default strength to ensure the effect is visible through the blending
+uniform float distortion_strength : hint_range(0.0, 0.1) = 0.015; 
 
 void fragment() {
-    // 1. Calculate the raw animated UVs
-    vec2 raw_noise_uv = (UV * noise_scale) + (TIME * scroll_speed);
+	// 1. Calculate the animated UVs for each layer
+	vec2 uv1 = (UV * noise_scale_1) + (TIME * scroll_speed_1);
+	vec2 uv2 = (UV * noise_scale_2) + (TIME * scroll_speed_2);
+	vec2 uv3 = (UV * noise_scale_3) + (TIME * scroll_speed_3);
 
-    // 2. Force the UVs to wrap around using fract().
-    // This ensures the texture repeats infinitely across the screen 
-    // and never scrolls off the edge.
-    vec2 noise_uv = fract(raw_noise_uv);
+	// 2. Sample the noise texture for each layer.
+	// fract() is added back to ensure the UVs wrap infinitely even if "Repeat" is disabled in Import settings.
+	vec4 noise1 = texture(noise_texture, fract(uv1));
+	vec4 noise2 = texture(noise_texture, fract(uv2));
+	vec4 noise3 = texture(noise_texture, fract(uv3));
 
-    // 3. Sample the noise texture
-    vec4 noise = texture(noise_texture, noise_uv);
+	// 3. Blend the noise layers together using a weighted average
+	float total_weight = max(0.001, weight_1 + weight_2 + weight_3);
+	vec2 combined_noise = (noise1.rg * weight_1 + noise2.rg * weight_2 + noise3.rg * weight_3) / total_weight;
 
-    // 4. Calculate distortion (map 0..1 to -1..1)
-    vec2 distortion = (noise.rg * 2.0 - 1.0) * distortion_strength;
+	// 4. Calculate distortion (map 0..1 to -1..1)
+	// The 1.5 multiplier restores the "punchiness" lost when blending multiple layers together.
+	vec2 distortion = (combined_noise * 2.0 - 1.0) * distortion_strength * 1.5;
 
-    // 5. Apply the refraction to the screen
-    vec2 distorted_uv = UV + distortion;
-    vec4 screen_color = texture(SCREEN_TEXTURE, distorted_uv);
+	// 5. Apply the refraction to the screen
+	// Note: We use SCREEN_UV here instead of UV. This ensures the distortion aligns with the screen's 
+	// actual pixels rather than just stretching a corner of the screen texture across your sprite.
+	vec2 distorted_uv = SCREEN_UV + distortion; 
+	vec4 screen_color = texture(SCREEN_TEXTURE, distorted_uv);
 
-    // 6. Apply the subtle water tint
-    COLOR = mix(screen_color, water_tint, water_tint.a);
+	// 6. Apply the subtle water tint
+	float tint_factor = combined_noise.r * 0.05; 
+	COLOR = screen_color;
 }
