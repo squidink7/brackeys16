@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bej0lp0eg3cx3" path="res://assets/models/submarine/subm2.png" id="3_irrs2"]
 [ext_resource type="Texture2D" uid="uid://v81ted1atu85" path="res://assets/models/submarine/subm3.png" id="4_edkew"]
 [ext_resource type="Texture2D" uid="uid://baylu8toakut1" path="res://assets/models/submarine/sub_glowing_window.png" id="5_k16x5"]
+[ext_resource type="Texture2D" uid="uid://dj7te0nrki278" path="res://assets/textures/lightcone.svg" id="6_irrs2"]
 
 [sub_resource type="Gradient" id="Gradient_edkew"]
 offsets = PackedFloat32Array(0, 0.67016816, 0.88653547, 0.94416696, 1)
@@ -22,15 +23,6 @@ metadata/_snap_enabled = true
 [sub_resource type="Gradient" id="Gradient_irrs2"]
 offsets = PackedFloat32Array(0, 0.824439, 1)
 colors = PackedColorArray(0, 0.5231397, 1, 1, 0, 0.49665892, 0.94938105, 0.94938105, 0, 0, 0, 0)
-
-[sub_resource type="Gradient" id="Gradient_xp67s"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.47368422, 0.4868421)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_edkew"]
-gradient = SubResource("Gradient_xp67s")
-fill_from = Vector2(0, 1)
-metadata/_snap_enabled = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geaiy"]
 radius = 16.0
@@ -71,17 +63,15 @@ scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("4_edkew")
 
 [node name="SubGlowingWindow" type="Sprite2D" parent="Visuals" unique_id=1528008158]
-modulate = Color(0.1, 0.091466665, 0.036000002, 1)
-self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 scale = Vector2(0.17630431, 0.17630431)
 texture = ExtResource("5_k16x5")
 
-[node name="PointLight2D" type="PointLight2D" parent="Visuals" unique_id=338667030]
+[node name="FrontLight" type="PointLight2D" parent="Visuals" unique_id=338667030]
+unique_name_in_owner = true
 modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.9529412)
-position = Vector2(113, 21)
-rotation = -0.10106064
-scale = Vector2(1.8228781, 0.61780035)
-texture = SubResource("GradientTexture2D_edkew")
+position = Vector2(312, 8)
+texture = ExtResource("6_irrs2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76476538]
 position = Vector2(8, 8)

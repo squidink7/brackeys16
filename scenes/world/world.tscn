@@ -2,13 +2,25 @@
 
 [ext_resource type="Script" uid="uid://brm5jrge3amgf" path="res://scenes/world/world.gd" id="1_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://0en8oe8m05o1" path="res://scenes/world/levels/level1.tscn" id="2_6m72w"]
+[ext_resource type="PackedScene" uid="uid://brqkfldjcj7cm" path="res://scenes/world/meta/level_loader/level_loader.tscn" id="4_gb53w"]
 [ext_resource type="PackedScene" uid="uid://dmdnb37smsm3a" path="res://scenes/entities/brains/player/player_brain.tscn" id="4_v5dby"]
-[ext_resource type="PackedScene" uid="uid://cpyk7kevc6rf2" path="res://scenes/world/levels/level2.tscn" id="6_bq33v"]
 [ext_resource type="PackedScene" uid="uid://dxmfkqej44y11" path="res://scenes/entities/submarine/submarine.tscn" id="6_t5ptc"]
-[ext_resource type="PackedScene" uid="uid://c46unporgt5to" path="res://scenes/world/levels/level3/level3.tscn" id="7_j2gmx"]
-[ext_resource type="PackedScene" uid="uid://drqsfkk8ebuu8" path="res://scenes/world/levels/level4.tscn" id="8_1yooq"]
 [ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/meta/checkpoint/checkpoint.tscn" id="9_1yooq"]
-[ext_resource type="PackedScene" uid="uid://cfr7mup0f3fln" path="res://scenes/world/levels/level5.tscn" id="9_gb53w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
+size = Vector2(10868, 6879)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlabj"]
+size = Vector2(11864, 9094.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srmg5"]
+size = Vector2(10064, 2637.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umvgx"]
+size = Vector2(6692, 5764)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxkvs"]
+size = Vector2(10508, 3404)
 
 [sub_resource type="Environment" id="Environment_mxkvs"]
 background_mode = 3
@@ -38,17 +50,41 @@ script = ExtResource("1_sl2e5")
 [node name="Level1" parent="Levels" unique_id=151000013 instance=ExtResource("2_6m72w")]
 position = Vector2(-58, 0)
 
-[node name="Level2" parent="Levels" unique_id=1471474625 instance=ExtResource("6_bq33v")]
+[node name="LevelLoader2" parent="Levels" unique_id=1937361620 instance=ExtResource("4_gb53w")]
 position = Vector2(1128, 3080)
+scene_path = "uid://cpyk7kevc6rf2"
 
-[node name="Level3" parent="." unique_id=1489467403 instance=ExtResource("7_j2gmx")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelLoader2" unique_id=920942373]
+position = Vector2(2570, 1213.5)
+shape = SubResource("RectangleShape2D_mqj7i")
+
+[node name="LevelLoader3" parent="Levels" unique_id=317753241 instance=ExtResource("4_gb53w")]
 position = Vector2(8212, 3331)
+scene_path = "uid://c46unporgt5to"
 
-[node name="Level4" parent="." unique_id=158575735 instance=ExtResource("8_1yooq")]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Levels/LevelLoader3" unique_id=164596594]
+position = Vector2(4786, 2094.75)
+shape = SubResource("RectangleShape2D_dlabj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Levels/LevelLoader3" unique_id=79980868]
+position = Vector2(1857, 3992.25)
+shape = SubResource("RectangleShape2D_srmg5")
+
+[node name="LevelLoader4" parent="Levels" unique_id=1810135430 instance=ExtResource("4_gb53w")]
 position = Vector2(14404, 10113)
+scene_path = "uid://drqsfkk8ebuu8"
 
-[node name="Level5" parent="." unique_id=750222323 instance=ExtResource("9_gb53w")]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Levels/LevelLoader4" unique_id=505666570]
+position = Vector2(1278, 1391)
+shape = SubResource("RectangleShape2D_umvgx")
+
+[node name="LevelLoader5" parent="Levels" unique_id=1937878794 instance=ExtResource("4_gb53w")]
 position = Vector2(18324, 12061)
+scene_path = "uid://cfr7mup0f3fln"
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Levels/LevelLoader5" unique_id=1511936460]
+position = Vector2(5036, 970)
+shape = SubResource("RectangleShape2D_mxkvs")
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=764757781]
 visible = false
@@ -58,7 +94,6 @@ color = Color(0.11803245, 0.14740784, 0.33509827, 1)
 environment = SubResource("Environment_mxkvs")
 
 [node name="Player" parent="." unique_id=550745919 instance=ExtResource("6_t5ptc")]
-position = Vector2(25669, 13160)
 
 [node name="PlayerBrain" parent="Player" unique_id=805582152 instance=ExtResource("4_v5dby")]
 

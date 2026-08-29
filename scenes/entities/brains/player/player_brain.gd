@@ -4,8 +4,13 @@ class_name PlayerBrain
 var last_checkpoint: Checkpoint
 var light_tween: Tween
 
-func move(_entity: Entity, _delta: float) -> Vector2:
-	return Input.get_vector('move_left', 'move_right', 'move_up', 'move_down').normalized()
+func move(_entity: Entity, delta: float) -> Vector2:
+	var direction = Input.get_vector('move_left', 'move_right', 'move_up', 'move_down').normalized()
+
+	# Camera lookahead
+	$Camera.offset = lerp($Camera.offset, direction*200, delta/4)
+
+	return direction
 
 func died() -> void:
 	if get_parent() is Entity:	

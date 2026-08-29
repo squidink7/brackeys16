@@ -33,14 +33,75 @@ shader_parameter/noise_scale = 2.00000007125
 shader_parameter/distortion_strength = 0.0030000001425
 shader_parameter/water_tint = Color(0.75, 0.85, 1, 0.02)
 
+[sub_resource type="Animation" id="Animation_g35mx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iavi8"]
+resource_name = "Start"
+length = 3.0000000000000004
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [0.17453292519943295, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w4u8"]
+_data = {
+&"RESET": SubResource("Animation_g35mx"),
+&"Start": SubResource("Animation_iavi8")
+}
+
 [node name="PlayerBrain" type="Node2D" unique_id=805582152]
 process_mode = 3
 script = ExtResource("1_hk3yk")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=5080585]
+[node name="Camera" type="Camera2D" parent="." unique_id=5080585]
+ignore_rotation = false
 position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="Light" type="PointLight2D" parent="." unique_id=994008787]
 color = Color(1, 0.8862745, 0.56078434, 1)
@@ -67,5 +128,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StartAnimation" type="AnimationPlayer" parent="." unique_id=419464133]
+root_node = NodePath("../Camera")
+libraries/ = SubResource("AnimationLibrary_6w4u8")
+autoplay = &"Start"
 
 [connection signal="reset" from="GameOver" to="." method="died"]

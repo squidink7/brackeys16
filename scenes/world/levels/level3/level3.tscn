@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="12_pcwlr"]
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="13_pcwlr"]
 [ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="20_cxloo"]
+[ext_resource type="PackedScene" uid="uid://bh7enlnk6k84h" path="res://scenes/entities/brains/friend/friend_brain.tscn" id="27_s2mp2"]
 [ext_resource type="PackedScene" uid="uid://014aj3vm7nvm" path="res://scenes/decor/plants/grass2.tscn" id="27_t1oge"]
 [ext_resource type="PackedScene" uid="uid://gy6etookgfj5" path="res://scenes/decor/plants/sprout2.tscn" id="28_s2mp2"]
 [ext_resource type="PackedScene" uid="uid://dblnbc70ioatq" path="res://scenes/decor/plants/sprout3.tscn" id="29_e7i64"]
@@ -313,11 +314,6 @@ position = Vector2(34680, 29760.002)
 rotation = -0.5235988
 scale = Vector2(1.3736702, 1.3736702)
 texture = SubResource("AtlasTexture_c1nx3")
-
-[node name="BarbedSemiLoop2" type="Sprite2D" parent="LevelObject/Decor/Plants" unique_id=1695855400]
-position = Vector2(27599.996, 9439.999)
-scale = Vector2(1.3736702, 1.3736702)
-texture = SubResource("AtlasTexture_cxloo")
 
 [node name="BarbedSemiLoop3" type="Sprite2D" parent="LevelObject/Decor/Plants" unique_id=897333896]
 position = Vector2(26279.996, 11960)
@@ -1727,6 +1723,18 @@ metadata/_edit_group_ = true
 
 [node name="EnemyBrain" parent="Entities/Enemies/Entity2" unique_id=1351670829 instance=ExtResource("10_c1nx3")]
 
+[node name="Entity3" parent="Entities/Enemies" unique_id=2065765627 instance=ExtResource("9_i6rgx")]
+position = Vector2(6976, 3706)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="Entities/Enemies/Entity3" unique_id=270807832 instance=ExtResource("10_c1nx3")]
+
+[node name="Entity4" parent="Entities/Enemies" unique_id=1108117121 instance=ExtResource("9_i6rgx")]
+position = Vector2(7830, 4881)
+metadata/_edit_group_ = true
+
+[node name="EnemyBrain" parent="Entities/Enemies/Entity4" unique_id=228041977 instance=ExtResource("10_c1nx3")]
+
 [node name="Friends" type="Node2D" parent="Entities" unique_id=810929531]
 
 [node name="FriendAnchor2" parent="Entities/Friends" unique_id=2133297876 instance=ExtResource("8_bbfnl")]
@@ -1735,8 +1743,31 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="NormalFish1" parent="Entities/Friends/FriendAnchor2" unique_id=1292844991 instance=ExtResource("20_cxloo")]
 
-[node name="FriendAnchor" parent="Entities/Friends" unique_id=993648738 instance=ExtResource("8_bbfnl")]
-position = Vector2(1912, 824)
+[node name="FriendBrain" parent="Entities/Friends/FriendAnchor2/NormalFish1" unique_id=46602389 instance=ExtResource("27_s2mp2")]
+
+[node name="FriendAnchor3" parent="Entities/Friends" unique_id=500256119 instance=ExtResource("8_bbfnl")]
+position = Vector2(1918.0002, 788.99994)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="Entities/Friends/FriendAnchor3" unique_id=288489667 instance=ExtResource("20_cxloo")]
+
+[node name="FriendBrain" parent="Entities/Friends/FriendAnchor3/NormalFish1" unique_id=2006999415 instance=ExtResource("27_s2mp2")]
+
+[node name="FriendAnchor4" parent="Entities/Friends" unique_id=1970066039 instance=ExtResource("8_bbfnl")]
+position = Vector2(8525, 5201)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="Entities/Friends/FriendAnchor4" unique_id=2071194606 instance=ExtResource("20_cxloo")]
+
+[node name="FriendBrain" parent="Entities/Friends/FriendAnchor4/NormalFish1" unique_id=444262841 instance=ExtResource("27_s2mp2")]
+
+[node name="FriendAnchor5" parent="Entities/Friends" unique_id=132700498 instance=ExtResource("8_bbfnl")]
+position = Vector2(6320, 4561)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="NormalFish1" parent="Entities/Friends/FriendAnchor5" unique_id=313438047 instance=ExtResource("20_cxloo")]
+
+[node name="FriendBrain" parent="Entities/Friends/FriendAnchor5/NormalFish1" unique_id=2139575434 instance=ExtResource("27_s2mp2")]
 
 [node name="Items" type="Node2D" parent="." unique_id=1888566115]
 

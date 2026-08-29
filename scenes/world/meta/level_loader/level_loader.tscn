@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://brqkfldjcj7cm"]
+
+[ext_resource type="Script" uid="uid://j5uno2qmh0e6" path="res://scenes/world/meta/level_loader/level_loader.gd" id="1_o8rhd"]
+
+[node name="LevelLoader" type="Area2D" unique_id=1937361620]
+script = ExtResource("1_o8rhd")
+
+[node name="Level" type="Node2D" parent="." unique_id=154708782]
+
+[connection signal="body_entered" from="." to="." method="load_level"]
+[connection signal="body_exited" from="." to="." method="unload_level"]
