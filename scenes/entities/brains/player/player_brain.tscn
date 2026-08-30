@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dmdnb37smsm3a"]
 
 [ext_resource type="Script" uid="uid://42khcpau4yh3" path="res://scenes/entities/brains/player/player_brain.gd" id="1_hk3yk"]
+[ext_resource type="Texture2D" uid="uid://2kxtlj7q4e2m" path="res://assets/bg.png" id="2_iavi8"]
 [ext_resource type="PackedScene" uid="uid://cxfmum0kd2l4x" path="res://scenes/menu/pause_menu.tscn" id="2_r2cya"]
 [ext_resource type="PackedScene" uid="uid://dacqn3cbus0sn" path="res://scenes/menu/game_over.tscn" id="3_cr8le"]
 [ext_resource type="Shader" uid="uid://div4ytnkkb8n8" path="res://shaders/ripple.gdshader" id="4_g35mx"]
-[ext_resource type="Texture2D" uid="uid://bnsq57grpja1n" path="res://assets/textures/bgNoise.png" id="5_iavi8"]
 
 [sub_resource type="Gradient" id="Gradient_6uco5"]
 offsets = PackedFloat32Array(0, 0.19879518, 0.76506025, 1)
@@ -104,7 +104,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_iavi8")
+texture = ExtResource("2_iavi8")
+expand_mode = 1
 
 [node name="PauseMenu" parent="." unique_id=1314057822 instance=ExtResource("2_r2cya")]
 layer = 5

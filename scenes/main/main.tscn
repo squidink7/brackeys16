@@ -10,10 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://cskwqqo8jhydj" path="res://assets/music/level4.wav" id="6_th5th"]
 [ext_resource type="AudioStream" uid="uid://calfpftgppg4e" path="res://assets/music/level5.wav" id="7_7smn1"]
 [ext_resource type="AudioStream" uid="uid://5ld7t2j1ciyy" path="res://assets/music/flowers.wav" id="8_raeie"]
+[ext_resource type="AudioStream" uid="uid://by71o67edlhrc" path="res://assets/sounds/kraken-breathing.ogg" id="9_ouso4"]
 
 [node name="Main" type="Node" unique_id=1580294639]
 script = ExtResource("1_7h61r")
-songs = Array[AudioStream]([ExtResource("4_l3cfh"), ExtResource("3_a8run"), ExtResource("4_ouso4"), ExtResource("5_blune"), ExtResource("6_th5th"), ExtResource("7_7smn1"), ExtResource("8_raeie")])
+songs = Array[AudioStream]([ExtResource("4_l3cfh"), ExtResource("3_a8run"), ExtResource("4_ouso4"), ExtResource("5_blune"), ExtResource("6_th5th"), ExtResource("7_7smn1"), ExtResource("8_raeie"), ExtResource("9_ouso4")])
 
 [node name="MainMenu" parent="." unique_id=849427100 instance=ExtResource("1_sul5r")]
 z_index = 101

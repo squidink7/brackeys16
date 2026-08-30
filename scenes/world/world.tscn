@@ -8,22 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/meta/checkpoint/checkpoint.tscn" id="9_1yooq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
-size = Vector2(4468, 3130)
+size = Vector2(4468, 3433)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
 size = Vector2(10868, 6879)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlabj"]
-size = Vector2(11864, 9094.5)
+size = Vector2(11864, 9485.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srmg5"]
 size = Vector2(10064, 2637.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umvgx"]
-size = Vector2(6692, 5764)
+size = Vector2(6932, 5764)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxkvs"]
-size = Vector2(10508, 3404)
+size = Vector2(10890, 3404)
 
 [sub_resource type="Environment" id="Environment_mxkvs"]
 background_mode = 3
@@ -56,11 +56,11 @@ player_brain_scene = ExtResource("4_v5dby")
 scene_path = "uid://0en8oe8m05o1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelLoader0" unique_id=1473429891]
-position = Vector2(1266, 29)
+position = Vector2(1266, 180.5)
 shape = SubResource("RectangleShape2D_t5ptc")
 
 [node name="LevelLoader1" parent="Levels" unique_id=712783502 instance=ExtResource("4_gb53w")]
-position = Vector2(1128, 3080)
+position = Vector2(1178, 2977)
 scene_path = "uid://cpyk7kevc6rf2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelLoader1" unique_id=920942373]
@@ -68,11 +68,11 @@ position = Vector2(2570, 1213.5)
 shape = SubResource("RectangleShape2D_mqj7i")
 
 [node name="LevelLoader2" parent="Levels" unique_id=317753241 instance=ExtResource("4_gb53w")]
-position = Vector2(8212, 3331)
+position = Vector2(8671, 3222)
 scene_path = "uid://c46unporgt5to"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Levels/LevelLoader2" unique_id=164596594]
-position = Vector2(4786, 2094.75)
+position = Vector2(4786, 2290.25)
 shape = SubResource("RectangleShape2D_dlabj")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Levels/LevelLoader2" unique_id=79980868]
@@ -80,19 +80,19 @@ position = Vector2(1857, 3992.25)
 shape = SubResource("RectangleShape2D_srmg5")
 
 [node name="LevelLoader3" parent="Levels" unique_id=1810135430 instance=ExtResource("4_gb53w")]
-position = Vector2(14404, 10113)
+position = Vector2(14864, 9908)
 scene_path = "uid://drqsfkk8ebuu8"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Levels/LevelLoader3" unique_id=505666570]
-position = Vector2(1278, 1391)
+position = Vector2(1398, 1391)
 shape = SubResource("RectangleShape2D_umvgx")
 
 [node name="LevelLoader4" parent="Levels" unique_id=1937878794 instance=ExtResource("4_gb53w")]
-position = Vector2(18324, 12061)
+position = Vector2(18756, 11854)
 scene_path = "uid://cfr7mup0f3fln"
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Levels/LevelLoader4" unique_id=1511936460]
-position = Vector2(5036, 970)
+position = Vector2(4845, 970)
 shape = SubResource("RectangleShape2D_mxkvs")
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=764757781]
@@ -112,7 +112,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_wt5ax")
 
 [node name="Checkpoint1" parent="Checkpoints" unique_id=2018367563 instance=ExtResource("9_1yooq")]
-position = Vector2(1652, 1383)
+position = Vector2(1686, 1371)
 level = 1
 id = "level2"
 
@@ -121,7 +121,7 @@ position = Vector2(-0.5, 19.5)
 shape = SubResource("RectangleShape2D_wt5ax")
 
 [node name="Checkpoint2" parent="Checkpoints" unique_id=1739424503 instance=ExtResource("9_1yooq")]
-position = Vector2(8188, 2837)
+position = Vector2(8107, 2660)
 level = 2
 id = "level3"
 
@@ -129,7 +129,7 @@ id = "level3"
 shape = SubResource("RectangleShape2D_1yooq")
 
 [node name="Checkpoint3" parent="Checkpoints" unique_id=501470377 instance=ExtResource("9_1yooq")]
-position = Vector2(14824, 9750)
+position = Vector2(15275, 9610)
 level = 3
 id = "level4"
 
@@ -138,7 +138,7 @@ position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_gb53w")
 
 [node name="Checkpoint4" parent="Checkpoints" unique_id=1819135704 instance=ExtResource("9_1yooq")]
-position = Vector2(18517, 13044)
+position = Vector2(18859, 12826)
 level = 4
 id = "level5"
 

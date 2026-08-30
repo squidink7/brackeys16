@@ -10,6 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dblnbc70ioatq" path="res://scenes/decor/plants/sprout3.tscn" id="8_hkkih"]
 [ext_resource type="PackedScene" uid="uid://gy6etookgfj5" path="res://scenes/decor/plants/sprout2.tscn" id="9_3tr3w"]
 [ext_resource type="Texture2D" uid="uid://bnsq57grpja1n" path="res://assets/textures/bgNoise.png" id="10_qp4sf"]
+[ext_resource type="PackedScene" uid="uid://bwre50o4nwt88" path="res://scenes/entities/eel/eel.tscn" id="11_3tr3w"]
+[ext_resource type="PackedScene" uid="uid://6laauge5rn4p" path="res://scenes/entities/anglerfish.tscn" id="12_vgm6m"]
+[ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="13_m0ccp"]
+[ext_resource type="PackedScene" uid="uid://c0teweu4hmfsi" path="res://scenes/entities/normalfish2.tscn" id="14_u5fym"]
+[ext_resource type="PackedScene" uid="uid://dk8wuke0lrolt" path="res://scenes/entities/normalfish3.tscn" id="15_vgm6m"]
+[ext_resource type="PackedScene" uid="uid://dxmfkqej44y11" path="res://scenes/entities/submarine/submarine.tscn" id="16_m0ccp"]
+[ext_resource type="PackedScene" uid="uid://0en8oe8m05o1" path="res://scenes/world/levels/level1.tscn" id="17_u5fym"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m23bl"]
 shader = ExtResource("2_0snnm")
@@ -28,6 +35,13 @@ sources/0 = SubResource("TileSetAtlasSource_ui8if")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8y0v6"]
 shader = ExtResource("2_0snnm")
 shader_parameter/blur_amount = 0.34
+
+[sub_resource type="Environment" id="Environment_u5fym"]
+background_mode = 3
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+glow_enabled = true
+glow_bloom = 0.1
 
 [node name="ItchPageShitfuckery" type="Node2D" unique_id=1713262822]
 
@@ -111,3 +125,44 @@ z_index = -50
 position = Vector2(572.5, 322.99994)
 scale = Vector2(1.4665827, 1.2170687)
 texture = ExtResource("10_qp4sf")
+
+[node name="Eel" parent="." unique_id=1292844991 instance=ExtResource("11_3tr3w")]
+position = Vector2(1737, 695)
+rotation = -0.2617994
+scale = Vector2(-0.9460639, 1.0012598)
+
+[node name="Anglerfish" parent="." unique_id=33533512 instance=ExtResource("12_vgm6m")]
+process_mode = 4
+position = Vector2(1826, 747)
+scale = Vector2(-2.2658317, 2.510503)
+
+[node name="NormalFish1" parent="." unique_id=1425453250 instance=ExtResource("13_m0ccp")]
+position = Vector2(1730, 732)
+scale = Vector2(-0.98555267, 0.95639795)
+
+[node name="Normal Fish 2" parent="." unique_id=1734800592 instance=ExtResource("14_u5fym")]
+position = Vector2(1743, 775)
+scale = Vector2(-0.8584574, 0.8141352)
+
+[node name="Fish3" parent="." unique_id=1267734092 instance=ExtResource("15_vgm6m")]
+position = Vector2(1824, 651.00006)
+rotation = -0.2617994
+
+[node name="Submarine" parent="." unique_id=550745919 instance=ExtResource("16_m0ccp")]
+visible = false
+position = Vector2(1563.9998, 759)
+rotation = -0.1935825
+script = null
+
+[node name="Level1" parent="Submarine/Visuals" parent_id_path=PackedInt32Array(550745919, 751613624) index="5" unique_id=151000013 instance=ExtResource("17_u5fym")]
+position = Vector2(-619.98303, -117.46375)
+rotation = 0.2617994
+scale = Vector2(0.60607934, 0.6677447)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1583267536]
+environment = SubResource("Environment_u5fym")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=598733904]
+position = Vector2(575, 325)
+
+[editable path="Submarine"]

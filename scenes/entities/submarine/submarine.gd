@@ -61,3 +61,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	%SubGlowingWindow.modulate.v = lerpf(%SubGlowingWindow.modulate.v, 5 * energy / max_energy, delta*8)
 	%FrontLight.modulate.v = lerpf(%FrontLight.modulate.v, energy / max_energy, delta*2)
+
+func reset(new_position: Vector2) -> void:
+	super(new_position)
+
+	energy = max_energy
+	xscale = 1.0
+	

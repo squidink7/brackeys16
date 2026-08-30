@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://b67kws2saeir"]
 
 [ext_resource type="Texture2D" uid="uid://dey7t5dcen7wj" path="res://assets/textures/splash/godot.svg" id="1_5sfyj"]
+[ext_resource type="FontFile" uid="uid://qu352kcttt2i" path="res://assets/TypeLightSans-KV84p.otf" id="2_fhpvn"]
 [ext_resource type="Texture2D" uid="uid://dlv1g27s6ylbf" path="res://assets/textures/splash/brackeys.png" id="2_xi813"]
+[ext_resource type="Texture2D" uid="uid://bx5l8fbbcbpk1" path="res://assets/logo.png" id="4_fhpvn"]
 
 [sub_resource type="Animation" id="Animation_5sfyj"]
 length = 0.001
@@ -192,6 +194,7 @@ offset_top = -72.0
 offset_right = 192.0
 offset_bottom = -49.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fhpvn")
 text = "Made with Godot"
 horizontal_alignment = 1
 
@@ -223,6 +226,7 @@ offset_top = -72.0
 offset_right = 192.0
 offset_bottom = -49.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fhpvn")
 text = "As part of the Brackeys Game Jam 2026.2"
 horizontal_alignment = 1
 
@@ -240,9 +244,26 @@ offset_right = 65.0
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fhpvn")
 theme_override_font_sizes/font_size = 32
 text = "Presented By
 
-¯\\_(ツ)_/¯
+
 Team NotFussed"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Label" unique_id=2633182]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -28.0
+offset_right = 174.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fhpvn")
+expand_mode = 2

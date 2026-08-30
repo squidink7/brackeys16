@@ -2,7 +2,7 @@ extends Node
 
 @export var songs: Array[AudioStream]
 
-func start_level(level: int):
+func start_level(level: int) -> void:
 	# Don't start the game if there already is one active
 	for c in get_children():
 		if c.name.begins_with("Game"):
@@ -20,6 +20,7 @@ func main_menu() -> void:
 		if c is World:
 			c.queue_free()
 	
+	set_music("menu")
 	$MainMenu.show()
 
 var music_tween: Tween

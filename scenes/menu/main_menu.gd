@@ -27,7 +27,7 @@ func reset_pressed() -> void:
 	update_data()
 
 func _process(_delta: float) -> void:
-	%PointLight2D.global_position = get_viewport().get_mouse_position()
+	%PointLight2D.global_position = $SubViewportContainer/SubViewport.get_mouse_position()
 
 func update_data() -> void:
 	$Counter.text = "Current Level: " + str(len(%SaveData.get_save_data().level_records)) + "\nGuide encounters: " + str(%SaveData.total_friends_encountered())

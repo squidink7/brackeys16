@@ -30,6 +30,7 @@ scale = Vector2(0.060190413, 0.04312243)
 texture = ExtResource("5_rvura")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
+visible = false
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_wt5ax")
 
@@ -49,6 +50,7 @@ mass = 3.0
 angular_damp = 5.0
 
 [node name="Body1" type="CollisionShape2D" parent="Segment1" unique_id=371936276]
+visible = false
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_avebp")
 
@@ -75,6 +77,7 @@ collision_mask = 0
 angular_damp = 5.0
 
 [node name="Body2" type="CollisionShape2D" parent="Segment2" unique_id=820629842]
+visible = false
 position = Vector2(3, 0)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_ibhg1")

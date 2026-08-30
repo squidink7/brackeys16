@@ -1839,3 +1839,5 @@ position = Vector2(6272, 1296)
 position = Vector2(6352, 1272)
 
 [connection signal="seen" from="Entities/Kraken/KrakenView" to="Entities/Kraken/Scales" method="hide"]
+[connection signal="body_entered" from="Entities/Kraken/AudioRegion" to="." method="on_kraken_area_enter"]
+[connection signal="body_exited" from="Entities/Kraken/AudioRegion" to="." method="on_kraken_area_exited"]

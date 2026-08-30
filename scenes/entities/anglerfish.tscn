@@ -28,6 +28,7 @@ scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_58fwp")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
+visible = false
 shape = SubResource("CircleShape2D_wt5ax")
 
 [node name="Neck" type="PinJoint2D" parent="." unique_id=800580869]
@@ -46,6 +47,7 @@ collision_mask = 0
 angular_damp = 5.0
 
 [node name="Body2" type="CollisionShape2D" parent="Segment1" unique_id=820629842]
+visible = false
 position = Vector2(30, 2)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_ibhg1")

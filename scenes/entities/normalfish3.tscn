@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dl8kqd1542e81" path="res://assets/models/fishes/5staticfish/statfish1.png" id="2_uwnf1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
-radius = 16.0
+radius = 32.0
 
 [node name="Fish3" type="RigidBody2D" unique_id=1292844991]
 lock_rotation = true
@@ -17,11 +17,12 @@ script = ExtResource("1_x1t6o")
 
 [node name="LightTexture" type="Sprite2D" parent="." unique_id=207526722]
 modulate = Color(4.415934, 4.415934, 4.415934, 1)
-position = Vector2(-6, 2)
+position = Vector2(-16, 8)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_hd1st")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
+visible = false
 shape = SubResource("CircleShape2D_wt5ax")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]

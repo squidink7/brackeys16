@@ -3,6 +3,8 @@ class_name Eel
 
 func _physics_process(delta: float) -> void:
 	# Movement
+	if !get_brain(): return
+	
 	var direction = get_brain().move(self, delta)
 	apply_central_force(direction * speed)
 
