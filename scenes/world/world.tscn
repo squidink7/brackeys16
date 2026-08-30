@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://puiwcvym4xg2" path="res://assets/sounds/new_sounds/AmbienceLoop.wav" id="6_bq33v"]
 [ext_resource type="PackedScene" uid="uid://dxmfkqej44y11" path="res://scenes/entities/submarine/submarine.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://dmyqe31qf676x" path="res://scenes/world/meta/checkpoint/checkpoint.tscn" id="9_1yooq"]
-[ext_resource type="PackedScene" uid="uid://cfr7mup0f3fln" path="res://scenes/world/levels/level5.tscn" id="9_mxkvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
 size = Vector2(4468, 3433)
@@ -104,8 +103,6 @@ scene_path = "uid://cfr7mup0f3fln"
 position = Vector2(4845, 970)
 shape = SubResource("RectangleShape2D_mxkvs")
 
-[node name="Level5" parent="Levels/LevelLoader4" unique_id=750222323 instance=ExtResource("9_mxkvs")]
-
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=764757781]
 visible = false
 color = Color(0.11803245, 0.14740784, 0.33509827, 1)
@@ -159,7 +156,7 @@ shape = SubResource("RectangleShape2D_5qq27")
 
 [node name="WorldEnd" type="Marker2D" parent="." unique_id=1079660623]
 unique_name_in_owner = true
-position = Vector2(26971, 13143)
+position = Vector2(27885, 12924)
 
 [node name="AmbienceLoopPlayer" type="AudioStreamPlayer" parent="." unique_id=1367984703]
 stream = ExtResource("6_bq33v")

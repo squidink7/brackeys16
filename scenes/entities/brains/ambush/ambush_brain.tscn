@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cbxgutv7m0yjv" path="res://scenes/entities/brains/ambush/ambush_brain.gd" id="1_h5ybl"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcoi0"]
+radius = 528.5575
+
 [node name="AmbushBrain" type="Node2D" unique_id=46602389]
 script = ExtResource("1_h5ybl")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=882885145]
-rect = Rect2(-50, -50, 100, 100)
 
 [node name="Navigation" type="NavigationAgent2D" parent="." unique_id=963113531]
 path_desired_distance = 60.0
 path_max_distance = 80.0
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="on_screen_exit"]
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1665685516]
+
+[node name="Shape" type="CollisionShape2D" parent="PlayerDetector" unique_id=1376299175]
+shape = SubResource("CircleShape2D_rcoi0")

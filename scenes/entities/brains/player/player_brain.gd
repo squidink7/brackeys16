@@ -3,9 +3,11 @@ class_name PlayerBrain
 
 var last_checkpoint: Checkpoint
 var light_tween: Tween
-var active
+var active := true
 
 func move(_entity: Entity, delta: float) -> Vector2:
+	if !active: return Vector2.ZERO
+	
 	var direction = Input.get_vector('move_left', 'move_right', 'move_up', 'move_down').normalized()
 
 	# Camera lookahead

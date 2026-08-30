@@ -34,8 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://c0teweu4hmfsi" path="res://scenes/entities/normalfish2.tscn" id="30_opkj5"]
 [ext_resource type="PackedScene" uid="uid://bwre50o4nwt88" path="res://scenes/entities/eel/eel.tscn" id="32_mnqmq"]
 [ext_resource type="PackedScene" uid="uid://dk8wuke0lrolt" path="res://scenes/entities/normalfish3.tscn" id="32_ux3x8"]
-[ext_resource type="PackedScene" uid="uid://dxmfkqej44y11" path="res://scenes/entities/submarine/submarine.tscn" id="34_7o5lo"]
-[ext_resource type="PackedScene" uid="uid://dmdnb37smsm3a" path="res://scenes/entities/brains/player/player_brain.tscn" id="35_rtlxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s2mp2"]
 shader = ExtResource("2_m47u1")
@@ -1791,11 +1789,6 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="NormalFish1" parent="Entities/Friends/FriendAnchor5" unique_id=313438047 instance=ExtResource("20_cxloo")]
 
 [node name="FriendBrain" parent="Entities/Friends/FriendAnchor5/NormalFish1" unique_id=2139575434 instance=ExtResource("27_s2mp2")]
-
-[node name="Submarine" parent="Entities" unique_id=550745919 instance=ExtResource("34_7o5lo")]
-position = Vector2(-580, 3704)
-
-[node name="PlayerBrain" parent="Entities/Submarine" unique_id=805582152 instance=ExtResource("35_rtlxw")]
 
 [node name="Items" type="Node2D" parent="." unique_id=1888566115]
 

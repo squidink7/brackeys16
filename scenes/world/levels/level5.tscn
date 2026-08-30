@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cfr7mup0f3fln"]
 
 [ext_resource type="Script" uid="uid://6rdlypjwdmr8" path="res://scenes/world/levels/good_end_sequence.gd" id="1_76ds4"]
+[ext_resource type="Script" uid="uid://dcaabjf10xrgq" path="res://scenes/world/levels/level5/level5.gd" id="1_jqwkc"]
 [ext_resource type="Texture2D" uid="uid://dwysi53n8whsb" path="res://assets/textures/Mossy Tileset/Mossy - BackgroundDecoration.png" id="1_l0dgq"]
 [ext_resource type="TileSet" uid="uid://cqkwsmhn4nkii" path="res://assets/tilesets/CollisionMap.tres" id="1_ywet4"]
 [ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="2_oeykw"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://b0tl6pwtcnhli" path="res://scenes/decor/plants/sprout1.tscn" id="12_bc2wf"]
 [ext_resource type="PackedScene" uid="uid://cigjgt2qqbd22" path="res://scenes/decor/plants/blue_flower_2.tscn" id="13_bc2wf"]
 [ext_resource type="PackedScene" uid="uid://be4sbhkgd0uvx" path="res://scenes/decor/plants/blue_flower_1.tscn" id="14_v4xar"]
-[ext_resource type="Texture2D" uid="uid://0l3r1626fec2" path="res://assets/textures/black_background.jpg" id="15_v4xar"]
 [ext_resource type="Script" uid="uid://be2pkwed6f81m" path="res://scenes/world/levels/level5/end_sequence.gd" id="16_as488"]
 [ext_resource type="PackedScene" uid="uid://6laauge5rn4p" path="res://scenes/entities/anglerfish.tscn" id="17_caq7s"]
 [ext_resource type="PackedScene" uid="uid://cunsiegb8udgh" path="res://scenes/entities/normalfish1.tscn" id="18_6lp7l"]
@@ -41,7 +41,7 @@ step = 0.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Door/FrontDoor:rotation")
+tracks/0/path = NodePath("Door/Front:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,7 +53,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Door/FrontDoor:position")
+tracks/1/path = NodePath("Door/Front:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,7 +68,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Door/FrontDoor:rotation")
+tracks/0/path = NodePath("Door/Front:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -80,7 +80,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Door/FrontDoor:position")
+tracks/1/path = NodePath("Door/Front:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -141,34 +141,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../BadEndSequence/ExitBlock/CollisionShape2D:disabled")
+tracks/1/path = NodePath("../../BadEndSequence/AmbushEntities:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../BadEndSequence/AmbushEntities:visible")
+tracks/2/path = NodePath("../../BadEndSequence/AmbushEntities:process_mode")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../BadEndSequence/AmbushEntities:process_mode")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -192,34 +180,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../BadEndSequence/ExitBlock/CollisionShape2D:disabled")
+tracks/1/path = NodePath("../../BadEndSequence/AmbushEntities:process_mode")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../BadEndSequence/AmbushEntities:process_mode")
+tracks/2/path = NodePath("../../BadEndSequence/AmbushEntities:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../BadEndSequence/AmbushEntities:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -235,7 +211,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj7i"]
 size = Vector2(147, 398)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqwkc"]
+size = Vector2(144, 360)
+
 [node name="Level5" type="Node2D" unique_id=750222323]
+script = ExtResource("1_jqwkc")
 
 [node name="GoodEndSequence" type="Node2D" parent="." unique_id=1607915745]
 script = ExtResource("1_76ds4")
@@ -255,7 +235,7 @@ position = Vector2(8416.5, 1140)
 scale = Vector2(0.18281226, 0.18281226)
 texture = ExtResource("27_76ds4")
 
-[node name="FrontDoor" type="Sprite2D" parent="GoodEndSequence/Door" unique_id=336119959]
+[node name="Front" type="Sprite2D" parent="GoodEndSequence/Door" unique_id=336119959]
 scale = Vector2(0.18937474, 0.19500004)
 texture = ExtResource("28_jqwkc")
 
@@ -626,13 +606,6 @@ position = Vector2(8662.975, 1218.8)
 position = Vector2(7642.9746, 1201.7998)
 rotation = 0.7153411
 
-[node name="BlackBackground" type="Sprite2D" parent="." unique_id=674271685]
-visible = false
-z_index = -50
-position = Vector2(5039.0005, 857.5)
-scale = Vector2(12.5625, 3.6616666)
-texture = ExtResource("15_v4xar")
-
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=631911069]
 visible = false
 color = Color(0.46456856, 0.53752714, 0.8527969, 1)
@@ -640,18 +613,18 @@ color = Color(0.46456856, 0.53752714, 0.8527969, 1)
 [node name="BadEndSequence" type="Node2D" parent="." unique_id=1875145546]
 script = ExtResource("16_as488")
 
+[node name="AmbushArea" type="Area2D" parent="BadEndSequence" unique_id=245544651]
+position = Vector2(7936, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndSequence/AmbushArea" unique_id=1654784531]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wt5ax")
+
 [node name="EndArea" type="Area2D" parent="BadEndSequence" unique_id=1310547798]
 position = Vector2(8693, 1074)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndSequence/EndArea" unique_id=84471481]
 position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_wt5ax")
-
-[node name="AmbushArea" type="Area2D" parent="BadEndSequence" unique_id=245544651]
-position = Vector2(7991, 1082)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndSequence/AmbushArea" unique_id=1654784531]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wt5ax")
 
 [node name="ExitAnimation" type="AnimationPlayer" parent="BadEndSequence" unique_id=1314133698]
@@ -666,7 +639,6 @@ scale = Vector2(0.99999994, 0.99999994)
 position = Vector2(0.5, 0)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mqj7i")
-disabled = true
 
 [node name="AmbushEntities" type="Node2D" parent="BadEndSequence" unique_id=266249501]
 process_mode = 4
@@ -739,19 +711,41 @@ position = Vector2(115, -105)
 [node name="Normal Fish 6" parent="BadEndSequence/AmbushEntities" unique_id=1876047770 instance=ExtResource("19_i38ar")]
 position = Vector2(64, 152)
 
-[node name="NormalFish1" parent="BadEndSequence" unique_id=1781086954 instance=ExtResource("18_6lp7l")]
+[node name="BaitFish" parent="." unique_id=1781086954 instance=ExtResource("18_6lp7l")]
 position = Vector2(5522, 1044)
+collision_layer = 0
+collision_mask = 0
+speed = 600.0
 
-[node name="AmbushBrain" parent="BadEndSequence/NormalFish1" unique_id=1212784190 instance=ExtResource("24_4gg5m")]
+[node name="LightTexture" parent="BaitFish" index="0" unique_id=1398751362]
+position = Vector2(26, 1.9999999)
+scale = Vector2(0.11978118, 0.07447182)
 
-[node name="Energy" parent="BadEndSequence/NormalFish1" unique_id=1694014108 instance=ExtResource("25_xojd0")]
+[node name="Sprite2D" parent="BaitFish/Segment1" parent_id_path=PackedInt32Array(1781086954, 1221516962) index="2" unique_id=1384637078]
+scale = Vector2(0.12415834, 0.1504001)
+
+[node name="Sprite2D" parent="BaitFish/Segment2" parent_id_path=PackedInt32Array(1781086954, 4537708) index="1" unique_id=1696218758]
+position = Vector2(-43.999996, 1.9999998)
+scale = Vector2(0.07508782, 0.062068265)
+
+[node name="Sprite2D2" parent="BaitFish" index="5" unique_id=826663796]
+position = Vector2(26, 0)
+scale = Vector2(0.07546482, 0.071096346)
+
+[node name="AmbushBrain" parent="BaitFish" unique_id=1212784190 instance=ExtResource("24_4gg5m")]
+
+[node name="TargetPos" type="Marker2D" parent="BaitFish/AmbushBrain" unique_id=349762479]
+position = Vector2(3656, -85)
+
+[node name="Energy" parent="BaitFish" unique_id=1694014108 instance=ExtResource("25_xojd0")]
 show_behind_parent = true
+position = Vector2(26, -15)
 
 [node name="Entities" type="Node2D" parent="." unique_id=2022306264]
 
 [node name="Friends" type="Node2D" parent="Entities" unique_id=2012607287]
 
-[node name="FriendAnchor2" parent="Entities/Friends" unique_id=2133297876 instance=ExtResource("20_ancog")]
+[node name="FriendAnchor2" parent="Entities/Friends" unique_id=893359936 instance=ExtResource("20_ancog")]
 position = Vector2(2354, 1393)
 scale = Vector2(0.99999994, 0.99999994)
 
@@ -767,4 +761,21 @@ position = Vector2(2940, 1322)
 
 [node name="EnemyBrain" parent="Entities/Enemies/Fish3" unique_id=865101945 instance=ExtResource("23_j1brb")]
 
+[node name="Fish4" parent="Entities/Enemies" unique_id=460816311 instance=ExtResource("24_xojd0")]
+position = Vector2(1187, 1143)
+
+[node name="EnemyBrain" parent="Entities/Enemies/Fish4" unique_id=2717221 instance=ExtResource("23_j1brb")]
+
+[node name="EndingSelector" type="Area2D" parent="." unique_id=1527144503]
+position = Vector2(4095, 1131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndingSelector" unique_id=2016412994]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_jqwkc")
+
+[connection signal="body_entered" from="GoodEndSequence/Area2D" to="GoodEndSequence" method="open_door"]
+[connection signal="body_entered" from="BadEndSequence/AmbushArea" to="BadEndSequence" method="on_ambush_area_entered"]
 [connection signal="body_entered" from="BadEndSequence/EndArea" to="BadEndSequence" method="on_exit_area_entered"]
+[connection signal="body_entered" from="EndingSelector" to="." method="on_ending_selector_entered"]
+
+[editable path="BaitFish"]

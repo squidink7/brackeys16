@@ -72,7 +72,8 @@ func on_seen(body: Node2D) -> void:
 			print("Cannot find world end")
 			$Navigation.target_position = Vector2.ZERO
 		
-		$/root/Main/SaveData.friend_encountered()
+		if $/root/Main/SaveData:
+			$/root/Main/SaveData.friend_encountered()
 		
 		var item = drop.instantiate()
 		$"../../".add_child(item)
