@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://di73ha1xngsa7" path="res://shaders/blur.gdshader" id="1_n54lc"]
 [ext_resource type="Script" uid="uid://byxwrdo6ym7l2" path="res://scenes/menu/pause_menu.gd" id="1_ux7g8"]
+[ext_resource type="Texture2D" uid="uid://bnsq57grpja1n" path="res://assets/textures/bgNoise.png" id="3_a7btn"]
 [ext_resource type="FontFile" uid="uid://bsmrxywnqyes2" path="res://assets/NewRocker-Regular.ttf" id="3_eb3yi"]
 [ext_resource type="TileSet" uid="uid://das6k7x8iebgr" path="res://assets/tilesets/Vines.tres" id="3_rdkub"]
 [ext_resource type="Texture2D" uid="uid://dj3w1aecfvov1" path="res://assets/textures/Mossy Tileset/Mossy - TileSet.png" id="4_eb3yi"]
@@ -14,6 +15,56 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ux7g8"]
 shader = ExtResource("1_n54lc")
 shader_parameter/blur_amount = 2.0
+
+[sub_resource type="Shader" id="Shader_a7btn"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture;
+
+uniform vec2 scroll_speed = vec2(0.05, 0.08);
+uniform float noise_scale : hint_range(0.5, 10.0) = 3.0;
+
+uniform float distortion_strength : hint_range(0.0, 0.05) = 0.005;
+uniform vec4 water_tint : source_color = vec4(0.75, 0.85, 1.0, 0.02);
+
+void fragment() {
+    // 1. Calculate the raw animated UVs
+    vec2 raw_noise_uv = (UV * noise_scale) + (TIME * scroll_speed);
+
+    // 2. Force the UVs to wrap around using fract().
+    // This ensures the texture repeats infinitely across the screen 
+    // and never scrolls off the edge.
+    vec2 noise_uv = fract(raw_noise_uv);
+
+    // 3. Sample the noise texture
+    vec4 noise = texture(noise_texture, noise_uv);
+
+    // 4. Calculate distortion (map 0..1 to -1..1)
+    vec2 distortion = (noise.rg * 2.0 - 1.0) * distortion_strength;
+
+    // 5. Apply the refraction to the screen
+    vec2 distorted_uv = UV + distortion;
+    vec4 screen_color = texture(TEXTURE, distorted_uv);
+
+    // 6. Apply the subtle water tint
+    COLOR = mix(screen_color, water_tint, water_tint.a);
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kwdbo"]
+noise_type = 0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kwdbo"]
+noise = SubResource("FastNoiseLite_kwdbo")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_devpi"]
+shader = SubResource("Shader_a7btn")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_kwdbo")
+shader_parameter/scroll_speed = Vector2(0.05, 0.08)
+shader_parameter/noise_scale = 3.0
+shader_parameter/distortion_strength = 0.010000000475
+shader_parameter/water_tint = Color(0.08627451, 0.23529412, 0.27058825, 0.69411767)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb3yi"]
 texture = ExtResource("4_eb3yi")
@@ -343,11 +394,7 @@ metadata/_snap_enabled = true
 
 [sub_resource type="Environment" id="Environment_eb3yi"]
 background_mode = 3
-background_energy_multiplier = 0.0
-ambient_light_source = 1
 glow_enabled = true
-glow_strength = 2.0
-glow_bloom = 0.1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovv2"]
 
@@ -365,6 +412,10 @@ glow_bloom = 0.1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdhp0"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pstia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41tvm"]
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=417342657]
 layer = 50
 script = ExtResource("1_ux7g8")
@@ -378,6 +429,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=1138099034]
+visible = false
 material = SubResource("ShaderMaterial_ux7g8")
 layout_mode = 1
 anchors_preset = 15
@@ -385,6 +437,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu" unique_id=688428114]
+self_modulate = Color(0.27058825, 1, 1, 0)
+material = SubResource("ShaderMaterial_devpi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a7btn")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PauseMenu" unique_id=922918023]
 layout_mode = 1
@@ -415,8 +478,11 @@ offset_right = 364.5
 offset_bottom = 79.527985
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.59607846, 0.69411767, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.1764706, 0.039215688, 1)
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("3_eb3yi")
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 130
 text = "Game Paused"
 
 [node name="Background Plants" type="CanvasGroup" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1804655803]
@@ -453,6 +519,7 @@ energy = 2.5
 texture = SubResource("GradientTexture2D_pxr7b")
 
 [node name="Darken Background" type="CanvasModulate" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=1990295405]
+position = Vector2(0, 3)
 color = Color(0.35, 0.35, 0.35, 1)
 
 [node name="Moving Plants" type="Node2D" parent="PauseMenu/SubViewportContainer/SubViewport" unique_id=785882876]
@@ -525,7 +592,8 @@ offset_right = 160.0
 offset_bottom = 20.79599
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
+theme_override_colors/font_hover_color = Color(2.3133948, 2.3133948, 2.3133948, 1)
+theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
 theme_override_fonts/font = ExtResource("3_eb3yi")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vovv2")
@@ -548,12 +616,14 @@ offset_right = 160.0
 offset_bottom = 20.419983
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(2.3353064, 2.3353064, 2.3353064, 1)
+theme_override_colors/font_hover_color = Color(2.313, 2.313, 2.313, 1)
 theme_override_fonts/font = ExtResource("3_eb3yi")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_prbor")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_27h4x")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_gdhp0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pstia")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_41tvm")
 text = "Return to Main Menu"
 
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="resume"]
