@@ -10,7 +10,10 @@ var loaded := false
 func _ready() -> void:
 	$Darkness.visible = true
 
-func set_level(level: int):
+func set_level(level: int = -1):
+	if level == -1:
+		level = current_level
+	
 	var checkpoints_parent = get_node_or_null("Checkpoints")
 	if !checkpoints_parent:
 		print('Unable to find checkpoints')

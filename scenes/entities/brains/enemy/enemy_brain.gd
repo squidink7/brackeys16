@@ -41,6 +41,9 @@ func lost_entity(body: Node2D) -> void:
 			last_seen_entity = body.global_position
 
 func attack() -> int:
+	if attacked:
+		return 0
+	
 	attacked = true
 	if get_node_or_null("/root/Main/Game/WorldEnd") is Node2D:
 		$Navigation.target_position = $/root/Main/Game/WorldEnd.global_position

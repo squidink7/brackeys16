@@ -17,8 +17,8 @@ func _process(_delta: float) -> void:
 			loading = false
 			
 			# Ensure level isn't already loaded
-			if $Level.get_child_count() > 0:
-				return
+			for c in $Level.get_children():
+				c.queue_free()
 			
 			var packed_scene = ResourceLoader.load_threaded_get(scene_path)
 			

@@ -16,10 +16,7 @@ func move(_entity: Entity, delta: float) -> Vector2:
 	return direction
 
 func died() -> void:
-	if get_parent() is Entity:	
-		if last_checkpoint:
-			print('Reviving at level ' + str(last_checkpoint.level))
-			get_parent().reset(last_checkpoint.global_position)
+	$/root/Main/Game.set_level(-1)
 
 func set_light(on: bool) -> void:
 	# Kill existing tween
