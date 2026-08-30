@@ -28,11 +28,20 @@ func add_energy(amount: int) -> void:
 	energy = min(energy + amount, max_energy)
 
 func toggle_light():
-	pass
+	if %FrontLight.visible:
+		%FrontLight.hide()
+	else:
+		%FrontLight.show()
 
+func _input(event: InputEvent) -> void:
+			
+	# Check if the event is a mouse click
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			toggle_light()
 func _physics_process(delta: float) -> void:
 	super(delta)
-	if energy > 10:
+	if energy > 10 and %FrontLight.visible:
 		energy -= delta/2
 	var current_speed = abs(linear_velocity.x) / 64
 	
@@ -43,6 +52,7 @@ func _physics_process(delta: float) -> void:
 
 	for i in frames_count:
 		$Visuals/Sprites.get_child(i).visible = i == int(frame)
+		
 
 	# Sprite flip
 	if xscale > 0:
@@ -64,7 +74,6 @@ func _process(delta: float) -> void:
 
 func reset(new_position: Vector2) -> void:
 	super(new_position)
-
 	energy = max_energy
 	xscale = 1.0
 	

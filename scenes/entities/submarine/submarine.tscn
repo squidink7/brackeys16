@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://v81ted1atu85" path="res://assets/models/submarine/subm3.png" id="4_edkew"]
 [ext_resource type="Texture2D" uid="uid://baylu8toakut1" path="res://assets/models/submarine/sub_glowing_window.png" id="5_k16x5"]
 [ext_resource type="Texture2D" uid="uid://dj7te0nrki278" path="res://assets/textures/lightcone.svg" id="6_irrs2"]
+[ext_resource type="AudioStream" uid="uid://d12kglq5s0fdb" path="res://assets/sounds/propeller.wav" id="7_edkew"]
 
 [sub_resource type="Gradient" id="Gradient_edkew"]
 offsets = PackedFloat32Array(0, 0.67016816, 0.88653547, 0.94416696, 1)
@@ -86,7 +87,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_edkew"]
-length = 0.001
+length = 1.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -135,6 +136,17 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("PropellerSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_edkew"]
 _data = {
@@ -217,3 +229,8 @@ shape = SubResource("CapsuleShape2D_geaiy")
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=588892580]
 libraries/ = SubResource("AnimationLibrary_edkew")
+
+[node name="PropellerSound" type="AudioStreamPlayer2D" parent="." unique_id=1905908266]
+position = Vector2(-45, 0)
+stream = ExtResource("7_edkew")
+max_distance = 12.0
