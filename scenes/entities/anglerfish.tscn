@@ -23,8 +23,14 @@ speed = 200.0
 
 [node name="LightTexture" type="Sprite2D" parent="." unique_id=2095988967]
 modulate = Color(4.415934, 4.415934, 4.415934, 1)
-position = Vector2(2, -3)
-scale = Vector2(0.04, 0.04)
+position = Vector2(2, -4)
+scale = Vector2(0.051096532, 0.04442813)
+texture = ExtResource("2_58fwp")
+
+[node name="LightTexture2" type="Sprite2D" parent="." unique_id=1698526678]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+position = Vector2(25.000002, -21)
+scale = Vector2(0.018167851, 0.017543808)
 texture = ExtResource("2_58fwp")
 
 [node name="Head" type="CollisionShape2D" parent="." unique_id=1976375687]
@@ -53,14 +59,14 @@ scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_ibhg1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Segment1" unique_id=1696218758]
-position = Vector2(23.000002, -1.999999)
+position = Vector2(11, -4)
 rotation = -0.10646509
-scale = Vector2(0.039702408, 0.03915831)
+scale = Vector2(0.06781873, 0.056579985)
 texture = ExtResource("2_y8cf8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=826663796]
 position = Vector2(2.3841858e-07, -3)
-scale = Vector2(0.05749885, 0.05808158)
+scale = Vector2(0.094280876, 0.08521938)
 texture = ExtResource("3_58fwp")
 
 [connection signal="body_entered" from="." to="." method="on_collide"]

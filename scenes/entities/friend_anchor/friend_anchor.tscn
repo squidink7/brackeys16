@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dhgov8tcgdhe0" path="res://scenes/entities/friend_anchor/friend_anchor.gd" id="1_82tkj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
-radius = 192.1666
+radius = 160.19987
 
 [node name="FriendAnchor" type="Marker2D" unique_id=2133297876]
 script = ExtResource("1_82tkj")

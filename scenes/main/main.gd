@@ -43,3 +43,7 @@ func set_music(song_name: String) -> void:
 			break
 	music_tween = create_tween()
 	music_tween.tween_property($Music, "volume_linear", 1, 2)
+
+func _ready() -> void:
+	if OS.is_debug_build():
+		$MainMenu/Splash.hide()

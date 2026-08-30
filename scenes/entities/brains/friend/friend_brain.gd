@@ -9,7 +9,7 @@ var _time: float = 0.0
 
 var drop := preload("res://scenes/items/energy/energy.tscn")
 
-@export var radius: float = 100.0        # distance from the anchor
+@export var radius: float = 80.0        # distance from the anchor
 @export var orbit_speed: float = 0.5     # radians per second
 @export var drift_amplitude: float = 30.0 # how far it bobs up/down
 @export var drift_speed: float = 1.5     # how fast the bobbing happens
@@ -63,7 +63,7 @@ func on_screen_exit() -> void:
 			e.queue_free()
 
 func on_seen(body: Node2D) -> void:
-	if body is Entity and body.get_brain() is PlayerBrain:
+	if body is Entity and body.get_brain() is PlayerBrain && !seen:
 		seen = true
 		
 		if get_node_or_null("/root/Main/Game/WorldEnd") is Node2D:
@@ -72,5 +72,11 @@ func on_seen(body: Node2D) -> void:
 			print("Cannot find world end")
 			$Navigation.target_position = Vector2.ZERO
 		
+		$/root/Main/SaveData.friend_encountered()
+		
 		var item = drop.instantiate()
 		$"../../".add_child(item)
+
+func _ready() -> void:
+	if get_parent().get_parent() is FriendAnchor:
+		anchor = get_parent()

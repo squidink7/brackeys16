@@ -253,6 +253,7 @@ Team NotFussed"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Label" unique_id=2633182]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

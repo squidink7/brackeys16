@@ -209,6 +209,9 @@ uv1_scale = Vector3(5, 5, 5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt5ax"]
 radius = 248.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5i01"]
+radius = 880.3272
+
 [node name="KrakenView" type="Node2D" unique_id=29318477]
 script = ExtResource("1_a5i01")
 
@@ -239,16 +242,20 @@ render_target_update_mode = 4
 environment = SubResource("Environment_xbhmc")
 
 [node name="Head" type="MeshInstance3D" parent="SubViewportContainer/KrakenViewport/Kraken" unique_id=852265614]
-transform = Transform3D(-2.789476, 0, -7.760477e-08, 0, 2.3845108, 0, 2.4386372e-07, 0, -0.8876951, 0, 0, 0)
+transform = Transform3D(-2.789476, 0, -1.3403823e-07, 0, 2.3845108, 0, 4.2119916e-07, 0, -0.8876951, 0, 0, 0)
 mesh = SubResource("SphereMesh_gwhvy")
 surface_material_override/0 = SubResource("StandardMaterial3D_q3p7i")
 
-[node name="Eye" parent="SubViewportContainer/KrakenViewport/Kraken/Head" unique_id=1500982851 instance=ExtResource("5_cutga")]
-transform = Transform3D(-1.0754709, 0, 9.402064e-08, 0, 1.2581196, 0, -2.9544867e-07, 0, -3.379539, 7.3415483e-09, 0, -0.26388937)
+[node name="EyeSocket" type="Node3D" parent="SubViewportContainer/KrakenViewport/Kraken/Head" unique_id=831185398]
+transform = Transform3D(-1.0754709, 0, 9.402064e-08, 0, 1.2581196, 0, -2.9544867e-07, 0, -3.3795393, 7.341548e-09, 0, -0.2638894)
+
+[node name="Eye" parent="SubViewportContainer/KrakenViewport/Kraken/Head/EyeSocket" unique_id=1500982851 instance=ExtResource("5_cutga")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, -1.3322676e-15, 0, 0)
 
 [node name="Light" type="SpotLight3D" parent="SubViewportContainer/KrakenViewport/Kraken" unique_id=595724862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-light_color = Color(0.52016073, 0.5815828, 1, 1)
+light_color = Color(1, 0.8231708, 0.8374965, 1)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/KrakenViewport/Kraken" unique_id=288887424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6455398)
@@ -264,9 +271,14 @@ visible = false
 mesh = SubResource("CylinderMesh_q57xw")
 surface_material_override/0 = SubResource("StandardMaterial3D_wt5ax")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=939866332]
+[node name="HideArea" type="Area2D" parent="." unique_id=939866332]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2126877143]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HideArea" unique_id=2126877143]
 shape = SubResource("CircleShape2D_wt5ax")
 
-[connection signal="body_entered" from="Area2D" to="." method="body_enter"]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1047258349]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=936038105]
+shape = SubResource("CircleShape2D_a5i01")
+
+[connection signal="body_entered" from="HideArea" to="." method="body_enter"]
