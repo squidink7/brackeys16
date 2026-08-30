@@ -29,6 +29,8 @@ func delete_data():
 			print("Failed to delete save, Error code: ", error)
 	else:
 		print("No data to reset")
+	
+	save_data = SaveData.new()
 
 func write_save_data():
 	ResourceSaver.save(get_save_data(), save_path)

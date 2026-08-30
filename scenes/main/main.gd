@@ -21,6 +21,7 @@ func main_menu() -> void:
 			c.queue_free()
 	
 	set_music("menu")
+	$MainMenu.update_data()
 	$MainMenu.show()
 
 var music_tween: Tween

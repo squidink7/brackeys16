@@ -13,4 +13,4 @@ func exit() -> void:
 	$/root/Main.main_menu()
 
 func _process(_delta: float) -> void: 
-	%PointLight2D.global_position = get_viewport().get_mouse_position()
+	%PointLight2D.global_position = $"SubViewportContainer/SubViewport".get_mouse_position()
