@@ -3,7 +3,7 @@ extends Brain
 var target_entities = []
 var last_seen_entity = null
 var attacked := false
-@export var damage: int = 10;
+@export var damage: int = 34;
 
 func move(_entity: Entity, _delta: float) -> Vector2:
 	if len(target_entities) == 0 && !last_seen_entity:
